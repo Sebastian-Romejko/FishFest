@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0qpdbtv20cxl"]
+[gd_scene load_steps=6 format=3 uid="uid://d0qpdbtv20cxl"]
 
 [ext_resource type="Script" path="res://assets/fish.gd" id="1_qwvgx"]
 [ext_resource type="PackedScene" uid="uid://c67nll5i717v4" path="res://art/fish.tscn" id="2_jinba"]
@@ -8,11 +8,15 @@ viewport_path = NodePath("sprite/sub_viewport")
 
 [sub_resource type="Environment" id="Environment_6wdhg"]
 
-[node name="fish" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l8exc"]
+radius = 11.0
+height = 22.0
+
+[node name="fish" type="CharacterBody2D"]
+rotation = 1.5708
 script = ExtResource("1_qwvgx")
 
 [node name="sprite" type="Sprite2D" parent="."]
-rotation = 1.5708
 texture = SubResource("ViewportTexture_k7mnt")
 
 [node name="sub_viewport" type="SubViewport" parent="sprite"]
@@ -33,3 +37,6 @@ size = 2.0
 
 [node name="light" type="DirectionalLight3D" parent="sprite/sub_viewport"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.98162, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_l8exc")
