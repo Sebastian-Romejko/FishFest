@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://knmv675xb0qj"]
+
+[ext_resource type="PackedScene" uid="uid://d0qpdbtv20cxl" path="res://assets/fish.tscn" id="1_w77kh"]
+[ext_resource type="PackedScene" uid="uid://hfon6qppb4ty" path="res://assets/river_layer.tscn" id="2_uuujt"]
+
+[node name="main" type="Node2D"]
+
+[node name="camera" type="Camera2D" parent="."]
+
+[node name="fish" parent="." instance=ExtResource("1_w77kh")]
+position = Vector2(0, 80)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="river_layer" parent="ParallaxBackground/ParallaxLayer" instance=ExtResource("2_uuujt")]
