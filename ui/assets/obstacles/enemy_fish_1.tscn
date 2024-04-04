@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://o3nm608mmlu1"]
+
+[ext_resource type="Texture2D" uid="uid://6ng677p3q0b1" path="res://icon.svg" id="1_oo2lo"]
+[ext_resource type="Script" path="res://ui/assets/obstacles/enemy_fish.gd" id="1_ytled"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lj1wl"]
+size = Vector2(25, 11)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7eblt"]
+radius = 64.0078
+
+[node name="enemy_fish_1" type="CharacterBody2D"]
+script = ExtResource("1_ytled")
+
+[node name="sprite" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.1, 0.2)
+texture = ExtResource("1_oo2lo")
+
+[node name="collision_shape" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_lj1wl")
+
+[node name="vision_range" type="Area2D" parent="."]
+
+[node name="collision_shape" type="CollisionShape2D" parent="vision_range"]
+shape = SubResource("CircleShape2D_7eblt")
+
+[connection signal="body_entered" from="vision_range" to="." method="_on_vision_range_body_entered"]
+[connection signal="body_exited" from="vision_range" to="." method="_on_vision_range_body_exited"]

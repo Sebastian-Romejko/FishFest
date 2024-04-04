@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jdf0cfxtxe0y"
-path="res://.godot/imported/seaweed.png-31a408b58f79150cf74b3ad31d173560.ctex"
+uid="uid://lky0smbif05g"
+path="res://.godot/imported/rocks.png-5fbe8432fd2199b418d96111b4391bd6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/seaweed.png"
-dest_files=["res://.godot/imported/seaweed.png-31a408b58f79150cf74b3ad31d173560.ctex"]
+source_file="res://art/rocks.png"
+dest_files=["res://.godot/imported/rocks.png-5fbe8432fd2199b418d96111b4391bd6.ctex"]
 
 [params]
 
