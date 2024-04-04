@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck8qpv3ubvj8l"]
+
+[ext_resource type="Script" path="res://ui/game_ui.gd" id="1_33oaf"]
+[ext_resource type="Texture2D" uid="uid://tnx1dm5ek0gw" path="res://ui/assets/progress-bar-background.png" id="1_a15g2"]
+[ext_resource type="Texture2D" uid="uid://dew62s8fosiv2" path="res://ui/assets/progress-bar.png" id="2_gsp01"]
+[ext_resource type="Texture2D" uid="uid://c5exbbobonfnr" path="res://ui/assets/progress-bar-fill.png" id="3_xdnuu"]
+
+[node name="game_ui" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_33oaf")
+
+[node name="center_container" type="CenterContainer" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -25.0
+offset_right = 80.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="texture_progress_bar" type="TextureProgressBar" parent="center_container"]
+layout_mode = 2
+max_value = 1000.0
+texture_under = ExtResource("1_a15g2")
+texture_over = ExtResource("2_gsp01")
+texture_progress = ExtResource("3_xdnuu")
