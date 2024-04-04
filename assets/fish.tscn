@@ -17,6 +17,7 @@ rotation = 1.5708
 script = ExtResource("1_qwvgx")
 
 [node name="sprite" type="Sprite2D" parent="."]
+texture_filter = 1
 texture = SubResource("ViewportTexture_k7mnt")
 
 [node name="sub_viewport" type="SubViewport" parent="sprite"]

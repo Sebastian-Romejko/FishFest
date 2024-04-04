@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://knmv675xb0qj"]
+[gd_scene load_steps=7 format=3 uid="uid://knmv675xb0qj"]
 
+[ext_resource type="Script" path="res://main.gd" id="1_ds2ps"]
 [ext_resource type="PackedScene" uid="uid://d0qpdbtv20cxl" path="res://assets/fish.tscn" id="1_w77kh"]
 [ext_resource type="Texture2D" uid="uid://pmaiifpqlouw" path="res://art/river_1.png" id="2_qwc4q"]
 [ext_resource type="Texture2D" uid="uid://bo75sfg1w6aoa" path="res://art/river_2.png" id="3_3grqq"]
@@ -7,34 +8,85 @@
 [ext_resource type="Texture2D" uid="uid://ywmv8r750fxt" path="res://art/river_4.png" id="5_0dyfl"]
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_ds2ps")
 
 [node name="camera" type="Camera2D" parent="."]
-position = Vector2(0, 80)
+position = Vector2(0, 35)
+rotation = 1.5708
+offset = Vector2(0, -50)
+limit_left = 160
+limit_right = 160
 
 [node name="fish" parent="." instance=ExtResource("1_w77kh")]
-position = Vector2(0, 80)
+position = Vector2(0, 35)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="fish"]
 remote_path = NodePath("../../camera")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="parallax_layer_river_1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(0, 360)
 
-[node name="river_1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+[node name="river_1" type="Sprite2D" parent="ParallaxBackground/parallax_layer_river_1"]
+texture_filter = 1
+texture_repeat = 2
 texture = ExtResource("2_qwc4q")
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="parallax_layer_river_1_copy" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, 180)
+motion_mirroring = Vector2(0, 360)
 
-[node name="river_2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+[node name="river_1" type="Sprite2D" parent="ParallaxBackground/parallax_layer_river_1_copy"]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("2_qwc4q")
+
+[node name="parallax_layer_river_2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1, 0.7)
+motion_mirroring = Vector2(0, 360)
+
+[node name="river_2" type="Sprite2D" parent="ParallaxBackground/parallax_layer_river_2"]
+texture_filter = 1
 texture = ExtResource("3_3grqq")
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="parallax_layer_river_2_copy" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, 180)
+motion_scale = Vector2(1, 0.7)
+motion_mirroring = Vector2(0, 360)
 
-[node name="river_3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+[node name="river_2" type="Sprite2D" parent="ParallaxBackground/parallax_layer_river_2_copy"]
+texture_filter = 1
+texture = ExtResource("3_3grqq")
+
+[node name="parallax_layer_river_3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1, 0.85)
+motion_mirroring = Vector2(0, 360)
+
+[node name="river_3" type="Sprite2D" parent="ParallaxBackground/parallax_layer_river_3"]
+texture_filter = 1
 texture = ExtResource("4_d3f8e")
 
-[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="parallax_layer_river_5" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, 180)
+motion_scale = Vector2(1, 0.85)
+motion_mirroring = Vector2(0, 360)
 
-[node name="river_4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+[node name="river_3" type="Sprite2D" parent="ParallaxBackground/parallax_layer_river_5"]
+texture_filter = 1
+texture = ExtResource("4_d3f8e")
+
+[node name="parallax_layer_river_4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(0, 360)
+
+[node name="river_4" type="Sprite2D" parent="ParallaxBackground/parallax_layer_river_4"]
+texture_filter = 1
+texture = ExtResource("5_0dyfl")
+
+[node name="parallax_layer_river_6" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, 180)
+motion_mirroring = Vector2(0, 360)
+
+[node name="river_4" type="Sprite2D" parent="ParallaxBackground/parallax_layer_river_6"]
+texture_filter = 1
 texture = ExtResource("5_0dyfl")
