@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var move_speed: int = 20
 @export var vision_range: int = 60
 @export var damage: int = 10
-@export var push_power: int = 10
+@export var push_power: int = 50
 
 var player: Node2D
 
@@ -26,3 +26,7 @@ func _on_vision_range_body_entered(body):
 func _on_vision_range_body_exited(body):
 	if body.name == "player":
 		player = null
+
+func _on_hit_box_body_entered(body):
+	if body.name == "player":
+		body.push_back(position, push_power)
