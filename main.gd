@@ -1,9 +1,12 @@
 extends Node2D
 
+@onready var player = $player
 @onready var camera = $camera
 @onready var game_ui = $CanvasLayer/game_ui
+@onready var bottom_wall = $bottom_wall
 
 const GOAL_SCENE = preload("res://ui/assets/goal.tscn")
+const BOTTOM_WALL_OFFSET = 70
 
 var energy = 1000
 var level = 1
@@ -12,10 +15,15 @@ var goal: int
 func _ready():
 	game_ui.set_energy(energy)
 	start_level(level)
+	
+func _process(delta):
+	bottom_wall.position.y = min(player.position.y + 70, bottom_wall.position.y)
 
 func _on_fish_energy_used(energy_used):
 	energy -= energy_used
 	game_ui.set_energy(energy)
+	if energy <= 0:
+		player.play_death_animation()
 	
 func _on_regen_energy(energy_gained):
 	energy += energy_gained

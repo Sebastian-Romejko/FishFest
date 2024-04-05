@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://knmv675xb0qj"]
+[gd_scene load_steps=14 format=3 uid="uid://knmv675xb0qj"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ds2ps"]
 [ext_resource type="PackedScene" uid="uid://d0qpdbtv20cxl" path="res://assets/player.tscn" id="1_w77kh"]
@@ -30,7 +30,11 @@ shader_parameter/tone_color = Color(0.188235, 0.498039, 0.584314, 1)
 shader_parameter/top_color = Color(0.796078, 0.87451, 0.929412, 1)
 shader_parameter/light_start = 0.275
 shader_parameter/light_end = 0.4
+shader_parameter/amount = 40
 shader_parameter/noise = SubResource("NoiseTexture2D_nbir7")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucdfh"]
+size = Vector2(272, 20)
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_ds2ps")
@@ -49,7 +53,7 @@ limit_right = 160
 [node name="player" parent="." instance=ExtResource("1_w77kh")]
 position = Vector2(0, 35)
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="player"]
+[node name="remote_transform_camera" type="RemoteTransform2D" parent="player"]
 remote_path = NodePath("../../camera")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -129,7 +133,7 @@ motion_mirroring = Vector2(0, 360)
 
 [node name="water" type="Sprite2D" parent="ParallaxBackground2/parallax_layer_water_1"]
 material = SubResource("ShaderMaterial_qnp77")
-position = Vector2(2.6226e-06, -4.82798e-06)
+position = Vector2(0, -1)
 scale = Vector2(2.125, 1.40625)
 texture = ExtResource("9_yeb4r")
 
@@ -143,5 +147,11 @@ material = SubResource("ShaderMaterial_qnp77")
 position = Vector2(2.6226e-06, -0.499999)
 scale = Vector2(2.125, 1.39844)
 texture = ExtResource("9_yeb4r")
+
+[node name="bottom_wall" type="StaticBody2D" parent="."]
+position = Vector2(0, 105)
+
+[node name="collision_shape" type="CollisionShape2D" parent="bottom_wall"]
+shape = SubResource("RectangleShape2D_ucdfh")
 
 [connection signal="energy_used" from="player" to="." method="_on_fish_energy_used"]

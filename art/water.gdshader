@@ -10,11 +10,16 @@ uniform vec4 tone_color : source_color;
 uniform vec4 top_color : source_color;
 uniform float light_start : hint_range(0.0, 1.0) = 0.275;
 uniform float light_end : hint_range(0.0, 1.0) = 0.4;
+uniform int amount = 30;
 
 void fragment() {
+	vec2 grid_uv = round(UV * float(amount)) / float(amount); // pixelate, not working
+	
 	float depth = texture(noise, UV + scroll1 * TIME).r * texture(noise, UV + scroll2 * TIME).r;
 	vec4 screen_cel = texture(screen_texture, SCREEN_UV + distortion_strength * vec2(depth));
 	vec4 top_light = smoothstep(light_start, light_end, depth) * top_color;
-	COLOR = screen_cel * tone_color + top_light;
+	vec4 water = screen_cel * tone_color + top_light;
+	
+	COLOR = water;
 	COLOR.a = 0.1;
 }

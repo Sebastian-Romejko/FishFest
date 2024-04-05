@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbrkgqcwp3avo"]
+
+[ext_resource type="Texture2D" uid="uid://547cicl31xk3" path="res://art/bubble.png" id="1_6i17j"]
+
+[sub_resource type="Curve" id="Curve_2si3d"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.709302, 0.683019), -0.124819, -0.124819, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_i1vea"]
+curve = SubResource("Curve_2si3d")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a7n2e"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 15.0
+initial_velocity_max = 35.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+alpha_curve = SubResource("CurveTexture_i1vea")
+
+[node name="bubbles" type="GPUParticles2D"]
+texture_filter = 1
+emitting = false
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_a7n2e")
+texture = ExtResource("1_6i17j")
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
