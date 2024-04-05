@@ -17,9 +17,14 @@ func _on_fish_energy_used(energy_used):
 	energy -= energy_used
 	game_ui.set_energy(energy)
 	
+func _on_regen_energy(energy_gained):
+	energy += energy_gained
+	game_ui.set_energy(energy)
+	
 func start_level(level):
 	var level_scene = load("res://ui/assets/level_%s.tscn" % str(level)).instantiate()
 	add_child(level_scene)
+	level_scene.regen_energy.connect(_on_regen_energy)
 	
 	goal = Config.get_level(level).goal * -1
 	var goal_scene = GOAL_SCENE.instantiate()

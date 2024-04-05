@@ -8,6 +8,7 @@ size = Vector2(256, 100)
 [node name="goal" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.917647, 0.34902, 1)
 position = Vector2(3.8147e-06, -34)
 scale = Vector2(0.152344, 0.152344)
 texture = ExtResource("1_irhsm")
