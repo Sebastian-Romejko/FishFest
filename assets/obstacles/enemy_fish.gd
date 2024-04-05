@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var vision_range_shape = $vision_range/collision_shape
 
-@export var move_speed: int = 20
+@export var move_speed: int = 15
 @export var vision_range: int = 60
 @export var damage: int = 10
 @export var push_power: int = 50

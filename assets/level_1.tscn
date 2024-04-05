@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://beelwf2fc8dlf"]
 
 [ext_resource type="Texture2D" uid="uid://ywmv8r750fxt" path="res://art/river_4.png" id="1_6k2kh"]
-[ext_resource type="Script" path="res://ui/assets/level.gd" id="1_cb6b0"]
-[ext_resource type="PackedScene" uid="uid://bs1n23kpjva7a" path="res://ui/assets/obstacles/rock.tscn" id="2_wlqar"]
-[ext_resource type="PackedScene" uid="uid://o3nm608mmlu1" path="res://ui/assets/obstacles/enemy_fish_1.tscn" id="3_b271s"]
-[ext_resource type="PackedScene" uid="uid://dv61snr8w6v4n" path="res://ui/assets/obstacles/seaweed.tscn" id="4_dxcyj"]
+[ext_resource type="Script" path="res://assets/level.gd" id="1_cb6b0"]
+[ext_resource type="PackedScene" uid="uid://bs1n23kpjva7a" path="res://assets/obstacles/rock.tscn" id="2_wlqar"]
+[ext_resource type="PackedScene" uid="uid://o3nm608mmlu1" path="res://assets/obstacles/enemy_fish_1.tscn" id="3_b271s"]
+[ext_resource type="PackedScene" uid="uid://dv61snr8w6v4n" path="res://assets/obstacles/seaweed.tscn" id="4_dxcyj"]
 
 [node name="level_1" type="Node2D"]
 script = ExtResource("1_cb6b0")
@@ -65,6 +65,36 @@ position = Vector2(-51.2, -595.4)
 
 [node name="rock17" parent="rocks" instance=ExtResource("2_wlqar")]
 position = Vector2(-118.2, -655.4)
+
+[node name="rock19" parent="rocks" instance=ExtResource("2_wlqar")]
+position = Vector2(-115.2, -1289.2)
+
+[node name="rock20" parent="rocks" instance=ExtResource("2_wlqar")]
+position = Vector2(-66.2, -1273.2)
+
+[node name="rock21" parent="rocks" instance=ExtResource("2_wlqar")]
+position = Vector2(1.79999, -1310.2)
+
+[node name="rock22" parent="rocks" instance=ExtResource("2_wlqar")]
+position = Vector2(43.8, -1296.2)
+
+[node name="rock23" parent="rocks" instance=ExtResource("2_wlqar")]
+position = Vector2(80.8, -1314.2)
+
+[node name="rock24" parent="rocks" instance=ExtResource("2_wlqar")]
+position = Vector2(-34.2, -1286.2)
+
+[node name="rock25" parent="rocks" instance=ExtResource("2_wlqar")]
+position = Vector2(111.8, -1296.2)
+
+[node name="rock26" parent="rocks" instance=ExtResource("2_wlqar")]
+position = Vector2(-100.2, -1258.2)
+
+[node name="rock27" parent="rocks" instance=ExtResource("2_wlqar")]
+position = Vector2(90.8, -1265.2)
+
+[node name="rock28" parent="rocks" instance=ExtResource("2_wlqar")]
+position = Vector2(120.8, -1241.2)
 
 [node name="rock18" parent="rocks" instance=ExtResource("2_wlqar")]
 position = Vector2(12.8, -663.4)
