@@ -23,7 +23,6 @@ var happiness_already_ended = false
 func _physics_process(delta):
 	viewport.render_target_update_mode = viewport.UPDATE_ONCE
 	
-	print(velocity)
 	velocity /= 1.01
 	
 	match(state):
@@ -63,11 +62,10 @@ func limit_to_max_speed():
 	velocity.x = min(MAX_SPEED, velocity.x) if velocity.x > 0 else max(-MAX_SPEED, velocity.x)
 	velocity.y = min(MAX_SPEED, velocity.y) if velocity.y > 0 else max(-MAX_SPEED, velocity.y)
 
-func push_back(from: Vector2, power: int):
-	var tween = get_tree().create_tween()
+func push_back(from: Vector2, power: int, damage: int):
 	var direction = from.direction_to(position)
 	velocity = position + direction * power
-	energy_used.emit(power)
+	energy_used.emit(damage)
 	bubbles.restart()
 	
 func play_death_animation():

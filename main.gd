@@ -18,6 +18,7 @@ var level = 1
 var level_scene
 var goal: int
 var goal_scene
+var game_over = false
 var bottom_wall_starting_y
 
 func _ready():
@@ -46,11 +47,14 @@ func _on_fish_energy_used(energy_used):
 	game_ui.set_energy(energy)
 	if energy <= 0:
 		player.play_death_animation()
-		var game_over_scene = GAME_OVER_SCENE.instantiate()
-		canvas_layer.add_child(game_over_scene)
-		game_over_scene.restart_clicked.connect(_on_restart_clicked)
+		if !game_over:
+			var game_over_scene = GAME_OVER_SCENE.instantiate()
+			canvas_layer.add_child(game_over_scene)
+			game_over_scene.restart_clicked.connect(_on_restart_clicked)
+			game_over = true
 	
 func _on_restart_clicked():
+	game_over = false
 	bottom_wall.position.y = bottom_wall_starting_y
 	camera.limit_bottom = 1000000
 	energy = STARTING_ENERGY
