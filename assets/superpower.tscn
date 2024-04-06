@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dym0gplx5bepg"]
+
+[ext_resource type="Texture2D" uid="uid://co4pt2kutc76" path="res://art/light.png" id="1_amjtr"]
+[ext_resource type="Script" path="res://assets/superpower.gd" id="2_14d26"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ntj4t"]
+radius = 4.5
+
+[node name="superpower" type="Sprite2D"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_amjtr")
+script = ExtResource("2_14d26")
+
+[node name="area_2d" type="Area2D" parent="."]
+
+[node name="collision_shape" type="CollisionShape2D" parent="area_2d"]
+shape = SubResource("CircleShape2D_ntj4t")
+
+[connection signal="body_entered" from="area_2d" to="." method="_on_area_2d_body_entered"]

@@ -9,12 +9,14 @@ signal happiness_ended()
 @onready var viewport = $sprite/sub_viewport
 @onready var fish = $sprite/sub_viewport/fish
 @onready var happy_timer = $happy_timer
+@onready var superpower_timer = $superpower_timer
 
 const MANA_USAGE_MODIFIER = 150
 const MOVE_SPEED = 1
 const MAX_SPEED = 50
 
 var state = STATE.NORMAL
+var superpower = false
 
 var goal_position: Vector2
 var target_position: Vector2
@@ -89,7 +91,38 @@ func restart():
 	tween.chain().tween_property(self, "scale", Vector2(1, 1), 1)
 	tween.play()
 	state = STATE.NORMAL
+	
+func gain_superpower():
+	superpower = true
+	superpower_timer.start()
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "modulate", Color(2, 2, 2), 1)
+	tween.chain().tween_property(self, "modulate", Color(1, 1, 1), 1)
+	tween.chain().tween_property(self, "modulate", Color(2, 2, 2), 1)
+	tween.chain().tween_property(self, "modulate", Color(1, 1, 1), 1)
+	tween.chain().tween_property(self, "modulate", Color(2, 2, 2), 1)
+	tween.chain().tween_property(self, "modulate", Color(1, 1, 1), 1)
+	tween.chain().tween_property(self, "modulate", Color(2, 2, 2), 1)
+	tween.chain().tween_property(self, "modulate", Color(1, 1, 1), 1)
+	tween.chain().tween_property(self, "modulate", Color(2, 2, 2), 1)
+	tween.chain().tween_property(self, "modulate", Color(1, 1, 1), 1)
+	tween.chain().tween_property(self, "modulate", Color(2, 2, 2), 1)
+	tween.chain().tween_property(self, "modulate", Color(1, 1, 1), 1)
+	tween.chain().tween_property(self, "modulate", Color(2, 2, 2), 0.4)
+	tween.chain().tween_property(self, "modulate", Color(1, 1, 1), 0.1)
+	tween.chain().tween_property(self, "modulate", Color(2, 2, 2), 0.4)
+	tween.chain().tween_property(self, "modulate", Color(1, 1, 1), 0.1)
+	tween.chain().tween_property(self, "modulate", Color(2, 2, 2), 0.4)
+	tween.chain().tween_property(self, "modulate", Color(1, 1, 1), 0.1)
+	tween.chain().tween_property(self, "modulate", Color(2, 2, 2), 0.4)
+	tween.chain().tween_property(self, "modulate", Color(1, 1, 1), 0.1)
+	tween.chain().tween_property(self, "modulate", Color(2, 2, 2), 0.4)
+	tween.chain().tween_property(self, "modulate", Color(1, 1, 1), 0.1)
+	tween.play()
 
 func _on_happy_timer_timeout():
 	happiness_ended.emit()
 	happiness_already_ended = true
+
+func _on_superpower_timer_timeout():
+	superpower = false

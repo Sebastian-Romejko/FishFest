@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://6af6onqpiqhj"]
+[gd_scene load_steps=8 format=3 uid="uid://6af6onqpiqhj"]
 
 [ext_resource type="Texture2D" uid="uid://ywmv8r750fxt" path="res://art/river_4.png" id="1_f3gcg"]
 [ext_resource type="Script" path="res://assets/level.gd" id="1_xgr2q"]
 [ext_resource type="PackedScene" uid="uid://bs1n23kpjva7a" path="res://assets/obstacles/rock.tscn" id="2_n4a67"]
 [ext_resource type="PackedScene" uid="uid://o3nm608mmlu1" path="res://assets/obstacles/enemy_fish_1.tscn" id="3_stm0d"]
 [ext_resource type="PackedScene" uid="uid://dv61snr8w6v4n" path="res://assets/obstacles/seaweed.tscn" id="4_gavj5"]
+[ext_resource type="PackedScene" uid="uid://dym0gplx5bepg" path="res://assets/superpower.tscn" id="6_3pixx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gubrv"]
 size = Vector2(24, 2500)
@@ -228,3 +229,6 @@ position = Vector2(117.8, -1200.2)
 
 [node name="seaweed4" parent="seaweed" instance=ExtResource("4_gavj5")]
 position = Vector2(-118.2, -1205.2)
+
+[node name="superpower" parent="." instance=ExtResource("6_3pixx")]
+position = Vector2(55, -197)

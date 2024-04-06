@@ -9,10 +9,12 @@ extends CharacterBody2D
 @export var vision_range: int = 60
 @export var max_distance: int = 100
 @export var damage: int = 100
-@export var push_power: int = 50
+@export var push_power: int = 1
 
 var player: Node2D
 var attacking = false
+var player_has_superpower = false
+var temp_max_speed
 
 func _ready():
 	fish.play_idle_animation()
@@ -32,7 +34,11 @@ func _physics_process(delta):
 		look_at(player.position)
 		var direction = position.direction_to(player.position)
 		velocity += direction * move_speed / 10
-		limit_to_max_speed()
+		
+		if player_has_superpower:
+			limit_to_temp_max_speed()
+		else:
+			limit_to_max_speed()
 		
 		if !attacking:
 			fish.play_swim_animation()
@@ -42,6 +48,10 @@ func _physics_process(delta):
 func limit_to_max_speed():
 	velocity.x = min(max_speed, velocity.x) if velocity.x > 0 else max(-max_speed, velocity.x)
 	velocity.y = min(max_speed, velocity.y) if velocity.y > 0 else max(-max_speed, velocity.y)
+
+func limit_to_temp_max_speed():
+	velocity.x = min(temp_max_speed, velocity.x) if velocity.x > 0 else max(-temp_max_speed, velocity.x)
+	velocity.y = min(temp_max_speed, velocity.y) if velocity.y > 0 else max(-temp_max_speed, velocity.y)
 	
 func _on_vision_range_body_entered(body):
 	if body.name == "player":
@@ -53,11 +63,18 @@ func _on_vision_range_body_entered(body):
 
 func _on_hit_box_body_entered(body):
 	if body.name == "player":
-		attacking = true
-		fish.play_attack_animation()
-		body.push_back(position, push_power, damage)
-		var direction = body.position.direction_to(position)
-		velocity = position + direction * push_power * 10
+		if body.superpower:
+			player_has_superpower = true
+			var direction = body.position.direction_to(position)
+			velocity = position + direction * push_power
+			temp_max_speed = max_speed * 4
+		else:
+			player_has_superpower = false
+			attacking = true
+			fish.play_attack_animation()
+			body.push_back(position, push_power, damage)
+			var direction = body.position.direction_to(position)
+			velocity = position + direction * push_power
 
 func _on_fish_attack_finished():
 	attacking = false

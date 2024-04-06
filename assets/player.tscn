@@ -51,4 +51,9 @@ shape = SubResource("CapsuleShape2D_l8exc")
 wait_time = 3.0
 one_shot = true
 
+[node name="superpower_timer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
 [connection signal="timeout" from="happy_timer" to="." method="_on_happy_timer_timeout"]
+[connection signal="timeout" from="superpower_timer" to="." method="_on_superpower_timer_timeout"]

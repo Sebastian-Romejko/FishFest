@@ -14,7 +14,7 @@ const STARTING_ENERGY = 1000
 const BOTTOM_WALL_OFFSET = 70
 
 var energy = 1000
-var level = 1
+var level = 2
 var level_scene
 var goal: int
 var goal_scene
@@ -80,13 +80,14 @@ func _on_continue_pressed():
 	start_new_level()
 
 func start_new_level():
+	if cutscene_borders:
+		cutscene_borders.queue_free()
 	game_over = false
 	bottom_wall.position.y = bottom_wall_starting_y
 	energy = STARTING_ENERGY
 	game_ui.set_energy(energy)
 	camera.limit_bottom = 1000000
 	player.restart()
-	cutscene_borders.queue_free()
 	level_scene.queue_free()
 	goal_scene.queue_free()
 	start_level(level)
