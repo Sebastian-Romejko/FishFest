@@ -39,8 +39,8 @@ func _physics_process(delta):
 			limit_to_max_speed()
 			move_and_slide()
 			
-			if velocity.y != 0 or velocity.x != 0:
-				energy_used.emit(0.5)
+			if (abs(velocity.x) > 5 or abs(velocity.y) > 5):
+				energy_used.emit((abs(velocity.x) + abs(velocity.y)) / 100)
 				fish.play_swim_animation()
 			else:
 				fish.play_idle_animation()
@@ -84,8 +84,8 @@ func restart():
 	position = Vector2(0, 0)
 	velocity = Vector2(0, 0)
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "scale", Vector2(1.1, 1.1), 0.2)
-	tween.chain().tween_property(self, "scale", Vector2(1, 1), 0.5)
+	tween.tween_property(self, "scale", Vector2(1.1, 1.1), 0.5)
+	tween.chain().tween_property(self, "scale", Vector2(1, 1), 1)
 	tween.play()
 	state = STATE.NORMAL
 
