@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://beelwf2fc8dlf"]
+[gd_scene load_steps=8 format=3 uid="uid://beelwf2fc8dlf"]
 
 [ext_resource type="Texture2D" uid="uid://ywmv8r750fxt" path="res://art/river_4.png" id="1_6k2kh"]
 [ext_resource type="Script" path="res://assets/level.gd" id="1_cb6b0"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://o3nm608mmlu1" path="res://assets/obstacles/enemy_fish_1.tscn" id="3_b271s"]
 [ext_resource type="PackedScene" uid="uid://dv61snr8w6v4n" path="res://assets/obstacles/seaweed.tscn" id="4_dxcyj"]
 [ext_resource type="PackedScene" uid="uid://b6wv8operdrtx" path="res://assets/lights.tscn" id="6_2j0wg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cusoo"]
+size = Vector2(24, 2000)
 
 [node name="level_1" type="Node2D"]
 script = ExtResource("1_cb6b0")
@@ -137,6 +140,16 @@ position = Vector2(2.8, -972.4)
 [node name="lights" parent="." instance=ExtResource("6_2j0wg")]
 width = 120.0
 height = 1400.0
+
+[node name="static_body" type="StaticBody2D" parent="."]
+
+[node name="collision_shape" type="CollisionShape2D" parent="static_body"]
+position = Vector2(-148, -600)
+shape = SubResource("RectangleShape2D_cusoo")
+
+[node name="collision_shape2" type="CollisionShape2D" parent="static_body"]
+position = Vector2(148, -600)
+shape = SubResource("RectangleShape2D_cusoo")
 
 [connection signal="regen_energy" from="seaweed/seaweed" to="." method="_on_seaweed_regen_energy"]
 [connection signal="regen_energy" from="seaweed/seaweed2" to="." method="_on_seaweed_regen_energy"]

@@ -21,7 +21,9 @@ func _ready():
 	start_level(level)
 	
 func _process(delta):
-	bottom_wall.position.y = min(player.position.y + 120, bottom_wall.position.y)
+	var bottom_limit = min(player.position.y + 120, bottom_wall.position.y)
+	bottom_wall.position.y = bottom_limit
+	camera.limit_bottom = bottom_limit + 20
 	
 func start_level(level):
 	level_scene = load("res://assets/level_%s.tscn" % str(level)).instantiate()
