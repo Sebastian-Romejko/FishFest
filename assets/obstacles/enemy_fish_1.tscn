@@ -1,16 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://o3nm608mmlu1"]
+[gd_scene load_steps=8 format=3 uid="uid://o3nm608mmlu1"]
 
-[ext_resource type="Texture2D" uid="uid://6ng677p3q0b1" path="res://icon.svg" id="1_oo2lo"]
 [ext_resource type="Script" path="res://assets/obstacles/enemy_fish.gd" id="1_ytled"]
+[ext_resource type="PackedScene" uid="uid://c58fi3hmn6t0u" path="res://art/fish_enemy_1.tscn" id="3_pa7mr"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lftxu"]
+viewport_path = NodePath("sprite/sub_viewport")
+
+[sub_resource type="Environment" id="Environment_ijtow"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lj1wl"]
-size = Vector2(26, 12)
+size = Vector2(37, 13)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7eblt"]
 radius = 64.0078
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icjsp"]
-size = Vector2(4, 12)
+size = Vector2(4, 13)
 
 [node name="enemy_fish_1" type="CharacterBody2D"]
 script = ExtResource("1_ytled")
@@ -18,11 +23,32 @@ vision_range = 80
 
 [node name="sprite" type="Sprite2D" parent="."]
 modulate = Color(1, 0.192157, 0.192157, 1)
-rotation = 1.5708
-scale = Vector2(0.1, 0.2)
-texture = ExtResource("1_oo2lo")
+texture_filter = 1
+rotation = -3.14159
+texture = SubResource("ViewportTexture_lftxu")
+
+[node name="sub_viewport" type="SubViewport" parent="sprite"]
+own_world_3d = true
+transparent_bg = true
+snap_2d_transforms_to_pixel = true
+snap_2d_vertices_to_pixel = true
+size = Vector2i(64, 64)
+render_target_update_mode = 1
+
+[node name="fish_enemy_1" parent="sprite/sub_viewport" instance=ExtResource("3_pa7mr")]
+
+[node name="camera" type="Camera3D" parent="sprite/sub_viewport"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0)
+environment = SubResource("Environment_ijtow")
+projection = 1
+current = true
+size = 2.0
+
+[node name="light" type="DirectionalLight3D" parent="sprite/sub_viewport"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.98162, 0)
 
 [node name="collision_shape" type="CollisionShape2D" parent="."]
+position = Vector2(-3.5, -0.5)
 shape = SubResource("RectangleShape2D_lj1wl")
 
 [node name="vision_range" type="Area2D" parent="."]
@@ -31,9 +57,10 @@ shape = SubResource("RectangleShape2D_lj1wl")
 shape = SubResource("CircleShape2D_7eblt")
 
 [node name="hit_box" type="Area2D" parent="."]
+position = Vector2(2, 0)
 
 [node name="collision_shape" type="CollisionShape2D" parent="hit_box"]
-position = Vector2(12, 0)
+position = Vector2(13, -1)
 shape = SubResource("RectangleShape2D_icjsp")
 
 [connection signal="body_entered" from="vision_range" to="." method="_on_vision_range_body_entered"]

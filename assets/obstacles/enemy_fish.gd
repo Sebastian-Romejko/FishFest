@@ -18,9 +18,7 @@ func _physics_process(delta):
 		look_at(player.position)
 		var direction = position.direction_to(player.position)
 		velocity += direction * move_speed / 10
-		print("BEFORE: " + str(velocity))
 		limit_to_max_speed()
-		print("AFTER: " + str(velocity))
 		move_and_slide()
 		
 func limit_to_max_speed():
@@ -40,4 +38,3 @@ func _on_hit_box_body_entered(body):
 		body.push_back(position, push_power, damage)
 		var direction = body.position.direction_to(position)
 		velocity = position + direction * push_power * 10
-		print(velocity)

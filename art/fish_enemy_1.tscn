@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c58fi3hmn6t0u"]
+
+[ext_resource type="PackedScene" uid="uid://v2k4op018jsb" path="res://art/fish_enemy_1.blend" id="1_b0w7o"]
+
+[node name="fish_enemy_1" instance=ExtResource("1_b0w7o")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/4/rotation = Quaternion(1, -3.7749e-08, -3.7749e-08, 1.05879e-22)
+bones/5/rotation = Quaternion(-0.120601, 0.696746, -0.120601, 0.696746)
+bones/5/scale = Vector3(1, 1, 1)
+bones/6/rotation = Quaternion(0.120601, 0.696746, 0.120601, 0.696747)
