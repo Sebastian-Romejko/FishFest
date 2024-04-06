@@ -1,0 +1,165 @@
+[gd_scene load_steps=14 format=3 uid="uid://knmv675xb0qj"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_ds2ps"]
+[ext_resource type="PackedScene" uid="uid://d0qpdbtv20cxl" path="res://assets/player.tscn" id="1_w77kh"]
+[ext_resource type="Texture2D" uid="uid://pmaiifpqlouw" path="res://art/river_1.png" id="2_qwc4q"]
+[ext_resource type="Texture2D" uid="uid://bo75sfg1w6aoa" path="res://art/river_2.png" id="3_3grqq"]
+[ext_resource type="Texture2D" uid="uid://bgv7t8luodru8" path="res://art/river_3.png" id="4_d3f8e"]
+[ext_resource type="Texture2D" uid="uid://ywmv8r750fxt" path="res://art/river_4.png" id="5_0dyfl"]
+[ext_resource type="PackedScene" uid="uid://ck8qpv3ubvj8l" path="res://ui/game_ui.tscn" id="7_x4gpl"]
+[ext_resource type="Shader" path="res://art/water.gdshader" id="8_i8rsn"]
+[ext_resource type="Texture2D" uid="uid://6ng677p3q0b1" path="res://icon.svg" id="9_yeb4r"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_sbvxk"]
+frequency = 0.0029
+fractal_type = 2
+fractal_octaves = 3
+fractal_gain = 3.0
+fractal_weighted_strength = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nbir7"]
+seamless = true
+noise = SubResource("FastNoiseLite_sbvxk")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qnp77"]
+shader = ExtResource("8_i8rsn")
+shader_parameter/scroll1 = Vector2(0.05, 0.05)
+shader_parameter/scroll2 = Vector2(-0.05, -0.05)
+shader_parameter/distortion_strength = 0.85
+shader_parameter/tone_color = Color(0.188235, 0.498039, 0.584314, 1)
+shader_parameter/top_color = Color(0.796078, 0.87451, 0.929412, 1)
+shader_parameter/light_start = 0.275
+shader_parameter/light_end = 0.4
+shader_parameter/amount = 40
+shader_parameter/noise = SubResource("NoiseTexture2D_nbir7")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucdfh"]
+size = Vector2(272, 20)
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_ds2ps")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="game_ui" parent="CanvasLayer" instance=ExtResource("7_x4gpl")]
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2(0, 35)
+rotation = 1.5708
+offset = Vector2(0, -30)
+limit_left = 160
+limit_right = 160
+
+[node name="player" parent="." instance=ExtResource("1_w77kh")]
+position = Vector2(0, 35)
+
+[node name="remote_transform_camera" type="RemoteTransform2D" parent="player"]
+remote_path = NodePath("../../camera")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="parallax_layer_river_1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(0, 360)
+
+[node name="river_1" type="Sprite2D" parent="ParallaxBackground/parallax_layer_river_1"]
+modulate = Color(0.8, 0.8, 0.8, 1)
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("2_qwc4q")
+
+[node name="parallax_layer_river_1_copy" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, 180)
+motion_mirroring = Vector2(0, 360)
+
+[node name="river_1" type="Sprite2D" parent="ParallaxBackground/parallax_layer_river_1_copy"]
+modulate = Color(0.8, 0.8, 0.8, 1)
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("2_qwc4q")
+
+[node name="parallax_layer_river_2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1, 0.5)
+motion_mirroring = Vector2(0, 360)
+
+[node name="river_2" type="Sprite2D" parent="ParallaxBackground/parallax_layer_river_2"]
+modulate = Color(0.8, 0.8, 0.8, 1)
+texture_filter = 1
+texture = ExtResource("3_3grqq")
+
+[node name="parallax_layer_river_2_copy" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, 180)
+motion_scale = Vector2(1, 0.5)
+motion_mirroring = Vector2(0, 360)
+
+[node name="river_2" type="Sprite2D" parent="ParallaxBackground/parallax_layer_river_2_copy"]
+modulate = Color(0.8, 0.8, 0.8, 1)
+texture_filter = 1
+texture = ExtResource("3_3grqq")
+
+[node name="parallax_layer_river_3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1, 0.7)
+motion_mirroring = Vector2(0, 360)
+
+[node name="river_3" type="Sprite2D" parent="ParallaxBackground/parallax_layer_river_3"]
+modulate = Color(0.8, 0.8, 0.8, 1)
+texture_filter = 1
+texture = ExtResource("4_d3f8e")
+
+[node name="parallax_layer_river_3_copy" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, 180)
+motion_scale = Vector2(1, 0.7)
+motion_mirroring = Vector2(0, 360)
+
+[node name="river_3" type="Sprite2D" parent="ParallaxBackground/parallax_layer_river_3_copy"]
+modulate = Color(0.8, 0.8, 0.8, 1)
+texture_filter = 1
+texture = ExtResource("4_d3f8e")
+
+[node name="parallax_layer_river_4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(0, 360)
+
+[node name="river_4" type="Sprite2D" parent="ParallaxBackground/parallax_layer_river_4"]
+modulate = Color(0.8, 0.8, 0.8, 1)
+texture_filter = 1
+texture = ExtResource("5_0dyfl")
+
+[node name="parallax_layer_river_4_copy" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, 180)
+motion_mirroring = Vector2(0, 360)
+
+[node name="river_4" type="Sprite2D" parent="ParallaxBackground/parallax_layer_river_4_copy"]
+modulate = Color(0.8, 0.8, 0.8, 1)
+texture_filter = 1
+texture = ExtResource("5_0dyfl")
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+layer = 1
+
+[node name="parallax_layer_water_1" type="ParallaxLayer" parent="ParallaxBackground2"]
+top_level = true
+motion_mirroring = Vector2(0, 360)
+
+[node name="water" type="Sprite2D" parent="ParallaxBackground2/parallax_layer_water_1"]
+material = SubResource("ShaderMaterial_qnp77")
+position = Vector2(0, -1)
+scale = Vector2(2.125, 1.40625)
+texture = ExtResource("9_yeb4r")
+
+[node name="parallax_layer_water_1_copy" type="ParallaxLayer" parent="ParallaxBackground2"]
+top_level = true
+position = Vector2(0, 180)
+motion_mirroring = Vector2(0, 360)
+
+[node name="water" type="Sprite2D" parent="ParallaxBackground2/parallax_layer_water_1_copy"]
+material = SubResource("ShaderMaterial_qnp77")
+position = Vector2(2.6226e-06, -0.499999)
+scale = Vector2(2.125, 1.39844)
+texture = ExtResource("9_yeb4r")
+
+[node name="bottom_wall" type="StaticBody2D" parent="."]
+position = Vector2(0, 105)
+
+[node name="collision_shape" type="CollisionShape2D" parent="bottom_wall"]
+shape = SubResource("RectangleShape2D_ucdfh")
+
+[connection signal="energy_used" from="player" to="." method="_on_fish_energy_used"]

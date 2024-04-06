@@ -21,7 +21,7 @@ func _ready():
 	start_level(level)
 	
 func _process(delta):
-	bottom_wall.position.y = min(player.position.y + 70, bottom_wall.position.y)
+	bottom_wall.position.y = min(player.position.y + 120, bottom_wall.position.y)
 	
 func start_level(level):
 	level_scene = load("res://assets/level_%s.tscn" % str(level)).instantiate()
@@ -49,3 +49,4 @@ func _on_goal_reached():
 	energy = STARTING_ENERGY
 	level_scene.disapear_into_bubbles()
 	canvas_layer.add_child(CUTSCENE_BORDERS_SCENE.instantiate())
+	player.play_happy_animation(goal)

@@ -11,3 +11,6 @@ func play_swim_animation():
 func play_idle_animation():
 	animation_player.play("idle")
 	
+func play_happy_animation():
+	animation_player.play("happy")
+	
