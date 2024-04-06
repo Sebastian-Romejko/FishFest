@@ -13,8 +13,9 @@ const BOTTOM_WALL_OFFSET = 70
 
 var energy = 1000
 var level = 1
-var level_scene = 1
+var level_scene
 var goal: int
+var goal_scene
 
 func _ready():
 	game_ui.set_energy(energy)
@@ -31,7 +32,7 @@ func start_level(level):
 	level_scene.regen_energy.connect(_on_regen_energy)
 	
 	goal = Config.get_level(level).goal * -1
-	var goal_scene = GOAL_SCENE.instantiate()
+	goal_scene = GOAL_SCENE.instantiate()
 	add_child(goal_scene)
 	goal_scene.position.y = goal
 	goal_scene.reached.connect(_on_goal_reached)
@@ -51,4 +52,6 @@ func _on_goal_reached():
 	energy = STARTING_ENERGY
 	level_scene.disapear_into_bubbles()
 	canvas_layer.add_child(CUTSCENE_BORDERS_SCENE.instantiate())
+	goal_scene.play_happy_animation(goal)
 	player.play_happy_animation(goal)
+	camera.offset.y = 0

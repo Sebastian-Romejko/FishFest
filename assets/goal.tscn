@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b1geftyaaqx8v"]
 
 [ext_resource type="Script" path="res://assets/goal.gd" id="1_6vwsh"]
-[ext_resource type="Texture2D" uid="uid://6ng677p3q0b1" path="res://icon.svg" id="2_2bnqk"]
+[ext_resource type="PackedScene" uid="uid://bwwneccue264l" path="res://assets/fish_goal.tscn" id="3_dhb06"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8wgkd"]
 size = Vector2(256, 100)
@@ -9,11 +9,9 @@ size = Vector2(256, 100)
 [node name="goal" type="Node2D"]
 script = ExtResource("1_6vwsh")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0.917647, 0.34902, 1)
-position = Vector2(3.8147e-06, -34)
-scale = Vector2(0.152344, 0.152344)
-texture = ExtResource("2_2bnqk")
+[node name="fish_goal" parent="." instance=ExtResource("3_dhb06")]
+position = Vector2(0, -30)
+rotation = -1.5708
 
 [node name="area_3d" type="Area2D" parent="."]
 

@@ -39,8 +39,8 @@ func _physics_process(delta):
 		STATE.DEAD:
 			pass
 		STATE.HAPPY:
-			look_at(goal_position)
-			if position.distance_to(target_position) > 0.5:
+			if position.distance_to(target_position) > 1:
+				look_at(goal_position)
 				var direction = position.direction_to(target_position)
 				velocity = direction * move_speed
 				move_and_slide()

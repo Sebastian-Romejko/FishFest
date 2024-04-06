@@ -1,22 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0qpdbtv20cxl"]
+[gd_scene load_steps=7 format=3 uid="uid://bwwneccue264l"]
 
-[ext_resource type="Script" path="res://assets/player.gd" id="1_qwvgx"]
-[ext_resource type="PackedScene" uid="uid://c67nll5i717v4" path="res://art/fish.tscn" id="2_jinba"]
-[ext_resource type="PackedScene" uid="uid://dbrkgqcwp3avo" path="res://assets/bubbles.tscn" id="3_in5hv"]
+[ext_resource type="Script" path="res://assets/fish_goal.gd" id="1_4626m"]
+[ext_resource type="PackedScene" uid="uid://l5hxyi8vea2f" path="res://art/fish_goal.tscn" id="2_be35v"]
+[ext_resource type="PackedScene" uid="uid://dbrkgqcwp3avo" path="res://assets/bubbles.tscn" id="3_fev7d"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_k7mnt"]
 viewport_path = NodePath("sprite/sub_viewport")
 
-[sub_resource type="Environment" id="Environment_6wdhg"]
+[sub_resource type="Environment" id="Environment_uhisn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l8exc"]
 radius = 11.0
 height = 22.0
 
-[node name="player" type="CharacterBody2D"]
+[node name="fish_goal" type="CharacterBody2D"]
 rotation = 1.5708
 motion_mode = 1
-script = ExtResource("1_qwvgx")
+script = ExtResource("1_4626m")
 
 [node name="sprite" type="Sprite2D" parent="."]
 modulate = Color(0.717647, 0.717647, 0.717647, 1)
@@ -24,17 +24,19 @@ texture_filter = 1
 texture = SubResource("ViewportTexture_k7mnt")
 
 [node name="sub_viewport" type="SubViewport" parent="sprite"]
+own_world_3d = true
 transparent_bg = true
 snap_2d_transforms_to_pixel = true
 snap_2d_vertices_to_pixel = true
+canvas_item_default_texture_filter = 0
 size = Vector2i(64, 64)
 render_target_update_mode = 1
 
-[node name="fish" parent="sprite/sub_viewport" instance=ExtResource("2_jinba")]
+[node name="fish_goal" parent="sprite/sub_viewport" instance=ExtResource("2_be35v")]
 
-[node name="camera" type="Camera3D" parent="sprite/sub_viewport"]
+[node name="camera_3d" type="Camera3D" parent="sprite/sub_viewport"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0)
-environment = SubResource("Environment_6wdhg")
+environment = SubResource("Environment_uhisn")
 projection = 1
 current = true
 size = 2.0
@@ -45,4 +47,4 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.9
 [node name="collision_shape" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_l8exc")
 
-[node name="bubbles" parent="." instance=ExtResource("3_in5hv")]
+[node name="bubbles" parent="." instance=ExtResource("3_fev7d")]
