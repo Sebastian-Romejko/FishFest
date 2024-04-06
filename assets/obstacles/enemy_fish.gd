@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var move_speed: float = 5
 @export var max_speed: int = 30
 @export var vision_range: int = 60
-@export var max_distance: int = 120
+@export var max_distance: int = 100
 @export var damage: int = 100
 @export var push_power: int = 50
 
@@ -20,6 +20,8 @@ func _ready():
 
 func _physics_process(delta):
 	viewport.render_target_update_mode = viewport.UPDATE_ONCE
+	
+	velocity /= 1.01
 	
 	if player:
 		if position.distance_to(player.position) > max_distance:

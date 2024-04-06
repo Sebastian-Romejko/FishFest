@@ -20,6 +20,7 @@ var goal: int
 var goal_scene
 var game_over = false
 var bottom_wall_starting_y
+var cutscene_borders
 
 func _ready():
 	bottom_wall_starting_y = bottom_wall.position.y
@@ -54,14 +55,7 @@ func _on_fish_energy_used(energy_used):
 			game_over = true
 	
 func _on_restart_clicked():
-	game_over = false
-	bottom_wall.position.y = bottom_wall_starting_y
-	camera.limit_bottom = 1000000
-	energy = STARTING_ENERGY
-	player.restart()
-	level_scene.queue_free()
-	goal_scene.queue_free()
-	start_level(level)
+	start_new_level()
 	
 func _on_regen_energy(energy_gained):
 	energy += energy_gained
@@ -69,7 +63,8 @@ func _on_regen_energy(energy_gained):
 	
 func _on_goal_reached():
 	level_scene.disapear_into_bubbles()
-	canvas_layer.add_child(CUTSCENE_BORDERS_SCENE.instantiate())
+	cutscene_borders = CUTSCENE_BORDERS_SCENE.instantiate()
+	canvas_layer.add_child(cutscene_borders)
 	goal_scene.play_happy_animation(goal)
 	player.play_happy_animation(goal)
 	camera.offset.y = 0
@@ -82,6 +77,16 @@ func _on_player_happiness_ended():
 	
 func _on_continue_pressed():
 	level += 1
+	start_new_level()
+
+func start_new_level():
+	game_over = false
+	bottom_wall.position.y = bottom_wall_starting_y
 	energy = STARTING_ENERGY
 	game_ui.set_energy(energy)
 	camera.limit_bottom = 1000000
+	player.restart()
+	cutscene_borders.queue_free()
+	level_scene.queue_free()
+	goal_scene.queue_free()
+	start_level(level)
