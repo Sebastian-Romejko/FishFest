@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-enum STATE {NORMAL, DEAD, HAPPY}
+enum STATE {NORMAL, DEAD, HAPPY, NONE}
 
 signal energy_used(energy)
 signal happiness_ended()
@@ -41,7 +41,8 @@ func _physics_process(delta):
 			else:
 				fish.play_idle_animation()
 		STATE.DEAD:
-			pass
+			fish.play_death_animation()
+			state = STATE.NONE
 		STATE.HAPPY:
 			if position.distance_to(target_position) > 1:
 				look_at(goal_position)
@@ -49,8 +50,8 @@ func _physics_process(delta):
 				velocity = direction * move_speed / 2
 				move_and_slide()
 			else:
-				fish.play_happy_animation()
-				if !happiness_already_ended:
+				if happy_timer.is_stopped() and !happiness_already_ended:
+					fish.play_happy_animation()
 					happy_timer.start()
 
 func push_back(from: Vector2, power: int):

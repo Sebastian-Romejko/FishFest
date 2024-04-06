@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca1f6t6i1f8yd"]
+
+[ext_resource type="Script" path="res://ui/darkening_panel.gd" id="1_l7070"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kcayb"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[node name="panel" type="Panel"]
+modulate = Color(1, 1, 1, 0.588235)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kcayb")
+script = ExtResource("1_l7070")

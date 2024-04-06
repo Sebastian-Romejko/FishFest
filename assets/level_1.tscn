@@ -126,7 +126,7 @@ position = Vector2(15.8, -871.4)
 [node name="seaweed" type="Node2D" parent="."]
 
 [node name="seaweed" parent="seaweed" instance=ExtResource("4_dxcyj")]
-position = Vector2(0, -1200)
+position = Vector2(-898, -1432)
 
 [node name="seaweed2" parent="seaweed" instance=ExtResource("4_dxcyj")]
 position = Vector2(114.8, -689.4)

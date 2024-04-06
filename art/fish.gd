@@ -14,3 +14,6 @@ func play_idle_animation():
 func play_happy_animation():
 	animation_player.play("happy")
 	
+func play_death_animation():
+	animation_player.play("death")
+	

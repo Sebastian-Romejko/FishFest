@@ -9,10 +9,11 @@ extends Node2D
 const GOAL_SCENE = preload("res://assets/goal.tscn")
 const CUTSCENE_BORDERS_SCENE = preload("res://ui/cutscene_borders.tscn")
 const LEVEL_END_SCENE = preload("res://ui/level_end_panel.tscn")
+const GAME_OVER_SCENE = preload("res://ui/game_over_panel.tscn")
 const STARTING_ENERGY = 1000
 const BOTTOM_WALL_OFFSET = 70
 
-var energy = 1000
+var energy = 10
 var level = 1
 var level_scene
 var goal: int
@@ -43,6 +44,15 @@ func _on_fish_energy_used(energy_used):
 	game_ui.set_energy(energy)
 	if energy <= 0:
 		player.play_death_animation()
+		var game_over_scene = GAME_OVER_SCENE.instantiate()
+		canvas_layer.add_child(game_over_scene)
+		game_over_scene.restart_clicked.connect(_on_restart_clicked)
+	
+func _on_restart_clicked():
+	player.position = Vector2(0, 0)
+	level_scene.queue_free()
+	goal_scene.queue_free()
+	start_level(level)
 	
 func _on_regen_energy(energy_gained):
 	energy += energy_gained
