@@ -46,3 +46,9 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.9
 shape = SubResource("CapsuleShape2D_l8exc")
 
 [node name="bubbles" parent="." instance=ExtResource("3_in5hv")]
+
+[node name="happy_timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="happy_timer" to="." method="_on_happy_timer_timeout"]

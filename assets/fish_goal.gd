@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var viewport = $sprite/sub_viewport
 @onready var fish = $sprite/sub_viewport/fish_goal
 
-var move_speed: int = 70
+var move_speed: int = 35
 
 var happy = false
 var goal_position: Vector2

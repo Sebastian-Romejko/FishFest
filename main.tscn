@@ -163,3 +163,4 @@ position = Vector2(0, 105)
 shape = SubResource("RectangleShape2D_ucdfh")
 
 [connection signal="energy_used" from="player" to="." method="_on_fish_energy_used"]
+[connection signal="happiness_ended" from="player" to="." method="_on_player_happiness_ended"]

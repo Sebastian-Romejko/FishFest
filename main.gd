@@ -8,6 +8,7 @@ extends Node2D
 
 const GOAL_SCENE = preload("res://assets/goal.tscn")
 const CUTSCENE_BORDERS_SCENE = preload("res://ui/cutscene_borders.tscn")
+const LEVEL_END_SCENE = preload("res://ui/level_end_panel.tscn")
 const STARTING_ENERGY = 1000
 const BOTTOM_WALL_OFFSET = 70
 
@@ -48,10 +49,18 @@ func _on_regen_energy(energy_gained):
 	game_ui.set_energy(energy)
 	
 func _on_goal_reached():
-	level += 1
-	energy = STARTING_ENERGY
 	level_scene.disapear_into_bubbles()
 	canvas_layer.add_child(CUTSCENE_BORDERS_SCENE.instantiate())
 	goal_scene.play_happy_animation(goal)
 	player.play_happy_animation(goal)
 	camera.offset.y = 0
+
+func _on_player_happiness_ended():
+	var level_end_scene = LEVEL_END_SCENE.instantiate()
+	canvas_layer.add_child(level_end_scene)
+	level_end_scene.init(level, 100)
+	level_end_scene.continue_pressed.connect(_on_continue_pressed)
+	
+func _on_continue_pressed():
+	level += 1
+	energy = STARTING_ENERGY

@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://w217tv6hve37"]
+
+[ext_resource type="Script" path="res://ui/level_end_panel.gd" id="1_kxnne"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kcayb"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_amfuh"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_lp3ki"]
+font_size = 12
+
+[node name="level_end_panel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kxnne")
+
+[node name="panel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0.588235)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kcayb")
+
+[node name="v_box_container" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_right = 320.0
+offset_bottom = 180.0
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="level_label" type="Label" parent="v_box_container"]
+texture_filter = 1
+layout_mode = 2
+text = "LEVEL"
+label_settings = SubResource("LabelSettings_amfuh")
+horizontal_alignment = 1
+
+[node name="score_label" type="Label" parent="v_box_container"]
+texture_filter = 1
+layout_mode = 2
+label_settings = SubResource("LabelSettings_lp3ki")
+horizontal_alignment = 1
+
+[node name="continue_button" type="Button" parent="v_box_container"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 10
+text = "CONTINUE"
+
+[connection signal="pressed" from="v_box_container/continue_button" to="." method="_on_continue_button_pressed"]
