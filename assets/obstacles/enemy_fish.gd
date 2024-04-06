@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var move_speed: int = 15
 @export var vision_range: int = 60
 @export var damage: int = 10
-@export var push_power: int = 50
+@export var push_power: int = 10
 
 var player: Node2D
 

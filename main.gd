@@ -13,13 +13,15 @@ const GAME_OVER_SCENE = preload("res://ui/game_over_panel.tscn")
 const STARTING_ENERGY = 1000
 const BOTTOM_WALL_OFFSET = 70
 
-var energy = 10
+var energy = 1000
 var level = 1
 var level_scene
 var goal: int
 var goal_scene
+var bottom_wall_starting_y
 
 func _ready():
+	bottom_wall_starting_y = bottom_wall.position.y
 	game_ui.set_energy(energy)
 	start_level(level)
 	
@@ -49,7 +51,10 @@ func _on_fish_energy_used(energy_used):
 		game_over_scene.restart_clicked.connect(_on_restart_clicked)
 	
 func _on_restart_clicked():
-	player.position = Vector2(0, 0)
+	bottom_wall.position.y = bottom_wall_starting_y
+	camera.limit_bottom = 1000000
+	energy = STARTING_ENERGY
+	player.restart()
 	level_scene.queue_free()
 	goal_scene.queue_free()
 	start_level(level)
@@ -74,3 +79,4 @@ func _on_player_happiness_ended():
 func _on_continue_pressed():
 	level += 1
 	energy = STARTING_ENERGY
+	camera.limit_bottom = 1000000

@@ -10,9 +10,9 @@ signal happiness_ended()
 @onready var fish = $sprite/sub_viewport/fish
 @onready var happy_timer = $happy_timer
 
-@export var move_speed: int = 70
+const MOVE_SPEED = 1
+const MAX_SPEED = 70
 
-var pushing_back = false
 var state = STATE.NORMAL
 
 var goal_position: Vector2
@@ -23,16 +23,21 @@ var happiness_already_ended = false
 func _physics_process(delta):
 	viewport.render_target_update_mode = viewport.UPDATE_ONCE
 	
+	print(velocity)
+	velocity /= 1.01
+	
 	match(state):
 		STATE.NORMAL:
-			velocity.x = (Input.get_action_strength("right") - Input.get_action_strength("left")) * move_speed
-			velocity.y = (Input.get_action_strength("down") - Input.get_action_strength("up")) * move_speed
+			var new_velocity = Vector2(0, 0)
+			new_velocity.x = (Input.get_action_strength("right") - Input.get_action_strength("left")) * MOVE_SPEED
+			new_velocity.y = (Input.get_action_strength("down") - Input.get_action_strength("up")) * MOVE_SPEED
 			
-			if pushing_back:
-				velocity /= 5
-			
+			if new_velocity.x != 0 or new_velocity.y != 0:
+				velocity += new_velocity
+				
 			look_at(global_position - velocity)
-
+			
+			limit_to_max_speed()
 			move_and_slide()
 			
 			if velocity.y != 0 or velocity.x != 0:
@@ -47,25 +52,23 @@ func _physics_process(delta):
 			if position.distance_to(target_position) > 1:
 				look_at(goal_position)
 				var direction = position.direction_to(target_position)
-				velocity = direction * move_speed / 2
+				velocity = direction * MAX_SPEED / 1.5
 				move_and_slide()
 			else:
 				if happy_timer.is_stopped() and !happiness_already_ended:
 					fish.play_happy_animation()
 					happy_timer.start()
 
+func limit_to_max_speed():
+	velocity.x = min(MAX_SPEED, velocity.x) if velocity.x > 0 else max(-MAX_SPEED, velocity.x)
+	velocity.y = min(MAX_SPEED, velocity.y) if velocity.y > 0 else max(-MAX_SPEED, velocity.y)
+
 func push_back(from: Vector2, power: int):
-	pushing_back = true
 	var tween = get_tree().create_tween()
 	var direction = from.direction_to(position)
-	tween.tween_property(self, "position", position + direction * power, 1)
-	tween.play()
-	tween.tween_callback(push_back_finished)
+	velocity = position + direction * power
 	energy_used.emit(power)
 	bubbles.restart()
-	
-func push_back_finished():
-	pushing_back = false
 	
 func play_death_animation():
 	state = STATE.DEAD
@@ -78,6 +81,11 @@ func play_happy_animation(goal_height: int):
 	goal_position = Vector2(0 + 50, goal_height)
 	target_position = Vector2(0 + 30, goal_height)
 	state = STATE.HAPPY
+	
+func restart():
+	position = Vector2(0, 0)
+	velocity = Vector2(0, 0)
+	state = STATE.NORMAL
 
 func _on_happy_timer_timeout():
 	happiness_ended.emit()
