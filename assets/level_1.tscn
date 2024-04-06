@@ -17,31 +17,18 @@ script = ExtResource("1_cb6b0")
 scale = Vector2(1, 100)
 texture = ExtResource("1_6k2kh")
 
+[node name="static_body" type="StaticBody2D" parent="River5"]
+scale = Vector2(1, 0.01)
+
+[node name="collision_shape" type="CollisionShape2D" parent="River5/static_body"]
+position = Vector2(-148, -600)
+shape = SubResource("RectangleShape2D_cusoo")
+
+[node name="collision_shape2" type="CollisionShape2D" parent="River5/static_body"]
+position = Vector2(148, -600)
+shape = SubResource("RectangleShape2D_cusoo")
+
 [node name="rocks" type="Node2D" parent="."]
-
-[node name="rock" parent="rocks" instance=ExtResource("2_wlqar")]
-position = Vector2(-121.2, -655.2)
-
-[node name="rock2" parent="rocks" instance=ExtResource("2_wlqar")]
-position = Vector2(-94.2, -657.2)
-
-[node name="rock3" parent="rocks" instance=ExtResource("2_wlqar")]
-position = Vector2(-67.2, -653.2)
-
-[node name="rock4" parent="rocks" instance=ExtResource("2_wlqar")]
-position = Vector2(12.8, -672.2)
-
-[node name="rock5" parent="rocks" instance=ExtResource("2_wlqar")]
-position = Vector2(37.8, -658.2)
-
-[node name="rock6" parent="rocks" instance=ExtResource("2_wlqar")]
-position = Vector2(106.8, -671.2)
-
-[node name="rock7" parent="rocks" instance=ExtResource("2_wlqar")]
-position = Vector2(123.8, -649.2)
-
-[node name="rock8" parent="rocks" instance=ExtResource("2_wlqar")]
-position = Vector2(123.8, -649.2)
 
 [node name="rock9" parent="rocks" instance=ExtResource("2_wlqar")]
 position = Vector2(44.8, -242.4)
@@ -103,22 +90,34 @@ position = Vector2(120.8, -1241.2)
 [node name="rock18" parent="rocks" instance=ExtResource("2_wlqar")]
 position = Vector2(12.8, -491.4)
 
+[node name="rock29" parent="rocks" instance=ExtResource("2_wlqar")]
+position = Vector2(120, -947)
+
+[node name="rock30" parent="rocks" instance=ExtResource("2_wlqar")]
+position = Vector2(88, -952)
+
+[node name="rock31" parent="rocks" instance=ExtResource("2_wlqar")]
+position = Vector2(-119, -952)
+
+[node name="rock32" parent="rocks" instance=ExtResource("2_wlqar")]
+position = Vector2(-90, -956)
+
+[node name="rock33" parent="rocks" instance=ExtResource("2_wlqar")]
+position = Vector2(-61, -955)
+
+[node name="rock34" parent="rocks" instance=ExtResource("2_wlqar")]
+position = Vector2(59, -947)
+
+[node name="rock35" parent="rocks" instance=ExtResource("2_wlqar")]
+position = Vector2(-32, -950)
+
+[node name="rock36" parent="rocks" instance=ExtResource("2_wlqar")]
+position = Vector2(29, -957)
+
 [node name="enemies" type="Node2D" parent="."]
 
-[node name="enemy_fish_1" parent="enemies" instance=ExtResource("3_b271s")]
-position = Vector2(-22.2, -636.2)
-
-[node name="enemy_fish_3" parent="enemies" instance=ExtResource("3_b271s")]
-position = Vector2(14.8, -422.4)
-
 [node name="enemy_fish_4" parent="enemies" instance=ExtResource("3_b271s")]
-position = Vector2(-76, -868)
-
-[node name="enemy_fish_2" parent="enemies" instance=ExtResource("3_b271s")]
-position = Vector2(73.8, -641.2)
-
-[node name="enemy_fish_5" parent="enemies" instance=ExtResource("3_b271s")]
-position = Vector2(95, -934)
+position = Vector2(1, -748)
 
 [node name="seaweed" type="Node2D" parent="."]
 
@@ -126,29 +125,15 @@ position = Vector2(95, -934)
 position = Vector2(-898, -1432)
 
 [node name="seaweed2" parent="seaweed" instance=ExtResource("4_dxcyj")]
-position = Vector2(114.8, -517.4)
+position = Vector2(14, -430)
 
 [node name="seaweed3" parent="seaweed" instance=ExtResource("4_dxcyj")]
-position = Vector2(-114, -912)
-
-[node name="seaweed4" parent="seaweed" instance=ExtResource("4_dxcyj")]
-position = Vector2(110, -977)
+position = Vector2(0, -815)
 
 [node name="lights" parent="." instance=ExtResource("6_2j0wg")]
 width = 120.0
 height = 1400.0
 
-[node name="static_body" type="StaticBody2D" parent="."]
-
-[node name="collision_shape" type="CollisionShape2D" parent="static_body"]
-position = Vector2(-148, -600)
-shape = SubResource("RectangleShape2D_cusoo")
-
-[node name="collision_shape2" type="CollisionShape2D" parent="static_body"]
-position = Vector2(148, -600)
-shape = SubResource("RectangleShape2D_cusoo")
-
 [connection signal="regen_energy" from="seaweed/seaweed" to="." method="_on_seaweed_regen_energy"]
 [connection signal="regen_energy" from="seaweed/seaweed2" to="." method="_on_seaweed_regen_energy"]
 [connection signal="regen_energy" from="seaweed/seaweed3" to="." method="_on_seaweed_regen_energy"]
-[connection signal="regen_energy" from="seaweed/seaweed4" to="." method="_on_seaweed_regen_energy"]

@@ -83,4 +83,5 @@ func _on_player_happiness_ended():
 func _on_continue_pressed():
 	level += 1
 	energy = STARTING_ENERGY
+	game_ui.set_energy(energy)
 	camera.limit_bottom = 1000000

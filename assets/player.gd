@@ -10,6 +10,7 @@ signal happiness_ended()
 @onready var fish = $sprite/sub_viewport/fish
 @onready var happy_timer = $happy_timer
 
+const MANA_USAGE_MODIFIER = 150
 const MOVE_SPEED = 1
 const MAX_SPEED = 50
 
@@ -40,7 +41,7 @@ func _physics_process(delta):
 			move_and_slide()
 			
 			if (abs(velocity.x) > 5 or abs(velocity.y) > 5):
-				energy_used.emit((abs(velocity.x) + abs(velocity.y)) / 100)
+				energy_used.emit((abs(velocity.x) + abs(velocity.y)) / MANA_USAGE_MODIFIER)
 				fish.play_swim_animation()
 			else:
 				fish.play_idle_animation()

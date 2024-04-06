@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://6af6onqpiqhj"]
+
+[ext_resource type="Texture2D" uid="uid://ywmv8r750fxt" path="res://art/river_4.png" id="1_f3gcg"]
+[ext_resource type="PackedScene" uid="uid://bs1n23kpjva7a" path="res://assets/obstacles/rock.tscn" id="2_n4a67"]
+[ext_resource type="PackedScene" uid="uid://o3nm608mmlu1" path="res://assets/obstacles/enemy_fish_1.tscn" id="3_stm0d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gubrv"]
+size = Vector2(24, 2500)
+
+[node name="level_2" type="Node2D"]
+
+[node name="River5" type="Sprite2D" parent="."]
+scale = Vector2(1, 100)
+texture = ExtResource("1_f3gcg")
+
+[node name="static_body" type="StaticBody2D" parent="River5"]
+scale = Vector2(1, 0.01)
+
+[node name="collision_shape" type="CollisionShape2D" parent="River5/static_body"]
+position = Vector2(-148, -800)
+shape = SubResource("RectangleShape2D_gubrv")
+
+[node name="collision_shape2" type="CollisionShape2D" parent="River5/static_body"]
+position = Vector2(148, -800)
+shape = SubResource("RectangleShape2D_gubrv")
+
+[node name="rocks" type="Node2D" parent="."]
+
+[node name="rock" parent="rocks" instance=ExtResource("2_n4a67")]
+position = Vector2(-122.2, -354.2)
+
+[node name="rock2" parent="rocks" instance=ExtResource("2_n4a67")]
+position = Vector2(-95.2, -356.2)
+
+[node name="rock3" parent="rocks" instance=ExtResource("2_n4a67")]
+position = Vector2(-68.2, -352.2)
+
+[node name="rock4" parent="rocks" instance=ExtResource("2_n4a67")]
+position = Vector2(11.8, -371.2)
+
+[node name="rock5" parent="rocks" instance=ExtResource("2_n4a67")]
+position = Vector2(36.8, -357.2)
+
+[node name="rock6" parent="rocks" instance=ExtResource("2_n4a67")]
+position = Vector2(105.8, -370.2)
+
+[node name="rock7" parent="rocks" instance=ExtResource("2_n4a67")]
+position = Vector2(122.8, -348.2)
+
+[node name="rock8" parent="rocks" instance=ExtResource("2_n4a67")]
+position = Vector2(122.8, -348.2)
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="enemy_fish_1" parent="enemies" instance=ExtResource("3_stm0d")]
+position = Vector2(-23.2, -335.2)
+
+[node name="enemy_fish_2" parent="enemies" instance=ExtResource("3_stm0d")]
+position = Vector2(72.8, -340.2)
+
+[node name="seaweed" type="Node2D" parent="."]
