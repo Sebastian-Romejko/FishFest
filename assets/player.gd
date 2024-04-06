@@ -11,7 +11,7 @@ signal happiness_ended()
 @onready var happy_timer = $happy_timer
 
 const MOVE_SPEED = 1
-const MAX_SPEED = 70
+const MAX_SPEED = 50
 
 var state = STATE.NORMAL
 
@@ -83,6 +83,10 @@ func play_happy_animation(goal_height: int):
 func restart():
 	position = Vector2(0, 0)
 	velocity = Vector2(0, 0)
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "scale", Vector2(1.1, 1.1), 0.2)
+	tween.chain().tween_property(self, "scale", Vector2(1, 1), 0.5)
+	tween.play()
 	state = STATE.NORMAL
 
 func _on_happy_timer_timeout():

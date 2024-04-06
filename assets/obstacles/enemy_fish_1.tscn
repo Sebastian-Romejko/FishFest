@@ -63,6 +63,7 @@ position = Vector2(2, 0)
 position = Vector2(13, -1)
 shape = SubResource("RectangleShape2D_icjsp")
 
+[connection signal="attack_finished" from="sprite/sub_viewport/fish_enemy_1" to="." method="_on_fish_attack_finished"]
 [connection signal="body_entered" from="vision_range" to="." method="_on_vision_range_body_entered"]
 [connection signal="body_exited" from="vision_range" to="." method="_on_vision_range_body_exited"]
 [connection signal="body_entered" from="hit_box" to="." method="_on_hit_box_body_entered"]
