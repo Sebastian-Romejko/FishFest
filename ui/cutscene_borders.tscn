@@ -12,6 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_3kbo0")
 
 [node name="upper_border" type="ColorRect" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -19,6 +20,7 @@ grow_horizontal = 2
 color = Color(0.129412, 0.129412, 0.129412, 1)
 
 [node name="bottom_border" type="ColorRect" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0

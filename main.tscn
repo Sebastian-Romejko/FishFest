@@ -62,6 +62,7 @@ remote_path = NodePath("../../camera")
 motion_mirroring = Vector2(0, 360)
 
 [node name="river_1" type="Sprite2D" parent="ParallaxBackground/parallax_layer_river_1"]
+modulate = Color(0.8, 0.8, 0.8, 1)
 texture_filter = 1
 texture_repeat = 2
 texture = ExtResource("2_qwc4q")
@@ -71,6 +72,7 @@ position = Vector2(0, 180)
 motion_mirroring = Vector2(0, 360)
 
 [node name="river_1" type="Sprite2D" parent="ParallaxBackground/parallax_layer_river_1_copy"]
+modulate = Color(0.8, 0.8, 0.8, 1)
 texture_filter = 1
 texture_repeat = 2
 texture = ExtResource("2_qwc4q")
@@ -80,6 +82,7 @@ motion_scale = Vector2(1, 0.5)
 motion_mirroring = Vector2(0, 360)
 
 [node name="river_2" type="Sprite2D" parent="ParallaxBackground/parallax_layer_river_2"]
+modulate = Color(0.8, 0.8, 0.8, 1)
 texture_filter = 1
 texture = ExtResource("3_3grqq")
 
@@ -89,6 +92,7 @@ motion_scale = Vector2(1, 0.5)
 motion_mirroring = Vector2(0, 360)
 
 [node name="river_2" type="Sprite2D" parent="ParallaxBackground/parallax_layer_river_2_copy"]
+modulate = Color(0.8, 0.8, 0.8, 1)
 texture_filter = 1
 texture = ExtResource("3_3grqq")
 
@@ -97,6 +101,7 @@ motion_scale = Vector2(1, 0.7)
 motion_mirroring = Vector2(0, 360)
 
 [node name="river_3" type="Sprite2D" parent="ParallaxBackground/parallax_layer_river_3"]
+modulate = Color(0.8, 0.8, 0.8, 1)
 texture_filter = 1
 texture = ExtResource("4_d3f8e")
 
@@ -106,6 +111,7 @@ motion_scale = Vector2(1, 0.7)
 motion_mirroring = Vector2(0, 360)
 
 [node name="river_3" type="Sprite2D" parent="ParallaxBackground/parallax_layer_river_3_copy"]
+modulate = Color(0.8, 0.8, 0.8, 1)
 texture_filter = 1
 texture = ExtResource("4_d3f8e")
 
@@ -113,6 +119,7 @@ texture = ExtResource("4_d3f8e")
 motion_mirroring = Vector2(0, 360)
 
 [node name="river_4" type="Sprite2D" parent="ParallaxBackground/parallax_layer_river_4"]
+modulate = Color(0.8, 0.8, 0.8, 1)
 texture_filter = 1
 texture = ExtResource("5_0dyfl")
 
@@ -121,6 +128,7 @@ position = Vector2(0, 180)
 motion_mirroring = Vector2(0, 360)
 
 [node name="river_4" type="Sprite2D" parent="ParallaxBackground/parallax_layer_river_4_copy"]
+modulate = Color(0.8, 0.8, 0.8, 1)
 texture_filter = 1
 texture = ExtResource("5_0dyfl")
 
