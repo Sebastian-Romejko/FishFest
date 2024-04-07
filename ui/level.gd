@@ -9,19 +9,23 @@ signal level_choosen(level)
 
 @export var level: int = 1
 
+var stars = 0
+
 func _ready():
 	button.text = str(level)
 
 func set_enable():
 	button.disabled = false
 
-func set_stars(stars):
-	if stars >= 1:
-		star1.set_enable()
-	if stars >= 2:
-		star2.set_enable()
-	if stars >= 3:
-		star3.set_enable()
+func set_stars(_stars):
+	if _stars > stars:
+		stars = _stars
+		if stars >= 1:
+			star1.set_enable()
+		if stars >= 2:
+			star2.set_enable()
+		if stars >= 3:
+			star3.set_enable()
 
 func _on_button_pressed():
 	level_choosen.emit(level)

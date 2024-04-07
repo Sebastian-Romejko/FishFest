@@ -38,6 +38,7 @@ shader_parameter/noise = SubResource("NoiseTexture2D_nbir7")
 size = Vector2(272, 20)
 
 [node name="main" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_ds2ps")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -169,6 +170,7 @@ position = Vector2(0, 105)
 [node name="collision_shape" type="CollisionShape2D" parent="bottom_wall"]
 shape = SubResource("RectangleShape2D_ucdfh")
 
+[connection signal="paused_pressed" from="CanvasLayer/game_ui" to="." method="_on_game_ui_paused_pressed"]
 [connection signal="level_choosen" from="CanvasLayer/menu" to="." method="_on_menu_level_choosen"]
 [connection signal="energy_used" from="player" to="." method="_on_fish_energy_used"]
 [connection signal="happiness_ended" from="player" to="." method="_on_player_happiness_ended"]

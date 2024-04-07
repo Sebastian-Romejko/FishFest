@@ -1,7 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://btxeeceoj2wgd"]
+[gd_scene load_steps=9 format=3 uid="uid://btxeeceoj2wgd"]
 
 [ext_resource type="PackedScene" uid="uid://ca1f6t6i1f8yd" path="res://ui/darkening_panel.tscn" id="1_0fbbx"]
 [ext_resource type="Script" path="res://ui/game_over_panel.gd" id="1_v03f4"]
+[ext_resource type="StyleBox" uid="uid://belq1iq21fks6" path="res://ui/styles/button_normal.tres" id="3_nryj4"]
+[ext_resource type="StyleBox" uid="uid://ggprvljfilwg" path="res://ui/styles/button_hover.tres" id="4_yne1h"]
+[ext_resource type="StyleBox" uid="uid://iskf4f1kk7qh" path="res://ui/styles/button_pressed.tres" id="5_acgui"]
+[ext_resource type="StyleBox" uid="uid://dpio2y8cu4np5" path="res://ui/styles/button_disabled.tres" id="6_n12jx"]
+[ext_resource type="StyleBox" uid="uid://b0ati1sfqjmo0" path="res://ui/styles/button_focus.tres" id="7_jhets"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_b5cyu"]
 font_size = 20
@@ -40,6 +45,11 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = ExtResource("3_nryj4")
+theme_override_styles/hover = ExtResource("4_yne1h")
+theme_override_styles/pressed = ExtResource("5_acgui")
+theme_override_styles/disabled = ExtResource("6_n12jx")
+theme_override_styles/focus = ExtResource("7_jhets")
 text = "TRY AGAIN"
 
 [connection signal="pressed" from="v_box_container/restart_button" to="." method="_on_restart_button_pressed"]

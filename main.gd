@@ -13,6 +13,7 @@ const GOAL_SCENE = preload("res://assets/goal.tscn")
 const CUTSCENE_BORDERS_SCENE = preload("res://ui/cutscene_borders.tscn")
 const LEVEL_END_SCENE = preload("res://ui/level_end_panel.tscn")
 const GAME_OVER_SCENE = preload("res://ui/game_over_panel.tscn")
+const PAUSE_SCENE = preload("res://ui/pause_panel.tscn")
 const STARTING_ENERGY = 1000
 const BOTTOM_WALL_OFFSET = 70
 
@@ -53,8 +54,13 @@ func start_level(level):
 	goal_scene.reached.connect(_on_goal_reached)
 
 func start_new_level():
+	get_tree().paused = false
+	player.visible = true
+	parallax_background.visible = true
+	parallax_background2.visible = true
 	if cutscene_borders:
 		cutscene_borders.queue_free()
+		cutscene_borders = null
 	game_over = false
 	player_hit = false
 	seaweed_collected = 0
@@ -99,25 +105,46 @@ func _on_goal_reached():
 	camera.offset.y = 0
 
 func _on_player_happiness_ended():
+	cutscene_borders.queue_free()
+	cutscene_borders = null
 	var stars = {"1": true}
 	stars["2"] = true if seaweed_collected == level_config.seaweed else false
 	stars["3"] = true if not player_hit else false
 	menu.set_stars(level, stars.values().filter(func(x): return x).size())
+	level += 1
+	menu.set_level_enable(level)
 	var level_end_scene = LEVEL_END_SCENE.instantiate()
 	canvas_layer.add_child(level_end_scene)
 	level_end_scene.init(level, stars)
 	level_end_scene.continue_pressed.connect(_on_continue_pressed)
+	level_end_scene.menu_pressed.connect(_on_menu_clicked)
 	
 func _on_continue_pressed():
-	level += 1
-	menu.set_level_enable(level)
 	start_new_level()
 
 func _on_menu_level_choosen(_level):
 	level = _level
-	player.visible = true
-	parallax_background.visible = true
-	parallax_background2.visible = true
 	menu.visible = false
 	game_ui.visible = true
 	start_new_level()
+
+func _on_game_ui_paused_pressed():
+	var pause_panel = PAUSE_SCENE.instantiate()
+	canvas_layer.add_child(pause_panel)
+	pause_panel.resume_clicked.connect(_on_resume_clicked)
+	pause_panel.menu_clicked.connect(_on_menu_clicked)
+	get_tree().paused = true
+	
+func _on_resume_clicked():
+	get_tree().paused = false
+
+func _on_menu_clicked():
+	player.visible = false
+	parallax_background.visible = false
+	parallax_background2.visible = false
+	menu.visible = true
+	game_ui.visible = false
+	
+	await get_tree().create_timer(1).timeout
+	for child in canvas_layer.get_children():
+		print(child.name)

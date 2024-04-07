@@ -1,13 +1,52 @@
-[gd_scene load_steps=5 format=3 uid="uid://ck8qpv3ubvj8l"]
+[gd_scene load_steps=11 format=3 uid="uid://ck8qpv3ubvj8l"]
 
 [ext_resource type="Script" path="res://ui/game_ui.gd" id="1_33oaf"]
+[ext_resource type="Texture2D" uid="uid://uwy3a3c3trwo" path="res://art/pause.png" id="2_bgtme"]
+[ext_resource type="StyleBox" uid="uid://belq1iq21fks6" path="res://ui/styles/button_normal.tres" id="2_hgjyy"]
 [ext_resource type="Texture2D" uid="uid://tnx1dm5ek0gw" path="res://ui/progress-bar-background.png" id="2_pngw0"]
 [ext_resource type="Texture2D" uid="uid://dew62s8fosiv2" path="res://ui/progress-bar.png" id="3_knxpb"]
+[ext_resource type="StyleBox" uid="uid://ggprvljfilwg" path="res://ui/styles/button_hover.tres" id="3_wm7gh"]
 [ext_resource type="Texture2D" uid="uid://c5exbbobonfnr" path="res://ui/progress-bar-fill.png" id="4_7dlra"]
+[ext_resource type="StyleBox" uid="uid://iskf4f1kk7qh" path="res://ui/styles/button_pressed.tres" id="4_054ck"]
+[ext_resource type="StyleBox" uid="uid://dpio2y8cu4np5" path="res://ui/styles/button_disabled.tres" id="5_wqt7t"]
+[ext_resource type="StyleBox" uid="uid://b0ati1sfqjmo0" path="res://ui/styles/button_focus.tres" id="6_d8gdf"]
 
 [node name="game_ui" type="Control"]
 texture_filter = 1
 layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_33oaf")
+
+[node name="margin_container" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+scale = Vector2(0.8, 0.8)
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+
+[node name="pause" type="Button" parent="margin_container"]
+modulate = Color(1, 1, 1, 0.901961)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("2_hgjyy")
+theme_override_styles/hover = ExtResource("3_wm7gh")
+theme_override_styles/pressed = ExtResource("4_054ck")
+theme_override_styles/disabled = ExtResource("5_wqt7t")
+theme_override_styles/focus = ExtResource("6_d8gdf")
+icon = ExtResource("2_bgtme")
+icon_alignment = 1
+expand_icon = true
+
+[node name="control" type="Control" parent="."]
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -16,11 +55,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
-size_flags_horizontal = 3
-size_flags_vertical = 3
-script = ExtResource("1_33oaf")
 
-[node name="center_container" type="CenterContainer" parent="."]
+[node name="center_container" type="CenterContainer" parent="control"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 7
@@ -34,9 +70,11 @@ offset_right = 80.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="texture_progress_bar" type="TextureProgressBar" parent="center_container"]
+[node name="texture_progress_bar" type="TextureProgressBar" parent="control/center_container"]
 layout_mode = 2
 max_value = 1000.0
 texture_under = ExtResource("2_pngw0")
 texture_over = ExtResource("3_knxpb")
 texture_progress = ExtResource("4_7dlra")
+
+[connection signal="pressed" from="margin_container/pause" to="." method="_on_pause_pressed"]

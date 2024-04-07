@@ -1,6 +1,7 @@
 extends Control
 
 signal continue_pressed()
+signal menu_pressed()
 
 @onready var level_label = $v_box_container/level_label
 @onready var star_finished = $v_box_container/margin_container/v_box_container_stars/h_box_container_star/star
@@ -21,4 +22,8 @@ func init(level: int, stars: Dictionary):
 
 func _on_continue_button_pressed():
 	continue_pressed.emit()
+	queue_free()
+
+func _on_menu_button_pressed():
+	menu_pressed.emit()
 	queue_free()

@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://w217tv6hve37"]
+[gd_scene load_steps=11 format=3 uid="uid://w217tv6hve37"]
 
 [ext_resource type="Script" path="res://ui/level_end_panel.gd" id="1_kxnne"]
 [ext_resource type="PackedScene" uid="uid://ca1f6t6i1f8yd" path="res://ui/darkening_panel.tscn" id="2_gw4v7"]
 [ext_resource type="PackedScene" uid="uid://cfvbd5rae2l24" path="res://ui/star.tscn" id="3_jaekn"]
+[ext_resource type="StyleBox" uid="uid://belq1iq21fks6" path="res://ui/styles/button_normal.tres" id="4_lrhqq"]
+[ext_resource type="StyleBox" uid="uid://ggprvljfilwg" path="res://ui/styles/button_hover.tres" id="5_0ry03"]
+[ext_resource type="StyleBox" uid="uid://iskf4f1kk7qh" path="res://ui/styles/button_pressed.tres" id="6_cakxn"]
+[ext_resource type="StyleBox" uid="uid://dpio2y8cu4np5" path="res://ui/styles/button_disabled.tres" id="7_442x1"]
+[ext_resource type="StyleBox" uid="uid://b0ati1sfqjmo0" path="res://ui/styles/button_focus.tres" id="8_tkipx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_amfuh"]
 font_size = 20
@@ -85,12 +90,36 @@ text = "no damage"
 label_settings = SubResource("LabelSettings_lp3ki")
 horizontal_alignment = 1
 
-[node name="continue_button" type="Button" parent="v_box_container"]
+[node name="h_box_container" type="HBoxContainer" parent="v_box_container"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="menu_button" type="Button" parent="v_box_container/h_box_container"]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = ExtResource("4_lrhqq")
+theme_override_styles/hover = ExtResource("5_0ry03")
+theme_override_styles/pressed = ExtResource("6_cakxn")
+theme_override_styles/disabled = ExtResource("7_442x1")
+theme_override_styles/focus = ExtResource("8_tkipx")
+text = "MENU"
+
+[node name="continue_button" type="Button" parent="v_box_container/h_box_container"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = ExtResource("4_lrhqq")
+theme_override_styles/hover = ExtResource("5_0ry03")
+theme_override_styles/pressed = ExtResource("6_cakxn")
+theme_override_styles/disabled = ExtResource("7_442x1")
+theme_override_styles/focus = ExtResource("8_tkipx")
 text = "CONTINUE"
 
-[connection signal="pressed" from="v_box_container/continue_button" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="v_box_container/h_box_container/menu_button" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="v_box_container/h_box_container/continue_button" to="." method="_on_continue_button_pressed"]

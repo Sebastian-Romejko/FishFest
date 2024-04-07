@@ -8,15 +8,16 @@ signal level_choosen(level)
 @onready var level4 = $panel_container/margin_container/v_box_container/box_container/level4
 @onready var level5 = $panel_container/margin_container/v_box_container/box_container/level5
 
-var levels = {
-	1: level1,
-	2: level2,
-	3: level3,
-	4: level4,
-	5: level5
-}
+var levels: Dictionary
 
 func _ready():
+	levels = {
+		1: level1,	
+		2: level2,
+		3: level3,
+		4: level4,
+		5: level5
+	}
 	level1.set_enable()
 
 func set_stars(level, stars):
