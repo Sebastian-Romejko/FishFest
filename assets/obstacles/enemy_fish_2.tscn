@@ -9,7 +9,7 @@ viewport_path = NodePath("sprite/sub_viewport")
 [sub_resource type="Environment" id="Environment_ijtow"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lj1wl"]
-size = Vector2(37, 13)
+size = Vector2(27, 13)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7eblt"]
 radius = 60.0
@@ -53,21 +53,22 @@ size = 2.0
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.98162, 0)
 
 [node name="collision_shape" type="CollisionShape2D" parent="."]
-position = Vector2(-3.5, -0.5)
+position = Vector2(-1.5, -0.5)
 shape = SubResource("RectangleShape2D_lj1wl")
 
 [node name="vision_range" type="Area2D" parent="."]
 
 [node name="collision_shape" type="CollisionShape2D" parent="vision_range"]
-scale = Vector2(1, 0.8)
 shape = SubResource("CircleShape2D_7eblt")
 
 [node name="hit_box" type="Area2D" parent="."]
 position = Vector2(2, 0)
 
 [node name="collision_shape" type="CollisionShape2D" parent="hit_box"]
-position = Vector2(13, -1)
+position = Vector2(10, -1)
 shape = SubResource("RectangleShape2D_icjsp")
+
+[node name="pushed_back_timer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="vision_range" to="." method="_on_vision_range_body_entered"]
 [connection signal="body_exited" from="vision_range" to="." method="_on_vision_range_body_exited"]

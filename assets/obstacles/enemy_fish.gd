@@ -32,16 +32,16 @@ func _physics_process(delta):
 			return
 			
 		look_at(player.position)
-		var direction = position.direction_to(player.position)
-		velocity += direction * move_speed / 10
+			
+		if !attacking:
+			fish.play_swim_animation()
+			var direction = position.direction_to(player.position)
+			velocity += direction * move_speed / 10
 		
 		if player_has_superpower:
 			limit_to_temp_max_speed()
 		else:
 			limit_to_max_speed()
-		
-		if !attacking:
-			fish.play_swim_animation()
 	move_and_slide()
 
 func limit_to_max_speed():
@@ -72,8 +72,9 @@ func _on_hit_box_body_entered(body):
 			attacking = true
 			fish.play_attack_animation()
 			body.push_back(position, push_power, damage)
-			var direction = body.position.direction_to(position)
-			velocity = direction * push_power * 20
+			var direction = position - body.position
+			velocity = direction * push_power * 25
+			$pushed_back_timer.start()
 
-func _on_fish_attack_finished():
+func _on_pushed_back_timer_timeout():
 	attacking = false

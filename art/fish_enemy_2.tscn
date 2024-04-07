@@ -5,3 +5,13 @@
 
 [node name="fish_enemy_2" instance=ExtResource("1_i4h21")]
 script = ExtResource("2_06e0d")
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/1/rotation = Quaternion(-1.42498e-15, -3.77489e-08, -3.77489e-08, 1)
+bones/2/rotation = Quaternion(-5.09832e-22, -7.10543e-15, -7.10543e-15, 1)
+bones/3/rotation = Quaternion(1.94779e-22, 1.19209e-07, 4.77364e-29, 1)
+bones/4/rotation = Quaternion(0.999921, -3.77459e-08, 0.0125903, 4.75271e-10)
+bones/5/position = Vector3(-2.34633e-08, -0.31078, -0.743282)
+bones/5/rotation = Quaternion(-0.120601, 0.696746, -0.120601, 0.696747)
+bones/6/position = Vector3(4.15166e-08, -0.31078, 0.743282)
+bones/6/rotation = Quaternion(0.120601, 0.696746, 0.120601, 0.696747)

@@ -15,7 +15,3 @@ func play_idle_animation():
 	
 func play_attack_animation():
 	animation_player.play("attack")
-
-func _on_animation_player_animation_finished(anim_name):
-	if anim_name == "attack":
-		attack_finished.emit()

@@ -37,7 +37,7 @@ func _ready():
 	start_level(level)
 	
 func _process(delta):
-	var bottom_limit = min(player.position.y + 120, bottom_wall.position.y)
+	var bottom_limit = min(player.position.y + 250, bottom_wall.position.y)
 	bottom_wall.position.y = bottom_limit
 	camera.limit_bottom = bottom_limit + 20
 	

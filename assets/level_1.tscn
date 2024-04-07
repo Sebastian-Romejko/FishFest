@@ -39,6 +39,33 @@ position = Vector2(-71.2, -224.4)
 [node name="rock11" parent="rocks" instance=ExtResource("2_wlqar")]
 position = Vector2(-42.2, -216.4)
 
+[node name="rock45" parent="rocks" instance=ExtResource("2_wlqar")]
+position = Vector2(-120.2, 182.8)
+
+[node name="rock46" parent="rocks" instance=ExtResource("2_wlqar")]
+position = Vector2(-89.2, 185.8)
+
+[node name="rock47" parent="rocks" instance=ExtResource("2_wlqar")]
+position = Vector2(-57.2, 180.8)
+
+[node name="rock48" parent="rocks" instance=ExtResource("2_wlqar")]
+position = Vector2(-25.2, 185.8)
+
+[node name="rock49" parent="rocks" instance=ExtResource("2_wlqar")]
+position = Vector2(4.8, 181.8)
+
+[node name="rock50" parent="rocks" instance=ExtResource("2_wlqar")]
+position = Vector2(34.8, 184.8)
+
+[node name="rock51" parent="rocks" instance=ExtResource("2_wlqar")]
+position = Vector2(64.8, 187.8)
+
+[node name="rock52" parent="rocks" instance=ExtResource("2_wlqar")]
+position = Vector2(94.8, 180.8)
+
+[node name="rock53" parent="rocks" instance=ExtResource("2_wlqar")]
+position = Vector2(121.8, 184.8)
+
 [node name="rock12" parent="rocks" instance=ExtResource("2_wlqar")]
 position = Vector2(6.8, -362.4)
 
