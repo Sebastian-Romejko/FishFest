@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://brjpvtoruag8"]
+
+[ext_resource type="PackedScene" uid="uid://cfvbd5rae2l24" path="res://ui/star.tscn" id="1_gy4sx"]
+[ext_resource type="Script" path="res://ui/level.gd" id="1_yqk64"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ndtqg"]
+bg_color = Color(0.192157, 0.192157, 0.192157, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.152941, 0.152941, 0.152941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0ogi"]
+bg_color = Color(0.192157, 0.192157, 0.192157, 0.709804)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.152941, 0.152941, 0.152941, 0.764706)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0p66y"]
+bg_color = Color(0.192157, 0.192157, 0.192157, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.152941, 0.152941, 0.152941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i60f3"]
+bg_color = Color(0.396078, 0.396078, 0.396078, 0.529412)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p4bve"]
+
+[node name="level" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yqk64")
+
+[node name="v_box_container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="button" type="Button" parent="v_box_container"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_ndtqg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v0ogi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0p66y")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_i60f3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p4bve")
+disabled = true
+text = "1"
+
+[node name="h_box_container" type="HBoxContainer" parent="v_box_container"]
+layout_mode = 2
+alignment = 1
+
+[node name="star2" parent="v_box_container/h_box_container" instance=ExtResource("1_gy4sx")]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="star3" parent="v_box_container/h_box_container" instance=ExtResource("1_gy4sx")]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="star4" parent="v_box_container/h_box_container" instance=ExtResource("1_gy4sx")]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[connection signal="pressed" from="v_box_container/button" to="." method="_on_button_pressed"]

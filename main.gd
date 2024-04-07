@@ -4,7 +4,10 @@ extends Node2D
 @onready var camera = $camera
 @onready var canvas_layer = $CanvasLayer
 @onready var game_ui = $CanvasLayer/game_ui
+@onready var menu = $CanvasLayer/menu
 @onready var bottom_wall = $bottom_wall
+@onready var parallax_background = $parallax_background
+@onready var parallax_background2 = $parallax_background_2
 
 const GOAL_SCENE = preload("res://assets/goal.tscn")
 const CUTSCENE_BORDERS_SCENE = preload("res://ui/cutscene_borders.tscn")
@@ -99,6 +102,7 @@ func _on_player_happiness_ended():
 	var stars = {"1": true}
 	stars["2"] = true if seaweed_collected == level_config.seaweed else false
 	stars["3"] = true if not player_hit else false
+	menu.set_stars(level, stars.values().filter(func(x): return x).size())
 	var level_end_scene = LEVEL_END_SCENE.instantiate()
 	canvas_layer.add_child(level_end_scene)
 	level_end_scene.init(level, stars)
@@ -106,4 +110,14 @@ func _on_player_happiness_ended():
 	
 func _on_continue_pressed():
 	level += 1
+	menu.set_level_enable(level)
+	start_new_level()
+
+func _on_menu_level_choosen(_level):
+	level = _level
+	player.visible = true
+	parallax_background.visible = true
+	parallax_background2.visible = true
+	menu.visible = false
+	game_ui.visible = true
 	start_new_level()
