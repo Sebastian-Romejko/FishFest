@@ -23,7 +23,6 @@ var goal_position: Vector2
 var target_position: Vector2
 
 var was_hit = false
-var happiness_already_ended = false
 
 func _physics_process(delta):
 	viewport.render_target_update_mode = viewport.UPDATE_ONCE
@@ -59,7 +58,8 @@ func _physics_process(delta):
 				velocity = direction * MAX_SPEED / 1.5
 				move_and_slide()
 			else:
-				if happy_timer.is_stopped() and !happiness_already_ended:
+				if happy_timer.is_stopped():
+					state = STATE.NONE
 					fish.play_happy_animation()
 					happy_timer.start()
 
@@ -128,7 +128,6 @@ func gain_superpower():
 
 func _on_happy_timer_timeout():
 	happiness_ended.emit()
-	happiness_already_ended = true
-
+	
 func _on_superpower_timer_timeout():
 	superpower = false

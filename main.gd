@@ -61,17 +61,23 @@ func start_new_level():
 	if cutscene_borders:
 		cutscene_borders.queue_free()
 		cutscene_borders = null
+	if level_scene:
+		level_scene.queue_free()
+		level_scene = null
+	if goal_scene:
+		goal_scene.queue_free()
+		goal_scene = null
 	game_over = false
 	player_hit = false
 	seaweed_collected = 0
 	bottom_wall.position.y = bottom_wall_starting_y
 	energy = STARTING_ENERGY
+	game_ui.visible = true
 	game_ui.set_energy(energy)
 	camera.offset.y = camera_starting_offset_y
 	camera.limit_bottom = 1000000
 	player.restart()
-	level_scene.queue_free()
-	goal_scene.queue_free()
+	await get_tree().create_timer(0.1).timeout
 	start_level(level)
 
 func _on_fish_energy_used(energy_used):
@@ -97,6 +103,7 @@ func _on_player_hit():
 	player_hit = true
 	
 func _on_goal_reached():
+	game_ui.visible = false
 	level_scene.disapear_into_bubbles()
 	cutscene_borders = CUTSCENE_BORDERS_SCENE.instantiate()
 	canvas_layer.add_child(cutscene_borders)
@@ -105,8 +112,9 @@ func _on_goal_reached():
 	camera.offset.y = 0
 
 func _on_player_happiness_ended():
-	cutscene_borders.queue_free()
-	cutscene_borders = null
+	if cutscene_borders:
+		cutscene_borders.queue_free()
+		cutscene_borders = null
 	var stars = {"1": true}
 	stars["2"] = true if seaweed_collected == level_config.seaweed else false
 	stars["3"] = true if not player_hit else false
@@ -144,7 +152,3 @@ func _on_menu_clicked():
 	parallax_background2.visible = false
 	menu.visible = true
 	game_ui.visible = false
-	
-	await get_tree().create_timer(1).timeout
-	for child in canvas_layer.get_children():
-		print(child.name)

@@ -4,8 +4,8 @@ extends CharacterBody2D
 @onready var viewport = $sprite/sub_viewport
 @onready var vision_range_shape = $vision_range/collision_shape
 
-@export var move_speed: float = 5
-@export var max_speed: int = 30
+@export var move_speed: float = 10
+@export var max_speed: int = 25
 @export var vision_range: int = 60
 @export var max_distance: int = 100
 @export var damage: int = 100
@@ -23,9 +23,10 @@ func _ready():
 func _physics_process(delta):
 	viewport.render_target_update_mode = viewport.UPDATE_ONCE
 	
-	velocity /= 1.01
+	velocity /= 1.03
 	
 	if player:
+		print("PLAYER!!!!")
 		if position.distance_to(player.position) > max_distance:
 			fish.play_idle_animation()
 			player = null
@@ -42,7 +43,8 @@ func _physics_process(delta):
 		
 		if !attacking:
 			fish.play_swim_animation()
-			
+	else:
+		print("-----")
 	move_and_slide()
 
 func limit_to_max_speed():
@@ -57,9 +59,9 @@ func _on_vision_range_body_entered(body):
 	if body.name == "player":
 		player = body
 
-#func _on_vision_range_body_exited(body):
-	#if body.name == "player":
-		#player = null
+func _on_vision_range_body_exited(body):
+	if body.name == "player":
+		player = null
 
 func _on_hit_box_body_entered(body):
 	if body.name == "player":

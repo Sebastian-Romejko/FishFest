@@ -139,31 +139,31 @@ position = Vector2(121, -641)
 position = Vector2(43, -630)
 
 [node name="rock2" parent="rocks" instance=ExtResource("2_n4a67")]
-position = Vector2(-4.2, -1521.2)
+position = Vector2(-3.2, -1604.2)
 
 [node name="rock10" parent="rocks" instance=ExtResource("2_n4a67")]
-position = Vector2(-32.2, -1513.2)
+position = Vector2(-31.2, -1596.2)
 
 [node name="rock11" parent="rocks" instance=ExtResource("2_n4a67")]
-position = Vector2(-61.2, -1519.2)
+position = Vector2(-60.2, -1602.2)
 
 [node name="rock12" parent="rocks" instance=ExtResource("2_n4a67")]
-position = Vector2(-90.2, -1509.2)
+position = Vector2(-89.2, -1592.2)
 
 [node name="rock13" parent="rocks" instance=ExtResource("2_n4a67")]
-position = Vector2(-119.2, -1508.2)
+position = Vector2(-118.2, -1591.2)
 
 [node name="rock14" parent="rocks" instance=ExtResource("2_n4a67")]
-position = Vector2(25.8, -1517.2)
+position = Vector2(26.8, -1600.2)
 
 [node name="rock15" parent="rocks" instance=ExtResource("2_n4a67")]
-position = Vector2(54.8, -1518.2)
+position = Vector2(55.8, -1601.2)
 
 [node name="rock16" parent="rocks" instance=ExtResource("2_n4a67")]
-position = Vector2(86.8, -1515.2)
+position = Vector2(87.8, -1598.2)
 
 [node name="rock17" parent="rocks" instance=ExtResource("2_n4a67")]
-position = Vector2(118.8, -1520.2)
+position = Vector2(119.8, -1603.2)
 
 [node name="rock3" parent="rocks" instance=ExtResource("2_n4a67")]
 position = Vector2(-68.2, -352.2)
@@ -197,8 +197,8 @@ position = Vector2(75, -568)
 rotation = 2.09336
 
 [node name="enemy_fish_5" parent="enemies" instance=ExtResource("3_stm0d")]
-position = Vector2(1, -683)
-rotation = 1.53877
+position = Vector2(0.999999, -617)
+rotation = 1.5964
 
 [node name="enemy_fish_6" parent="enemies" instance=ExtResource("3_stm0d")]
 position = Vector2(-98, -858)
