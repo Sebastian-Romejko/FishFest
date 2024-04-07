@@ -183,6 +183,33 @@ position = Vector2(122.8, -348.2)
 [node name="rock8" parent="rocks" instance=ExtResource("2_n4a67")]
 position = Vector2(122.8, -348.2)
 
+[node name="rock52" parent="rocks" instance=ExtResource("2_n4a67")]
+position = Vector2(-121.2, 74.8)
+
+[node name="rock53" parent="rocks" instance=ExtResource("2_n4a67")]
+position = Vector2(-90.2, 77.8)
+
+[node name="rock54" parent="rocks" instance=ExtResource("2_n4a67")]
+position = Vector2(-58.2, 72.8)
+
+[node name="rock55" parent="rocks" instance=ExtResource("2_n4a67")]
+position = Vector2(-26.2, 77.8)
+
+[node name="rock56" parent="rocks" instance=ExtResource("2_n4a67")]
+position = Vector2(3.8, 73.8)
+
+[node name="rock57" parent="rocks" instance=ExtResource("2_n4a67")]
+position = Vector2(33.8, 76.8)
+
+[node name="rock58" parent="rocks" instance=ExtResource("2_n4a67")]
+position = Vector2(63.8, 79.8)
+
+[node name="rock59" parent="rocks" instance=ExtResource("2_n4a67")]
+position = Vector2(93.8, 72.8)
+
+[node name="rock60" parent="rocks" instance=ExtResource("2_n4a67")]
+position = Vector2(120.8, 76.8)
+
 [node name="enemies" type="Node2D" parent="."]
 
 [node name="enemy_fish_1" parent="enemies" instance=ExtResource("3_stm0d")]
@@ -224,30 +251,3 @@ position = Vector2(-118.2, -1205.2)
 
 [node name="superpower" parent="." instance=ExtResource("6_3pixx")]
 position = Vector2(55, -197)
-
-[node name="rock45" parent="." instance=ExtResource("2_n4a67")]
-position = Vector2(-121.2, 74.8)
-
-[node name="rock46" parent="." instance=ExtResource("2_n4a67")]
-position = Vector2(-90.2, 77.8)
-
-[node name="rock47" parent="." instance=ExtResource("2_n4a67")]
-position = Vector2(-58.2, 72.8)
-
-[node name="rock48" parent="." instance=ExtResource("2_n4a67")]
-position = Vector2(-26.2, 77.8)
-
-[node name="rock49" parent="." instance=ExtResource("2_n4a67")]
-position = Vector2(3.8, 73.8)
-
-[node name="rock50" parent="." instance=ExtResource("2_n4a67")]
-position = Vector2(33.8, 76.8)
-
-[node name="rock51" parent="." instance=ExtResource("2_n4a67")]
-position = Vector2(63.8, 79.8)
-
-[node name="rock52" parent="." instance=ExtResource("2_n4a67")]
-position = Vector2(93.8, 72.8)
-
-[node name="rock53" parent="." instance=ExtResource("2_n4a67")]
-position = Vector2(120.8, 76.8)
