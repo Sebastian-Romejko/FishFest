@@ -1,13 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://w217tv6hve37"]
+[gd_scene load_steps=6 format=3 uid="uid://w217tv6hve37"]
 
 [ext_resource type="Script" path="res://ui/level_end_panel.gd" id="1_kxnne"]
 [ext_resource type="PackedScene" uid="uid://ca1f6t6i1f8yd" path="res://ui/darkening_panel.tscn" id="2_gw4v7"]
+[ext_resource type="PackedScene" uid="uid://cfvbd5rae2l24" path="res://ui/star.tscn" id="3_jaekn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_amfuh"]
 font_size = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_lp3ki"]
-font_size = 12
 
 [node name="level_end_panel" type="Control"]
 layout_mode = 3
@@ -35,9 +35,52 @@ text = "LEVEL"
 label_settings = SubResource("LabelSettings_amfuh")
 horizontal_alignment = 1
 
-[node name="score_label" type="Label" parent="v_box_container"]
+[node name="margin_container" type="MarginContainer" parent="v_box_container"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+
+[node name="v_box_container_stars" type="VBoxContainer" parent="v_box_container/margin_container"]
+layout_mode = 2
+
+[node name="h_box_container_star" type="HBoxContainer" parent="v_box_container/margin_container/v_box_container_stars"]
+layout_mode = 2
+
+[node name="star" parent="v_box_container/margin_container/v_box_container_stars/h_box_container_star" instance=ExtResource("3_jaekn")]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+
+[node name="finished" type="Label" parent="v_box_container/margin_container/v_box_container_stars/h_box_container_star"]
 texture_filter = 1
 layout_mode = 2
+text = "finished"
+label_settings = SubResource("LabelSettings_lp3ki")
+horizontal_alignment = 1
+
+[node name="h_box_container_star2" type="HBoxContainer" parent="v_box_container/margin_container/v_box_container_stars"]
+layout_mode = 2
+
+[node name="star" parent="v_box_container/margin_container/v_box_container_stars/h_box_container_star2" instance=ExtResource("3_jaekn")]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+
+[node name="seaweed" type="Label" parent="v_box_container/margin_container/v_box_container_stars/h_box_container_star2"]
+texture_filter = 1
+layout_mode = 2
+text = "all seaweed"
+label_settings = SubResource("LabelSettings_lp3ki")
+horizontal_alignment = 1
+
+[node name="h_box_container_star3" type="HBoxContainer" parent="v_box_container/margin_container/v_box_container_stars"]
+layout_mode = 2
+
+[node name="star" parent="v_box_container/margin_container/v_box_container_stars/h_box_container_star3" instance=ExtResource("3_jaekn")]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+
+[node name="no damage" type="Label" parent="v_box_container/margin_container/v_box_container_stars/h_box_container_star3"]
+texture_filter = 1
+layout_mode = 2
+text = "no damage"
 label_settings = SubResource("LabelSettings_lp3ki")
 horizontal_alignment = 1
 

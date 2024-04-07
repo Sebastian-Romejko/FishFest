@@ -14,16 +14,21 @@ const STARTING_ENERGY = 1000
 const BOTTOM_WALL_OFFSET = 70
 
 var energy = 1000
-var level = 2
+var level = 1
+var level_config
 var level_scene
 var goal: int
 var goal_scene
 var game_over = false
+var player_hit = false
+var seaweed_collected = 0
 var bottom_wall_starting_y
+var camera_starting_offset_y
 var cutscene_borders
 
 func _ready():
 	bottom_wall_starting_y = bottom_wall.position.y
+	camera_starting_offset_y = camera.offset.y
 	game_ui.set_energy(energy)
 	start_level(level)
 	
@@ -33,15 +38,32 @@ func _process(delta):
 	camera.limit_bottom = bottom_limit + 20
 	
 func start_level(level):
+	level_config = Config.get_level(level)
 	level_scene = load("res://assets/level_%s.tscn" % str(level)).instantiate()
 	add_child(level_scene)
 	level_scene.regen_energy.connect(_on_regen_energy)
 	
-	goal = Config.get_level(level).goal * -1
+	goal = level_config.goal * -1
 	goal_scene = GOAL_SCENE.instantiate()
 	add_child(goal_scene)
 	goal_scene.position.y = goal
 	goal_scene.reached.connect(_on_goal_reached)
+
+func start_new_level():
+	if cutscene_borders:
+		cutscene_borders.queue_free()
+	game_over = false
+	player_hit = false
+	seaweed_collected = 0
+	bottom_wall.position.y = bottom_wall_starting_y
+	energy = STARTING_ENERGY
+	game_ui.set_energy(energy)
+	camera.offset.y = camera_starting_offset_y
+	camera.limit_bottom = 1000000
+	player.restart()
+	level_scene.queue_free()
+	goal_scene.queue_free()
+	start_level(level)
 
 func _on_fish_energy_used(energy_used):
 	energy -= energy_used
@@ -60,6 +82,9 @@ func _on_restart_clicked():
 func _on_regen_energy(energy_gained):
 	energy += energy_gained
 	game_ui.set_energy(energy)
+
+func _on_player_hit():
+	player_hit = true
 	
 func _on_goal_reached():
 	level_scene.disapear_into_bubbles()
@@ -70,24 +95,14 @@ func _on_goal_reached():
 	camera.offset.y = 0
 
 func _on_player_happiness_ended():
+	var stars = {"1": true}
+	stars["2"] = true if seaweed_collected == level_config.seaweed else false
+	stars["3"] = true if not player_hit else false
 	var level_end_scene = LEVEL_END_SCENE.instantiate()
 	canvas_layer.add_child(level_end_scene)
-	level_end_scene.init(level, 100)
+	level_end_scene.init(level, stars)
 	level_end_scene.continue_pressed.connect(_on_continue_pressed)
 	
 func _on_continue_pressed():
 	level += 1
 	start_new_level()
-
-func start_new_level():
-	if cutscene_borders:
-		cutscene_borders.queue_free()
-	game_over = false
-	bottom_wall.position.y = bottom_wall_starting_y
-	energy = STARTING_ENERGY
-	game_ui.set_energy(energy)
-	camera.limit_bottom = 1000000
-	player.restart()
-	level_scene.queue_free()
-	goal_scene.queue_free()
-	start_level(level)

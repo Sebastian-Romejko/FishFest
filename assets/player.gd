@@ -3,6 +3,7 @@ extends CharacterBody2D
 enum STATE {NORMAL, DEAD, HAPPY, NONE}
 
 signal energy_used(energy)
+signal hit()
 signal happiness_ended()
 
 @onready var bubbles = $bubbles
@@ -21,6 +22,7 @@ var superpower = false
 var goal_position: Vector2
 var target_position: Vector2
 
+var was_hit = false
 var happiness_already_ended = false
 
 func _physics_process(delta):
@@ -66,6 +68,9 @@ func limit_to_max_speed():
 	velocity.y = min(MAX_SPEED, velocity.y) if velocity.y > 0 else max(-MAX_SPEED, velocity.y)
 
 func push_back(from: Vector2, power: int, damage: int):
+	if !was_hit:
+		was_hit = true
+		hit.emit()
 	var direction = from.direction_to(position)
 	velocity = position + direction * power
 	energy_used.emit(damage)
@@ -84,6 +89,7 @@ func play_happy_animation(goal_height: int):
 	state = STATE.HAPPY
 	
 func restart():
+	was_hit = false
 	position = Vector2(0, 0)
 	velocity = Vector2(0, 0)
 	var tween = get_tree().create_tween()

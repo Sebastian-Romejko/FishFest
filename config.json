@@ -1,19 +1,24 @@
 {
 	"levels": {
 		"1": {
-			"goal": 1200
+			"goal": 1200,
+			"seaweed": 2
 		},
 		"2": {
-			"goal": 1500
+			"goal": 1500,
+			"seaweed": 5
 		},
 		"3": {
-			"goal": 2000
+			"goal": 2000,
+			"seaweed": 8
 		},
 		"4": {
-			"goal": 2500
+			"goal": 2500,
+			"seaweed": 10
 		},
 		"5": {
-			"goal": 3000
+			"goal": 3000,
+			"seaweed": 15
 		}
 	}
 }

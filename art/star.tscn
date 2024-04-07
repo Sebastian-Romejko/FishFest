@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dchiyjuwbvrmq"]
+
+[ext_resource type="PackedScene" uid="uid://cwfjfev0t3nxo" path="res://art/star.blend" id="1_cxn8y"]
+[ext_resource type="Script" path="res://art/star.gd" id="2_ady07"]
+
+[node name="star" instance=ExtResource("1_cxn8y")]
+script = ExtResource("2_ady07")
