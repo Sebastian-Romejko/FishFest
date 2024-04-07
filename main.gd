@@ -140,11 +140,15 @@ func _on_game_ui_paused_pressed():
 	var pause_panel = PAUSE_SCENE.instantiate()
 	canvas_layer.add_child(pause_panel)
 	pause_panel.resume_clicked.connect(_on_resume_clicked)
+	pause_panel.retry_clicked.connect(_on_retry_clicked)
 	pause_panel.menu_clicked.connect(_on_menu_clicked)
 	get_tree().paused = true
 	
 func _on_resume_clicked():
 	get_tree().paused = false
+	
+func _on_retry_clicked():
+	start_new_level()
 
 func _on_menu_clicked():
 	player.visible = false

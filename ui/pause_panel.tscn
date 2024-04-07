@@ -34,7 +34,7 @@ layout_mode = 2
 
 [node name="v_box_container" type="VBoxContainer" parent="panel_container/center_container"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 15
 
 [node name="resume_button" type="Button" parent="panel_container/center_container/v_box_container"]
 layout_mode = 2
@@ -44,6 +44,15 @@ theme_override_styles/pressed = ExtResource("3_u025b")
 theme_override_styles/disabled = ExtResource("4_ddtim")
 theme_override_styles/focus = ExtResource("5_2fg22")
 text = "RESUME"
+
+[node name="retry_button" type="Button" parent="panel_container/center_container/v_box_container"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("1_gv2jc")
+theme_override_styles/hover = ExtResource("2_b7xq3")
+theme_override_styles/pressed = ExtResource("3_u025b")
+theme_override_styles/disabled = ExtResource("4_ddtim")
+theme_override_styles/focus = ExtResource("5_2fg22")
+text = "RETRY"
 
 [node name="menu_button" type="Button" parent="panel_container/center_container/v_box_container"]
 layout_mode = 2
@@ -55,4 +64,5 @@ theme_override_styles/focus = ExtResource("5_2fg22")
 text = "MENU"
 
 [connection signal="pressed" from="panel_container/center_container/v_box_container/resume_button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="panel_container/center_container/v_box_container/retry_button" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="panel_container/center_container/v_box_container/menu_button" to="." method="_on_menu_button_pressed"]
