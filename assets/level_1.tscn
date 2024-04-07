@@ -155,6 +155,7 @@ position = Vector2(14, -430)
 position = Vector2(-0.4, -720.4)
 
 [node name="lights" parent="." instance=ExtResource("6_2j0wg")]
+visible = false
 width = 120.0
 height = 1400.0
 

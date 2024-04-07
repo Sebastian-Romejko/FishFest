@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var move_speed: float = 10
 @export var max_speed: int = 25
 @export var vision_range: int = 60
-@export var max_distance: int = 100
+@export var max_distance: int = 85
 @export var damage: int = 100
 @export var push_power: int = 1
 
@@ -26,7 +26,6 @@ func _physics_process(delta):
 	velocity /= 1.03
 	
 	if player:
-		print("PLAYER!!!!")
 		if position.distance_to(player.position) > max_distance:
 			fish.play_idle_animation()
 			player = null
@@ -43,8 +42,6 @@ func _physics_process(delta):
 		
 		if !attacking:
 			fish.play_swim_animation()
-	else:
-		print("-----")
 	move_and_slide()
 
 func limit_to_max_speed():
@@ -69,7 +66,7 @@ func _on_hit_box_body_entered(body):
 			player_has_superpower = true
 			var direction = body.position.direction_to(position)
 			velocity = position + direction * push_power
-			temp_max_speed = max_speed * 4
+			temp_max_speed = max_speed * 8
 		else:
 			player_has_superpower = false
 			attacking = true
