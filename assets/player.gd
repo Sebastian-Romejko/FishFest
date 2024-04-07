@@ -11,10 +11,12 @@ signal happiness_ended()
 @onready var fish = $sprite/sub_viewport/fish
 @onready var happy_timer = $happy_timer
 @onready var superpower_timer = $superpower_timer
+@onready var pushed_back_timer = $pushed_back_timer
 
 const MANA_USAGE_MODIFIER = 150
 const MOVE_SPEED = 1
 const MAX_SPEED = 50
+const TEMP_MAX_SPEED = 100
 
 var state = STATE.NORMAL
 var superpower = false
@@ -23,6 +25,7 @@ var goal_position: Vector2
 var target_position: Vector2
 
 var was_hit = false
+var pushed_back = false
 
 func _physics_process(delta):
 	viewport.render_target_update_mode = viewport.UPDATE_ONCE
@@ -40,7 +43,10 @@ func _physics_process(delta):
 				
 			look_at(global_position - velocity)
 			
-			limit_to_max_speed()
+			if pushed_back:
+				limit_to_temp_max_speed()
+			else:
+				limit_to_max_speed()
 			move_and_slide()
 			
 			if (abs(velocity.x) > 5 or abs(velocity.y) > 5):
@@ -67,12 +73,18 @@ func limit_to_max_speed():
 	velocity.x = min(MAX_SPEED, velocity.x) if velocity.x > 0 else max(-MAX_SPEED, velocity.x)
 	velocity.y = min(MAX_SPEED, velocity.y) if velocity.y > 0 else max(-MAX_SPEED, velocity.y)
 
+func limit_to_temp_max_speed():
+	velocity.x = min(TEMP_MAX_SPEED, velocity.x) if velocity.x > 0 else max(-TEMP_MAX_SPEED, velocity.x)
+	velocity.y = min(TEMP_MAX_SPEED, velocity.y) if velocity.y > 0 else max(-TEMP_MAX_SPEED, velocity.y)
+
 func push_back(from: Vector2, power: int, damage: int):
+	pushed_back = true
+	pushed_back_timer.start()
 	if !was_hit:
 		was_hit = true
 		hit.emit()
-	var direction = from.direction_to(position)
-	velocity = position + direction * power
+	var direction = position - from
+	velocity = Vector2(direction.x * power, direction.y * power)
 	energy_used.emit(damage)
 	bubbles.restart()
 	
@@ -131,3 +143,6 @@ func _on_happy_timer_timeout():
 	
 func _on_superpower_timer_timeout():
 	superpower = false
+
+func _on_pushed_back_timer_timeout():
+	pushed_back = false

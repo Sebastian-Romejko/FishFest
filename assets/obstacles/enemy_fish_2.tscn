@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cwulcoamcttnd"]
 
 [ext_resource type="Script" path="res://assets/obstacles/enemy_fish.gd" id="1_57ve5"]
-[ext_resource type="PackedScene" uid="uid://c58fi3hmn6t0u" path="res://art/fish_enemy_1.tscn" id="2_biuof"]
+[ext_resource type="PackedScene" uid="uid://owvimgx5juj" path="res://art/fish_enemy_2.tscn" id="2_605vy"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_lftxu"]
 viewport_path = NodePath("sprite/sub_viewport")
@@ -24,6 +24,7 @@ max_speed = 15
 vision_range = 100
 max_distance = 120
 damage = 300
+push_power = 10
 
 [node name="sprite" type="Sprite2D" parent="."]
 modulate = Color(1, 0.192157, 0.192157, 1)
@@ -39,7 +40,7 @@ snap_2d_vertices_to_pixel = true
 size = Vector2i(64, 64)
 render_target_update_mode = 1
 
-[node name="fish_enemy_1" parent="sprite/sub_viewport" instance=ExtResource("2_biuof")]
+[node name="fish_enemy" parent="sprite/sub_viewport" instance=ExtResource("2_605vy")]
 
 [node name="camera" type="Camera3D" parent="sprite/sub_viewport"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0)
@@ -68,7 +69,6 @@ position = Vector2(2, 0)
 position = Vector2(13, -1)
 shape = SubResource("RectangleShape2D_icjsp")
 
-[connection signal="attack_finished" from="sprite/sub_viewport/fish_enemy_1" to="." method="_on_fish_attack_finished"]
 [connection signal="body_entered" from="vision_range" to="." method="_on_vision_range_body_entered"]
 [connection signal="body_exited" from="vision_range" to="." method="_on_vision_range_body_exited"]
 [connection signal="body_entered" from="hit_box" to="." method="_on_hit_box_body_entered"]

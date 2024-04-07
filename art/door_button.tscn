@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtcpf3gsbo1hw"]
+
+[ext_resource type="Texture2D" uid="uid://6ng677p3q0b1" path="res://icon.svg" id="1_1mtcj"]
+[ext_resource type="Script" path="res://art/door_button.gd" id="1_jkorh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mey4f"]
+size = Vector2(26, 26)
+
+[node name="door_button" type="Area2D"]
+script = ExtResource("1_jkorh")
+
+[node name="sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_1mtcj")
+
+[node name="collision_shape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mey4f")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

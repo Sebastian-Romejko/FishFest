@@ -20,6 +20,7 @@ size = Vector2(4, 13)
 [node name="enemy_fish_1" type="CharacterBody2D"]
 script = ExtResource("1_ytled")
 vision_range = 80
+push_power = 3
 
 [node name="sprite" type="Sprite2D" parent="."]
 modulate = Color(1, 0.192157, 0.192157, 1)
@@ -35,7 +36,7 @@ snap_2d_vertices_to_pixel = true
 size = Vector2i(64, 64)
 render_target_update_mode = 1
 
-[node name="fish_enemy_1" parent="sprite/sub_viewport" instance=ExtResource("3_pa7mr")]
+[node name="fish_enemy" parent="sprite/sub_viewport" instance=ExtResource("3_pa7mr")]
 
 [node name="camera" type="Camera3D" parent="sprite/sub_viewport"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0)
@@ -54,7 +55,6 @@ shape = SubResource("RectangleShape2D_lj1wl")
 [node name="vision_range" type="Area2D" parent="."]
 
 [node name="collision_shape" type="CollisionShape2D" parent="vision_range"]
-scale = Vector2(1, 0.8)
 shape = SubResource("CircleShape2D_7eblt")
 
 [node name="hit_box" type="Area2D" parent="."]
@@ -64,7 +64,7 @@ position = Vector2(2, 0)
 position = Vector2(13, -1)
 shape = SubResource("RectangleShape2D_icjsp")
 
-[connection signal="attack_finished" from="sprite/sub_viewport/fish_enemy_1" to="." method="_on_fish_attack_finished"]
+[connection signal="attack_finished" from="sprite/sub_viewport/fish_enemy" to="." method="_on_fish_attack_finished"]
 [connection signal="body_entered" from="vision_range" to="." method="_on_vision_range_body_entered"]
 [connection signal="body_exited" from="vision_range" to="." method="_on_vision_range_body_exited"]
 [connection signal="body_entered" from="hit_box" to="." method="_on_hit_box_body_entered"]

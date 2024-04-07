@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://owvimgx5juj"]
+
+[ext_resource type="PackedScene" uid="uid://dpx8ayl232d1m" path="res://art/fish_enemy_2.blend" id="1_i4h21"]
+[ext_resource type="Script" path="res://art/fish_enemy.gd" id="2_06e0d"]
+
+[node name="fish_enemy_2" instance=ExtResource("1_i4h21")]
+script = ExtResource("2_06e0d")

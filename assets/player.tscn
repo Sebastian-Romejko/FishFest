@@ -15,6 +15,8 @@ height = 22.0
 
 [node name="player" type="CharacterBody2D"]
 rotation = 1.5708
+collision_layer = 3
+collision_mask = 3
 platform_on_leave = 1
 script = ExtResource("1_qwvgx")
 
@@ -55,5 +57,9 @@ one_shot = true
 wait_time = 15.0
 one_shot = true
 
+[node name="pushed_back_timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="timeout" from="happy_timer" to="." method="_on_happy_timer_timeout"]
 [connection signal="timeout" from="superpower_timer" to="." method="_on_superpower_timer_timeout"]
+[connection signal="timeout" from="pushed_back_timer" to="." method="_on_pushed_back_timer_timeout"]

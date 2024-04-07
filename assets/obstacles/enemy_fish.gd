@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
-@onready var fish = $sprite/sub_viewport/fish_enemy_1
+@onready var fish = $sprite/sub_viewport/fish_enemy
 @onready var viewport = $sprite/sub_viewport
 @onready var vision_range_shape = $vision_range/collision_shape
 
 @export var move_speed: float = 10
 @export var max_speed: int = 25
 @export var vision_range: int = 60
-@export var max_distance: int = 85
+@export var max_distance: int = 90
 @export var damage: int = 100
 @export var push_power: int = 1
 
@@ -66,14 +66,14 @@ func _on_hit_box_body_entered(body):
 			player_has_superpower = true
 			var direction = body.position.direction_to(position)
 			velocity = position + direction * push_power
-			temp_max_speed = max_speed * 8
+			temp_max_speed = max_speed * 6
 		else:
 			player_has_superpower = false
 			attacking = true
 			fish.play_attack_animation()
 			body.push_back(position, push_power, damage)
 			var direction = body.position.direction_to(position)
-			velocity = position + direction * push_power * 4
+			velocity = direction * push_power * 20
 
 func _on_fish_attack_finished():
 	attacking = false

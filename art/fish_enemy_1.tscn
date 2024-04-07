@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://c58fi3hmn6t0u"]
 
 [ext_resource type="PackedScene" uid="uid://v2k4op018jsb" path="res://art/fish_enemy_1.blend" id="1_b0w7o"]
-[ext_resource type="Script" path="res://art/fish_enemy_1.gd" id="2_85vcq"]
+[ext_resource type="Script" path="res://art/fish_enemy.gd" id="2_2c0vv"]
 
 [node name="fish_enemy_1" instance=ExtResource("1_b0w7o")]
-script = ExtResource("2_85vcq")
+script = ExtResource("2_2c0vv")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/1/rotation = Quaternion(-1.42498e-15, -3.77489e-08, -3.77489e-08, 1)

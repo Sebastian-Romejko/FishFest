@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmwfu0ahijgdd"]
+[gd_scene load_steps=8 format=3 uid="uid://dmwfu0ahijgdd"]
 
+[ext_resource type="Script" path="res://assets/level.gd" id="1_or6pc"]
 [ext_resource type="Texture2D" uid="uid://ywmv8r750fxt" path="res://art/river_4.png" id="1_sg22p"]
 [ext_resource type="PackedScene" uid="uid://bs1n23kpjva7a" path="res://assets/obstacles/rock.tscn" id="2_qy7k6"]
 [ext_resource type="PackedScene" uid="uid://o3nm608mmlu1" path="res://assets/obstacles/enemy_fish_1.tscn" id="3_km6dd"]
@@ -10,6 +11,7 @@
 size = Vector2(24, 3500)
 
 [node name="level_3" type="Node2D"]
+script = ExtResource("1_or6pc")
 
 [node name="River5" type="Sprite2D" parent="."]
 scale = Vector2(1, 100)
@@ -197,13 +199,10 @@ position = Vector2(-116, -385)
 position = Vector2(-48, -270)
 
 [node name="rock8" parent="rocks" instance=ExtResource("2_qy7k6")]
-position = Vector2(-116.2, -526)
+position = Vector2(-114.2, -561.2)
 
 [node name="rock9" parent="rocks" instance=ExtResource("2_qy7k6")]
-position = Vector2(-83.2, -529)
-
-[node name="rock10" parent="rocks" instance=ExtResource("2_qy7k6")]
-position = Vector2(-67.2, -560)
+position = Vector2(-81.2, -564.2)
 
 [node name="rock17" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(29, -443)
@@ -211,11 +210,8 @@ position = Vector2(29, -443)
 [node name="rock18" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(62, -439)
 
-[node name="rock11" parent="rocks" instance=ExtResource("2_qy7k6")]
-position = Vector2(-61.2, -593)
-
 [node name="rock12" parent="rocks" instance=ExtResource("2_qy7k6")]
-position = Vector2(-68.2, -623)
+position = Vector2(-70, -593)
 
 [node name="rock19" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-117, -850)
@@ -253,6 +249,9 @@ position = Vector2(1, -885)
 [node name="rock30" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(1, -885)
 
+[node name="rock80" parent="rocks" instance=ExtResource("2_qy7k6")]
+position = Vector2(-1, -1031)
+
 [node name="rock13" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(118.8, -635)
 
@@ -274,64 +273,63 @@ position = Vector2(50, -243)
 position = Vector2(-92.2, -657)
 
 [node name="enemy_fish_4" parent="enemies" instance=ExtResource("3_km6dd")]
-position = Vector2(-94, -1063)
-rotation = -0.491745
+position = Vector2(-72, -1083)
+rotation = 0.241947
+
+[node name="enemy_fish_17" parent="enemies" instance=ExtResource("3_km6dd")]
+position = Vector2(-81, -1018)
+rotation = 0.132947
 
 [node name="enemy_fish_9" parent="enemies" instance=ExtResource("3_km6dd")]
 position = Vector2(-97, -1360)
 rotation = -0.491745
 
-[node name="enemy_fish_10" parent="enemies" instance=ExtResource("3_km6dd")]
-position = Vector2(-97, -1360)
-rotation = -0.491745
-
 [node name="enemy_fish_5" parent="enemies" instance=ExtResource("3_km6dd")]
-position = Vector2(-100, -999)
+position = Vector2(-78, -962)
 rotation = 0.280496
 
 [node name="enemy_fish_6" parent="enemies" instance=ExtResource("3_km6dd")]
-position = Vector2(-95, -925)
-rotation = 0.85046
+position = Vector2(-74, -898)
+rotation = -0.127102
 
 [node name="enemy_fish_2" parent="enemies" instance=ExtResource("3_km6dd")]
 position = Vector2(-54, -331)
 
+[node name="enemy_fish_16" parent="enemies" instance=ExtResource("3_km6dd")]
+position = Vector2(64, -360)
+
 [node name="enemy_fish_7" parent="enemies" instance=ExtResource("4_p2078")]
-position = Vector2(101, -924)
+position = Vector2(91, -917)
 rotation = 3.10368
 
 [node name="enemy_fish_8" parent="enemies" instance=ExtResource("4_p2078")]
-position = Vector2(94, -1015)
+position = Vector2(84, -1008)
 rotation = 3.10368
 
 [node name="enemy_fish_11" parent="enemies" instance=ExtResource("4_p2078")]
-position = Vector2(-101, -1836)
+position = Vector2(-78, -1847)
 rotation = 3.10368
 
 [node name="enemy_fish_12" parent="enemies" instance=ExtResource("4_p2078")]
-position = Vector2(-91, -1914)
+position = Vector2(-76, -1934)
 rotation = 3.10368
 
 [node name="enemy_fish_13" parent="enemies" instance=ExtResource("4_p2078")]
-position = Vector2(-12, -1871)
+position = Vector2(-4, -1898)
 rotation = 3.10368
 
 [node name="enemy_fish_14" parent="enemies" instance=ExtResource("4_p2078")]
-position = Vector2(73, -1934)
+position = Vector2(79, -1949)
 rotation = 3.10368
 
 [node name="enemy_fish_15" parent="enemies" instance=ExtResource("4_p2078")]
-position = Vector2(79, -1844)
-rotation = 3.10368
-
-[node name="enemy_fish_16" parent="enemies" instance=ExtResource("4_p2078")]
-position = Vector2(79, -1844)
+position = Vector2(81, -1862)
 rotation = 3.10368
 
 [node name="seaweed" type="Node2D" parent="."]
 
 [node name="seaweed" parent="seaweed" instance=ExtResource("4_yljj5")]
-position = Vector2(-109.2, -565)
+position = Vector2(-110, -598)
 
 [node name="seaweed3" parent="seaweed" instance=ExtResource("4_yljj5")]
 position = Vector2(119, -602)
@@ -347,3 +345,6 @@ position = Vector2(123, -1920)
 
 [node name="seaweed2" parent="seaweed" instance=ExtResource("4_yljj5")]
 position = Vector2(-2, -1278)
+
+[node name="seaweed7" parent="seaweed" instance=ExtResource("4_yljj5")]
+position = Vector2(118, -1544)
