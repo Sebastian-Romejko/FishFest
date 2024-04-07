@@ -12,6 +12,7 @@ extends CharacterBody2D
 @export var push_power: int = 1
 
 var player: Node2D
+var player_in_range = false
 var attacking = false
 var player_has_superpower = false
 var temp_max_speed
@@ -25,10 +26,10 @@ func _physics_process(delta):
 	
 	velocity /= 1.03
 	
-	if player:
+	if player_in_range or (player and position.distance_to(player.position) < vision_range):
 		if position.distance_to(player.position) > max_distance:
 			fish.play_idle_animation()
-			player = null
+			player_in_range = false
 			return
 			
 		look_at(player.position)
@@ -55,10 +56,11 @@ func limit_to_temp_max_speed():
 func _on_vision_range_body_entered(body):
 	if body.name == "player":
 		player = body
+		player_in_range = true
 
 func _on_vision_range_body_exited(body):
 	if body.name == "player":
-		player = null
+		player_in_range = false
 
 func _on_hit_box_body_entered(body):
 	if body.name == "player":
