@@ -8,6 +8,7 @@
 font_size = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_lp3ki"]
+font_size = 12
 
 [node name="level_end_panel" type="Control"]
 layout_mode = 3

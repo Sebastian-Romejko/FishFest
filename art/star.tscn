@@ -5,3 +5,6 @@
 
 [node name="star" instance=ExtResource("1_cxn8y")]
 script = ExtResource("2_ady07")
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/rotation = Quaternion(-0.707107, 0, 0, 0.707107)

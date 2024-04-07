@@ -82,6 +82,7 @@ func _on_restart_clicked():
 func _on_regen_energy(energy_gained):
 	energy += energy_gained
 	game_ui.set_energy(energy)
+	seaweed_collected += 1
 
 func _on_player_hit():
 	player_hit = true

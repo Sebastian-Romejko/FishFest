@@ -74,7 +74,7 @@ func _on_hit_box_body_entered(body):
 			fish.play_attack_animation()
 			body.push_back(position, push_power, damage)
 			var direction = body.position.direction_to(position)
-			velocity = position + direction * push_power
+			velocity = position + direction * push_power * 4
 
 func _on_fish_attack_finished():
 	attacking = false
