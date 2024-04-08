@@ -1,16 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://dym0gplx5bepg"]
+[gd_scene load_steps=6 format=3 uid="uid://dym0gplx5bepg"]
 
-[ext_resource type="Texture2D" uid="uid://co4pt2kutc76" path="res://art/light.png" id="1_amjtr"]
 [ext_resource type="Script" path="res://assets/superpower.gd" id="2_14d26"]
+[ext_resource type="PackedScene" uid="uid://ckkskm0schuak" path="res://art/superpower.tscn" id="2_qo3d2"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_dub0u"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="Environment" id="Environment_gbidv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ntj4t"]
-radius = 4.5
+radius = 16.0
 
 [node name="superpower" type="Sprite2D"]
 texture_filter = 1
-scale = Vector2(2, 2)
-texture = ExtResource("1_amjtr")
+scale = Vector2(0.5, 0.5)
+texture = SubResource("ViewportTexture_dub0u")
 script = ExtResource("2_14d26")
+
+[node name="sub_viewport" type="SubViewport" parent="."]
+own_world_3d = true
+transparent_bg = true
+snap_2d_transforms_to_pixel = true
+snap_2d_vertices_to_pixel = true
+size = Vector2i(32, 32)
+render_target_update_mode = 4
+
+[node name="superpower" parent="sub_viewport" instance=ExtResource("2_qo3d2")]
+
+[node name="camera" type="Camera3D" parent="sub_viewport"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 0, 0)
+environment = SubResource("Environment_gbidv")
+projection = 1
+current = true
+size = 2.0
+
+[node name="light" type="DirectionalLight3D" parent="sub_viewport"]
+transform = Transform3D(-0.0312093, 0.521774, 0.852512, 0.050901, -0.850992, 0.522707, 0.998216, 0.0597071, -3.72098e-16, 0, 1.98162, 0)
 
 [node name="area_2d" type="Area2D" parent="."]
 

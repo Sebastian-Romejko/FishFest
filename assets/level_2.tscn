@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://6af6onqpiqhj"]
+[gd_scene load_steps=73 format=3 uid="uid://6af6onqpiqhj"]
 
 [ext_resource type="Script" path="res://assets/level.gd" id="1_xgr2q"]
 [ext_resource type="PackedScene" uid="uid://bs1n23kpjva7a" path="res://assets/obstacles/rock.tscn" id="2_n4a67"]
@@ -202,6 +202,9 @@ viewport_path = NodePath("sub_viewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_byosv"]
 viewport_path = NodePath("sub_viewport")
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_0osmj"]
+viewport_path = NodePath("sub_viewport")
+
 [node name="level_2" type="Node2D"]
 script = ExtResource("1_xgr2q")
 
@@ -278,23 +281,23 @@ position = Vector2(-33, -840)
 texture = SubResource("ViewportTexture_bkmo5")
 
 [node name="rock33" parent="rocks" instance=ExtResource("2_n4a67")]
-position = Vector2(-29, -868)
+position = Vector2(-32, -866)
 texture = SubResource("ViewportTexture_tgo75")
 
 [node name="rock34" parent="rocks" instance=ExtResource("2_n4a67")]
-position = Vector2(-20, -896)
+position = Vector2(-31, -893)
 texture = SubResource("ViewportTexture_cei5r")
 
 [node name="rock35" parent="rocks" instance=ExtResource("2_n4a67")]
-position = Vector2(27, -856)
+position = Vector2(32, -854)
 texture = SubResource("ViewportTexture_8kkcg")
 
 [node name="rock36" parent="rocks" instance=ExtResource("2_n4a67")]
-position = Vector2(33, -885)
+position = Vector2(34, -882)
 texture = SubResource("ViewportTexture_ak468")
 
 [node name="rock37" parent="rocks" instance=ExtResource("2_n4a67")]
-position = Vector2(-49, -909)
+position = Vector2(-49, -919)
 texture = SubResource("ViewportTexture_7jow3")
 
 [node name="rock38" parent="rocks" instance=ExtResource("2_n4a67")]
@@ -462,6 +465,9 @@ texture = SubResource("ViewportTexture_rodpg")
 [node name="enemy_fish_1" parent="enemies" instance=ExtResource("3_stm0d")]
 position = Vector2(-23.2, -335.2)
 
+[node name="enemy_fish_6" parent="enemies" instance=ExtResource("3_stm0d")]
+position = Vector2(26, -321)
+
 [node name="enemy_fish_3" parent="enemies" instance=ExtResource("3_stm0d")]
 position = Vector2(-72, -567)
 rotation = 0.892935
@@ -502,6 +508,7 @@ texture = SubResource("ViewportTexture_byosv")
 
 [node name="superpower" parent="." instance=ExtResource("6_3pixx")]
 position = Vector2(55, -197)
+texture = SubResource("ViewportTexture_0osmj")
 
 [node name="random_bubbles" parent="." instance=ExtResource("6_wp4aj")]
 amount = 12
