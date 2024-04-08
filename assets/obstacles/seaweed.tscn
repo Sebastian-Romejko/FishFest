@@ -30,7 +30,7 @@ scale_curve = SubResource("CurveTexture_q0ubc")
 color = Color(0.215686, 0.521569, 0.443137, 1)
 
 [node name="seaweed" type="Sprite2D"]
-modulate = Color(0.8, 0.8, 0.8, 1)
+modulate = Color(0.9, 0.9, 0.9, 1)
 texture_filter = 1
 scale = Vector2(0.5, 0.5)
 texture = SubResource("ViewportTexture_olngw")

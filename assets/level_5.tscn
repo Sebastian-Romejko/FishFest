@@ -1,12 +1,12 @@
-[gd_scene load_steps=176 format=3 uid="uid://bmad2jqikdkuo"]
+[gd_scene load_steps=178 format=3 uid="uid://bmad2jqikdkuo"]
 
 [ext_resource type="Script" path="res://assets/level.gd" id="1_nd4bd"]
 [ext_resource type="PackedScene" uid="uid://bs1n23kpjva7a" path="res://assets/obstacles/rock.tscn" id="3_078jc"]
 [ext_resource type="PackedScene" uid="uid://o3nm608mmlu1" path="res://assets/obstacles/enemy_fish_1.tscn" id="4_np7f3"]
 [ext_resource type="PackedScene" uid="uid://cwulcoamcttnd" path="res://assets/obstacles/enemy_fish_2.tscn" id="5_kj17e"]
 [ext_resource type="PackedScene" uid="uid://dv61snr8w6v4n" path="res://assets/obstacles/seaweed.tscn" id="6_42u6m"]
-[ext_resource type="PackedScene" uid="uid://n6hubfrb2pl8" path="res://art/door.tscn" id="7_0hrja"]
-[ext_resource type="PackedScene" uid="uid://dtcpf3gsbo1hw" path="res://art/door_button.tscn" id="8_wv7l8"]
+[ext_resource type="PackedScene" uid="uid://n6hubfrb2pl8" path="res://assets/obstacles/door.tscn" id="7_0hrja"]
+[ext_resource type="PackedScene" uid="uid://dtcpf3gsbo1hw" path="res://assets/obstacles/door_button.tscn" id="8_wv7l8"]
 [ext_resource type="PackedScene" uid="uid://b6wv8operdrtx" path="res://assets/random_bubbles.tscn" id="9_d8rmt"]
 [ext_resource type="PackedScene" uid="uid://dym0gplx5bepg" path="res://assets/superpower.tscn" id="9_q0igh"]
 
@@ -506,6 +506,12 @@ viewport_path = NodePath("sub_viewport")
 viewport_path = NodePath("sub_viewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_45de2"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_a3ue7"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_y0h77"]
 viewport_path = NodePath("sub_viewport")
 
 [node name="level_5" type="Node2D"]
@@ -1367,9 +1373,11 @@ position = Vector2(108.8, -2889.2)
 
 [node name="superpower" parent="." instance=ExtResource("9_q0igh")]
 position = Vector2(106, -822)
+texture = SubResource("ViewportTexture_a3ue7")
 
 [node name="superpower2" parent="." instance=ExtResource("9_q0igh")]
 position = Vector2(-22, -2240)
+texture = SubResource("ViewportTexture_y0h77")
 
 [node name="random_bubbles" parent="." instance=ExtResource("9_d8rmt")]
 amount = 23

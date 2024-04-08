@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://clpnndiej88iw"]
+
+[ext_resource type="PackedScene" uid="uid://dm2txa6qhju8t" path="res://art/button.blend" id="1_mnbh2"]
+[ext_resource type="Script" path="res://art/button.gd" id="2_s4dym"]
+
+[node name="button" instance=ExtResource("1_mnbh2")]
+script = ExtResource("2_s4dym")
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/2/rotation = Quaternion(-0.0200952, 2.18762e-23, 4.46207e-18, 0.999798)
+bones/3/rotation = Quaternion(-1.19294e-07, 0.790327, 0.612686, -1.53882e-07)
+bones/4/rotation = Quaternion(0.496511, -1.71899e-13, 1.93349e-07, 0.86803)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(0.160336, -9.35813e-14, 6.24371e-08, 0.987063)
+bones/6/rotation = Quaternion(-0.0241252, 1.54019e-14, -9.39471e-09, 0.999709)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(0.496179, 0, -1.10174e-16, 0.86822)
+bones/9/rotation = Quaternion(0.177711, 6.13609e-23, -3.94598e-17, 0.984083)
+bones/10/rotation = Quaternion(0.0266407, 1.19167e-07, 3.17581e-09, 0.999645)
+bones/11/rotation = Quaternion(-0.369899, 0.594471, 0.0998254, 0.706975)
+bones/11/scale = Vector3(1, 1, 1)
+bones/12/rotation = Quaternion(0.230303, 0.0583554, 0.198477, 0.950875)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/rotation = Quaternion(0.0650983, 1.56876e-07, -1.36981e-08, 0.997879)
+bones/13/scale = Vector3(1, 1, 1)

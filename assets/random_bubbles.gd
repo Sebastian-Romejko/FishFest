@@ -11,4 +11,3 @@ func _ready():
 		var bubble_scene = BUBBLE_SCENE.instantiate()
 		add_child(bubble_scene)
 		bubble_scene.position = Vector2(randf_range(-width/2, width/2), randf_range(0, -height))
-		print(bubble_scene.position)
