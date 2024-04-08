@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://ddqvy28yl4w81"]
 
-[ext_resource type="Texture2D" uid="uid://6ng677p3q0b1" path="res://icon.svg" id="1_sft1g"]
 [ext_resource type="Script" path="res://ui/menu.gd" id="1_x0m8f"]
 [ext_resource type="PackedScene" uid="uid://brjpvtoruag8" path="res://ui/level.tscn" id="2_ja430"]
+[ext_resource type="Texture2D" uid="uid://dqu70ucaew74s" path="res://logo/logo_in_game.png" id="2_xuk3g"]
 [ext_resource type="AudioStream" uid="uid://dd0owjrmqubax" path="res://sounds/button_click.mp3" id="4_1v3gu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ne6r3"]
@@ -31,24 +31,20 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ne6r3")
 [node name="margin_container" type="MarginContainer" parent="panel_container"]
 layout_mode = 2
 theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 20
+theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 0
 
 [node name="v_box_container" type="VBoxContainer" parent="panel_container/margin_container"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="panel_container/margin_container/v_box_container"]
+[node name="logo" type="TextureRect" parent="panel_container/margin_container/v_box_container"]
+custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
-theme_override_constants/margin_top = 10
-
-[node name="logo" type="TextureRect" parent="panel_container/margin_container/v_box_container/MarginContainer"]
-custom_minimum_size = Vector2(0, 30)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("1_sft1g")
+size_flags_vertical = 3
+texture = ExtResource("2_xuk3g")
 expand_mode = 2
+stretch_mode = 5
 
 [node name="box_container" type="BoxContainer" parent="panel_container/margin_container/v_box_container"]
 layout_mode = 2

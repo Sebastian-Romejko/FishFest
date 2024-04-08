@@ -15,7 +15,7 @@ signal happiness_ended()
 @onready var swim_sound = $swim_sound
 @onready var enemy_hit_sound = $enemy_hit_sound
 
-const MANA_USAGE_MODIFIER = 150
+const MANA_USAGE_MODIFIER = 180
 const MOVE_SPEED = 1
 const MAX_SPEED = 50
 const TEMP_MAX_SPEED = 100
@@ -126,17 +126,17 @@ func gain_superpower():
 	superpower_timer.start()
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "modulate", Color(2, 2, 2), 1)
-	tween.chain().tween_property(self, "modulate", Color(1, 1, 1), 1)
-	tween.chain().tween_property(self, "modulate", Color(2, 2, 2), 1)
-	tween.chain().tween_property(self, "modulate", Color(1, 1, 1), 1)
-	tween.chain().tween_property(self, "modulate", Color(2, 2, 2), 1)
-	tween.chain().tween_property(self, "modulate", Color(1, 1, 1), 1)
-	tween.chain().tween_property(self, "modulate", Color(2, 2, 2), 1)
-	tween.chain().tween_property(self, "modulate", Color(1, 1, 1), 1)
-	tween.chain().tween_property(self, "modulate", Color(2, 2, 2), 1)
-	tween.chain().tween_property(self, "modulate", Color(1, 1, 1), 1)
-	tween.chain().tween_property(self, "modulate", Color(2, 2, 2), 1)
-	tween.chain().tween_property(self, "modulate", Color(1, 1, 1), 1)
+	tween.chain().tween_property(self, "modulate", Color(1.5, 1.5, 1.5), 1)
+	tween.chain().tween_property(self, "modulate", Color(3, 3, 3), 1)
+	tween.chain().tween_property(self, "modulate", Color(1.5, 1.5, 1.5), 1)
+	tween.chain().tween_property(self, "modulate", Color(3, 3, 3), 1)
+	tween.chain().tween_property(self, "modulate", Color(1.5, 1.5, 1.5), 1)
+	tween.chain().tween_property(self, "modulate", Color(3, 3, 3), 1)
+	tween.chain().tween_property(self, "modulate", Color(1.5, 1.5, 1.5), 1)
+	tween.chain().tween_property(self, "modulate", Color(3, 3, 3), 1)
+	tween.chain().tween_property(self, "modulate", Color(1.5, 1.5, 1.5), 1)
+	tween.chain().tween_property(self, "modulate", Color(3, 3, 3), 1)
+	tween.chain().tween_property(self, "modulate", Color(1.5, 1.5, 1.5), 1)
 	tween.chain().tween_property(self, "modulate", Color(2, 2, 2), 0.4)
 	tween.chain().tween_property(self, "modulate", Color(1, 1, 1), 0.1)
 	tween.chain().tween_property(self, "modulate", Color(2, 2, 2), 0.4)

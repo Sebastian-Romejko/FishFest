@@ -4,13 +4,16 @@ signal continue_pressed()
 signal menu_pressed()
 
 @onready var level_label = $v_box_container/level_label
+@onready var continue_button = $v_box_container/h_box_container/continue_button
 @onready var star_finished = $v_box_container/margin_container/v_box_container_stars/h_box_container_star/star
 @onready var star_seaweed = $v_box_container/margin_container/v_box_container_stars/h_box_container_star2/star
 @onready var star_no_damage = $v_box_container/margin_container/v_box_container_stars/h_box_container_star3/star
 @onready var button_sound = $button_sound
 
 func init(level: int, stars: Dictionary):
-	level_label.text = "LEVEL " + str(level)
+	level_label.text = "LEVEL " + str(level - 1)
+	if level >= 5:
+		continue_button.disabled = true
 	if stars["1"]:
 		await get_tree().create_timer(0.7).timeout
 		star_finished.set_enable()

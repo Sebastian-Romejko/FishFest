@@ -306,7 +306,7 @@ position = Vector2(59, -947)
 texture = SubResource("ViewportTexture_8bc1k")
 
 [node name="rock35" parent="rocks" instance=ExtResource("2_wlqar")]
-position = Vector2(-32, -950)
+position = Vector2(-35, -958)
 texture = SubResource("ViewportTexture_x2r4w")
 
 [node name="rock37" parent="rocks" instance=ExtResource("2_wlqar")]
@@ -342,7 +342,7 @@ position = Vector2(-117, -1126)
 texture = SubResource("ViewportTexture_17mf3")
 
 [node name="rock36" parent="rocks" instance=ExtResource("2_wlqar")]
-position = Vector2(29, -957)
+position = Vector2(36, -951)
 texture = SubResource("ViewportTexture_2fixd")
 
 [node name="enemies" type="Node2D" parent="."]

@@ -8,6 +8,7 @@ extends Node2D
 @onready var bottom_wall = $bottom_wall
 @onready var parallax_background = $parallax_background
 @onready var parallax_background2 = $parallax_background_2
+@onready var music = $music
 
 const GOAL_SCENE = preload("res://assets/goal.tscn")
 const CUTSCENE_BORDERS_SCENE = preload("res://ui/cutscene_borders.tscn")
@@ -156,3 +157,6 @@ func _on_menu_clicked():
 	parallax_background2.visible = false
 	menu.visible = true
 	game_ui.visible = false
+
+func _on_music_finished():
+	music.play()

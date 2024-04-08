@@ -1024,7 +1024,7 @@ position = Vector2(-1, -2002)
 [node name="door5" parent="doors" node_paths=PackedStringArray("button") instance=ExtResource("6_wjb4f")]
 position = Vector2(1, -2150)
 texture = SubResource("ViewportTexture_fbc2v")
-button = NodePath("../door_button4")
+button = NodePath("../door_button5")
 
 [node name="door_button5" parent="doors" instance=ExtResource("7_ugjtm")]
 modulate = Color(0.25098, 0.584314, 0.478431, 1)

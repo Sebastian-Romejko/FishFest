@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dym0gplx5bepg"]
+[gd_scene load_steps=7 format=3 uid="uid://dym0gplx5bepg"]
 
 [ext_resource type="Script" path="res://assets/superpower.gd" id="2_14d26"]
 [ext_resource type="PackedScene" uid="uid://ckkskm0schuak" path="res://art/superpower.tscn" id="2_qo3d2"]
+[ext_resource type="AudioStream" uid="uid://b3o3rf6lwqfhc" path="res://sounds/seaweed_pickup.wav" id="3_fmfja"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_dub0u"]
 viewport_path = NodePath("sub_viewport")
@@ -41,5 +42,8 @@ transform = Transform3D(-0.0312093, 0.521774, 0.852512, 0.050901, -0.850992, 0.5
 
 [node name="collision_shape" type="CollisionShape2D" parent="area_2d"]
 shape = SubResource("CircleShape2D_ntj4t")
+
+[node name="sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_fmfja")
 
 [connection signal="body_entered" from="area_2d" to="." method="_on_area_2d_body_entered"]

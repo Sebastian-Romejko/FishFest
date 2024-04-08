@@ -10,15 +10,15 @@
 		},
 		"3": {
 			"goal": 2200,
-			"seaweed": 7
+			"seaweed": 8
 		},
 		"4": {
 			"goal": 2700,
-			"seaweed": 8
+			"seaweed": 9
 		},
 		"5": {
 			"goal": 3000,
-			"seaweed": 15
+			"seaweed": 11
 		}
 	}
 }

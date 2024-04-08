@@ -19,13 +19,14 @@ func _ready():
 		4: level4,
 		5: level5
 	}
-	level4.set_enable()
+	level1.set_enable()
 
 func set_stars(level, stars):
 	levels[level].set_stars(stars)
 
 func set_level_enable(level):
-	levels[level].set_enable()
+	if level <= 5:
+		levels[level].set_enable()
 
 func _on_level_choosen(level):
 	button_sound.play()

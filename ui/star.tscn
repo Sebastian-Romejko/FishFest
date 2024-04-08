@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfvbd5rae2l24"]
+[gd_scene load_steps=5 format=3 uid="uid://cfvbd5rae2l24"]
 
 [ext_resource type="PackedScene" uid="uid://dchiyjuwbvrmq" path="res://art/star.tscn" id="1_wru6h"]
 [ext_resource type="Script" path="res://ui/star.gd" id="1_yucwn"]
+[ext_resource type="AudioStream" uid="uid://vdhjr8sq6wsy" path="res://sounds/achieved.wav" id="3_sfa46"]
 
 [sub_resource type="Environment" id="Environment_81foc"]
 
@@ -45,3 +46,7 @@ size = 2.0
 
 [node name="light" type="DirectionalLight3D" parent="SubViewportContainer/sub_viewport"]
 transform = Transform3D(0.0844172, 0.890717, 0.446651, -0.0421422, -0.444658, 0.894708, 0.995539, -0.0943516, 1.48347e-08, 1.87598, 1.98162, -1.8925)
+
+[node name="sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_sfa46")
+volume_db = -10.0

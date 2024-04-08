@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1geftyaaqx8v"]
+[gd_scene load_steps=5 format=3 uid="uid://b1geftyaaqx8v"]
 
 [ext_resource type="Script" path="res://assets/goal.gd" id="1_6vwsh"]
 [ext_resource type="PackedScene" uid="uid://bwwneccue264l" path="res://assets/fish_goal.tscn" id="3_dhb06"]
+[ext_resource type="AudioStream" uid="uid://c5myybpjp0235" path="res://sounds/happy.wav" id="3_vbj3h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8wgkd"]
 size = Vector2(256, 100)
@@ -18,4 +19,9 @@ rotation = -1.5708
 [node name="collision_shape" type="CollisionShape2D" parent="area_3d"]
 shape = SubResource("RectangleShape2D_8wgkd")
 
+[node name="happy_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_vbj3h")
+volume_db = -10.0
+
 [connection signal="body_entered" from="area_3d" to="." method="_on_area_3d_body_entered"]
+[connection signal="finished" from="happy_sound" to="." method="_on_happy_sound_finished"]

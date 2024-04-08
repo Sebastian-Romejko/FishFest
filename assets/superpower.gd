@@ -2,6 +2,7 @@ extends Sprite2D
 
 @onready var viewport = $sub_viewport
 @onready var superpower = $sub_viewport/superpower
+@onready var sound = $sound
 
 const ROTATION = 0.01
 
@@ -29,5 +30,6 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body.name == "player":
+		sound.play()
 		body.gain_superpower()
 		queue_free()

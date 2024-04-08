@@ -253,7 +253,7 @@ position = Vector2(-65, -798)
 texture = SubResource("ViewportTexture_ldvkb")
 
 [node name="rock26" parent="rocks" instance=ExtResource("2_n4a67")]
-position = Vector2(-37, -812)
+position = Vector2(-47.2, -812.2)
 texture = SubResource("ViewportTexture_uiveu")
 
 [node name="rock27" parent="rocks" instance=ExtResource("2_n4a67")]
@@ -273,27 +273,27 @@ position = Vector2(38, -801)
 texture = SubResource("ViewportTexture_ou7fx")
 
 [node name="rock31" parent="rocks" instance=ExtResource("2_n4a67")]
-position = Vector2(29, -828)
+position = Vector2(35.8, -828.2)
 texture = SubResource("ViewportTexture_7xmng")
 
 [node name="rock32" parent="rocks" instance=ExtResource("2_n4a67")]
-position = Vector2(-33, -840)
+position = Vector2(-43.2, -840.2)
 texture = SubResource("ViewportTexture_bkmo5")
 
 [node name="rock33" parent="rocks" instance=ExtResource("2_n4a67")]
-position = Vector2(-32, -866)
+position = Vector2(-42.2, -866.2)
 texture = SubResource("ViewportTexture_tgo75")
 
 [node name="rock34" parent="rocks" instance=ExtResource("2_n4a67")]
-position = Vector2(-31, -893)
+position = Vector2(-41.2, -893.2)
 texture = SubResource("ViewportTexture_cei5r")
 
 [node name="rock35" parent="rocks" instance=ExtResource("2_n4a67")]
-position = Vector2(32, -854)
+position = Vector2(38.8, -854.2)
 texture = SubResource("ViewportTexture_8kkcg")
 
 [node name="rock36" parent="rocks" instance=ExtResource("2_n4a67")]
-position = Vector2(34, -882)
+position = Vector2(40.8, -882.2)
 texture = SubResource("ViewportTexture_ak468")
 
 [node name="rock37" parent="rocks" instance=ExtResource("2_n4a67")]
@@ -475,10 +475,6 @@ rotation = 0.892935
 [node name="enemy_fish_4" parent="enemies" instance=ExtResource("3_stm0d")]
 position = Vector2(75, -568)
 rotation = 2.09336
-
-[node name="enemy_fish_5" parent="enemies" instance=ExtResource("3_stm0d")]
-position = Vector2(0.999999, -617)
-rotation = 1.5964
 
 [node name="enemy_fish_9" parent="enemies" instance=ExtResource("3_stm0d")]
 position = Vector2(-3, -1199)

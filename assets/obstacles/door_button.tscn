@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtcpf3gsbo1hw"]
+[gd_scene load_steps=8 format=3 uid="uid://dtcpf3gsbo1hw"]
 
 [ext_resource type="Script" path="res://assets/obstacles/door_button.gd" id="1_jkorh"]
 [ext_resource type="PackedScene" uid="uid://clpnndiej88iw" path="res://art/button.tscn" id="2_4hwu7"]
+[ext_resource type="AudioStream" uid="uid://cqu5fx2q84n2d" path="res://sounds/door_button.wav" id="3_bvgln"]
+[ext_resource type="AudioStream" uid="uid://c520qdor87i5" path="res://sounds/door.mp3" id="3_ojirh"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_guhss"]
 viewport_path = NodePath("sprite/sub_viewport")
@@ -42,5 +44,14 @@ transform = Transform3D(0.866026, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866026, -3, 6.9816
 [node name="collision_shape" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_mey4f")
+
+[node name="button_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_bvgln")
+volume_db = -15.0
+pitch_scale = 0.89
+
+[node name="door_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ojirh")
+pitch_scale = 0.41
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

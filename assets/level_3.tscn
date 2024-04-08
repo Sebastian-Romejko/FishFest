@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=3 uid="uid://dmwfu0ahijgdd"]
+[gd_scene load_steps=103 format=3 uid="uid://dmwfu0ahijgdd"]
 
 [ext_resource type="Script" path="res://assets/level.gd" id="1_or6pc"]
 [ext_resource type="PackedScene" uid="uid://bs1n23kpjva7a" path="res://assets/obstacles/rock.tscn" id="2_qy7k6"]
@@ -244,27 +244,6 @@ viewport_path = NodePath("sub_viewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_2111d"]
 viewport_path = NodePath("sub_viewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_a3nv3"]
-viewport_path = NodePath("sub_viewport")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_032xt"]
-viewport_path = NodePath("sub_viewport")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_6rmrb"]
-viewport_path = NodePath("sub_viewport")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_41yoa"]
-viewport_path = NodePath("sub_viewport")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_1op7w"]
-viewport_path = NodePath("sub_viewport")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_ajtyh"]
-viewport_path = NodePath("sub_viewport")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_5f8jk"]
-viewport_path = NodePath("sub_viewport")
-
 [sub_resource type="ViewportTexture" id="ViewportTexture_3sh3j"]
 viewport_path = NodePath("sub_viewport")
 
@@ -290,6 +269,30 @@ viewport_path = NodePath("sub_viewport")
 viewport_path = NodePath("sub_viewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_xbufx"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_a3nv3"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_032xt"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_hiukf"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6rmrb"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_41yoa"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1op7w"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ajtyh"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5f8jk"]
 viewport_path = NodePath("sub_viewport")
 
 [node name="level_3" type="Node2D"]
@@ -332,27 +335,27 @@ position = Vector2(-36, -1257)
 texture = SubResource("ViewportTexture_7kpmw")
 
 [node name="rock35" parent="rocks" instance=ExtResource("2_qy7k6")]
-position = Vector2(-81, -1441)
+position = Vector2(-81.2, -1435.2)
 texture = SubResource("ViewportTexture_d5cjy")
 
 [node name="rock36" parent="rocks" instance=ExtResource("2_qy7k6")]
-position = Vector2(-47, -1439)
+position = Vector2(-47.2, -1433.2)
 texture = SubResource("ViewportTexture_xv468")
 
 [node name="rock37" parent="rocks" instance=ExtResource("2_qy7k6")]
-position = Vector2(-13, -1443)
+position = Vector2(-13.2, -1437.2)
 texture = SubResource("ViewportTexture_umryd")
 
 [node name="rock38" parent="rocks" instance=ExtResource("2_qy7k6")]
-position = Vector2(18, -1439)
+position = Vector2(17.8, -1433.2)
 texture = SubResource("ViewportTexture_ybqtx")
 
 [node name="rock39" parent="rocks" instance=ExtResource("2_qy7k6")]
-position = Vector2(49, -1444)
+position = Vector2(48, -1439)
 texture = SubResource("ViewportTexture_bnsv7")
 
 [node name="rock40" parent="rocks" instance=ExtResource("2_qy7k6")]
-position = Vector2(78, -1450)
+position = Vector2(78, -1442)
 texture = SubResource("ViewportTexture_pphy2")
 
 [node name="rock41" parent="rocks" instance=ExtResource("2_qy7k6")]
@@ -360,31 +363,31 @@ position = Vector2(107, -1439)
 texture = SubResource("ViewportTexture_ptlb1")
 
 [node name="rock64" parent="rocks" instance=ExtResource("2_qy7k6")]
-position = Vector2(-59, -1656)
+position = Vector2(-59.2, -1664.2)
 texture = SubResource("ViewportTexture_46cux")
 
 [node name="rock65" parent="rocks" instance=ExtResource("2_qy7k6")]
-position = Vector2(-29, -1657)
+position = Vector2(-29.2, -1665.2)
 texture = SubResource("ViewportTexture_n603y")
 
 [node name="rock66" parent="rocks" instance=ExtResource("2_qy7k6")]
-position = Vector2(2, -1656)
+position = Vector2(1.8, -1664.2)
 texture = SubResource("ViewportTexture_teh8c")
 
 [node name="rock67" parent="rocks" instance=ExtResource("2_qy7k6")]
-position = Vector2(32, -1649)
+position = Vector2(31.8, -1657.2)
 texture = SubResource("ViewportTexture_ho4ao")
 
 [node name="rock68" parent="rocks" instance=ExtResource("2_qy7k6")]
-position = Vector2(61, -1639)
+position = Vector2(60.8, -1647.2)
 texture = SubResource("ViewportTexture_rdxv2")
 
 [node name="rock69" parent="rocks" instance=ExtResource("2_qy7k6")]
-position = Vector2(90, -1632)
+position = Vector2(89.8, -1640.2)
 texture = SubResource("ViewportTexture_sdmig")
 
 [node name="rock70" parent="rocks" instance=ExtResource("2_qy7k6")]
-position = Vector2(120, -1629)
+position = Vector2(119.8, -1637.2)
 texture = SubResource("ViewportTexture_fjib4")
 
 [node name="rock71" parent="rocks" instance=ExtResource("2_qy7k6")]
@@ -456,7 +459,7 @@ position = Vector2(69, -1524)
 texture = SubResource("ViewportTexture_oic0c")
 
 [node name="rock50" parent="rocks" instance=ExtResource("2_qy7k6")]
-position = Vector2(85, -1552)
+position = Vector2(76, -1553)
 texture = SubResource("ViewportTexture_1hx6h")
 
 [node name="rock51" parent="rocks" instance=ExtResource("2_qy7k6")]
@@ -504,7 +507,7 @@ position = Vector2(-120, -1595)
 texture = SubResource("ViewportTexture_60bme")
 
 [node name="rock61" parent="rocks" instance=ExtResource("2_qy7k6")]
-position = Vector2(-92, -1596)
+position = Vector2(-92, -1590)
 texture = SubResource("ViewportTexture_5rftf")
 
 [node name="rock62" parent="rocks" instance=ExtResource("2_qy7k6")]
@@ -619,6 +622,42 @@ texture = SubResource("ViewportTexture_nsds8")
 position = Vector2(76.8, -568)
 texture = SubResource("ViewportTexture_2111d")
 
+[node name="rock81" parent="rocks" instance=ExtResource("2_qy7k6")]
+position = Vector2(-123.2, 177.8)
+texture = SubResource("ViewportTexture_3sh3j")
+
+[node name="rock82" parent="rocks" instance=ExtResource("2_qy7k6")]
+position = Vector2(-92.2, 180.8)
+texture = SubResource("ViewportTexture_mk572")
+
+[node name="rock83" parent="rocks" instance=ExtResource("2_qy7k6")]
+position = Vector2(-60.2, 175.8)
+texture = SubResource("ViewportTexture_4fvwe")
+
+[node name="rock84" parent="rocks" instance=ExtResource("2_qy7k6")]
+position = Vector2(-28.2, 180.8)
+texture = SubResource("ViewportTexture_gd8u2")
+
+[node name="rock85" parent="rocks" instance=ExtResource("2_qy7k6")]
+position = Vector2(1.8, 176.8)
+texture = SubResource("ViewportTexture_4a1gv")
+
+[node name="rock86" parent="rocks" instance=ExtResource("2_qy7k6")]
+position = Vector2(31.8, 179.8)
+texture = SubResource("ViewportTexture_bjx14")
+
+[node name="rock87" parent="rocks" instance=ExtResource("2_qy7k6")]
+position = Vector2(61.8, 182.8)
+texture = SubResource("ViewportTexture_2em2o")
+
+[node name="rock88" parent="rocks" instance=ExtResource("2_qy7k6")]
+position = Vector2(91.8, 175.8)
+texture = SubResource("ViewportTexture_veinr")
+
+[node name="rock89" parent="rocks" instance=ExtResource("2_qy7k6")]
+position = Vector2(118.8, 179.8)
+texture = SubResource("ViewportTexture_xbufx")
+
 [node name="enemies" type="Node2D" parent="."]
 
 [node name="enemy_fish_1" parent="enemies" instance=ExtResource("3_km6dd")]
@@ -691,6 +730,10 @@ texture = SubResource("ViewportTexture_a3nv3")
 position = Vector2(119, -602)
 texture = SubResource("ViewportTexture_032xt")
 
+[node name="seaweed8" parent="seaweed" instance=ExtResource("4_yljj5")]
+position = Vector2(22, -961)
+texture = SubResource("ViewportTexture_hiukf")
+
 [node name="seaweed4" parent="seaweed" instance=ExtResource("4_yljj5")]
 position = Vector2(-9, -1919)
 texture = SubResource("ViewportTexture_6rmrb")
@@ -710,42 +753,6 @@ texture = SubResource("ViewportTexture_ajtyh")
 [node name="seaweed7" parent="seaweed" instance=ExtResource("4_yljj5")]
 position = Vector2(118, -1544)
 texture = SubResource("ViewportTexture_5f8jk")
-
-[node name="rock45" parent="." instance=ExtResource("2_qy7k6")]
-position = Vector2(-123.2, 177.8)
-texture = SubResource("ViewportTexture_3sh3j")
-
-[node name="rock46" parent="." instance=ExtResource("2_qy7k6")]
-position = Vector2(-92.2, 180.8)
-texture = SubResource("ViewportTexture_mk572")
-
-[node name="rock47" parent="." instance=ExtResource("2_qy7k6")]
-position = Vector2(-60.2, 175.8)
-texture = SubResource("ViewportTexture_4fvwe")
-
-[node name="rock48" parent="." instance=ExtResource("2_qy7k6")]
-position = Vector2(-28.2, 180.8)
-texture = SubResource("ViewportTexture_gd8u2")
-
-[node name="rock49" parent="." instance=ExtResource("2_qy7k6")]
-position = Vector2(1.8, 176.8)
-texture = SubResource("ViewportTexture_4a1gv")
-
-[node name="rock50" parent="." instance=ExtResource("2_qy7k6")]
-position = Vector2(31.8, 179.8)
-texture = SubResource("ViewportTexture_bjx14")
-
-[node name="rock51" parent="." instance=ExtResource("2_qy7k6")]
-position = Vector2(61.8, 182.8)
-texture = SubResource("ViewportTexture_2em2o")
-
-[node name="rock52" parent="." instance=ExtResource("2_qy7k6")]
-position = Vector2(91.8, 175.8)
-texture = SubResource("ViewportTexture_veinr")
-
-[node name="rock53" parent="." instance=ExtResource("2_qy7k6")]
-position = Vector2(118.8, 179.8)
-texture = SubResource("ViewportTexture_xbufx")
 
 [node name="random_bubbles" parent="." instance=ExtResource("6_qpny0")]
 amount = 15
