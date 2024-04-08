@@ -7,6 +7,7 @@ signal level_choosen(level)
 @onready var level3 = $panel_container/margin_container/v_box_container/box_container/level3
 @onready var level4 = $panel_container/margin_container/v_box_container/box_container/level4
 @onready var level5 = $panel_container/margin_container/v_box_container/box_container/level5
+@onready var button_sound = $button_sound
 
 var levels: Dictionary
 
@@ -27,4 +28,5 @@ func set_level_enable(level):
 	levels[level].set_enable()
 
 func _on_level_choosen(level):
+	button_sound.play()
 	level_choosen.emit(level)

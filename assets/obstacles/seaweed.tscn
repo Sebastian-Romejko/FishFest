@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dv61snr8w6v4n"]
+[gd_scene load_steps=10 format=3 uid="uid://dv61snr8w6v4n"]
 
 [ext_resource type="Script" path="res://assets/obstacles/seaweed.gd" id="2_nvssd"]
 [ext_resource type="PackedScene" uid="uid://canyfjlvcuphe" path="res://art/seaweed.tscn" id="3_o4ala"]
+[ext_resource type="AudioStream" uid="uid://b3o3rf6lwqfhc" path="res://sounds/seaweed_pickup.wav" id="3_q5dj1"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_olngw"]
 viewport_path = NodePath("sub_viewport")
@@ -73,5 +74,9 @@ lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
 randomness = 1.0
+
+[node name="pickup_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_q5dj1")
+volume_db = -5.0
 
 [connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]

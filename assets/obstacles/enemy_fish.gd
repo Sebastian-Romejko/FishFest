@@ -3,6 +3,8 @@ extends CharacterBody2D
 @onready var fish = $sprite/sub_viewport/fish_enemy
 @onready var viewport = $sprite/sub_viewport
 @onready var vision_range_shape = $vision_range/collision_shape
+@onready var swim_sound = $swim_sound
+@onready var start_swimming_sound = $start_swimming_sound
 
 @export var move_speed: float = 10
 @export var max_speed: int = 25
@@ -16,6 +18,7 @@ var player_in_range = false
 var attacking = false
 var player_has_superpower = false
 var temp_max_speed
+var swim_sound_playing = false
 
 func _ready():
 	fish.play_idle_animation()
@@ -38,6 +41,9 @@ func _physics_process(delta):
 			fish.play_swim_animation()
 			var direction = position.direction_to(player.position)
 			velocity += direction * move_speed / 10
+			if not swim_sound_playing:
+				swim_sound.play()
+				swim_sound_playing = true
 		
 		if player_has_superpower:
 			limit_to_temp_max_speed()
@@ -55,6 +61,7 @@ func limit_to_temp_max_speed():
 	
 func _on_vision_range_body_entered(body):
 	if body.name == "player":
+		start_swimming_sound.play()
 		player = body
 		player_in_range = true
 
@@ -80,3 +87,6 @@ func _on_hit_box_body_entered(body):
 
 func _on_pushed_back_timer_timeout():
 	attacking = false
+	
+func _on_swim_sound_finished():
+	swim_sound_playing = false

@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bd7lyre0e3o5k"]
+[gd_scene load_steps=8 format=3 uid="uid://bd7lyre0e3o5k"]
 
 [ext_resource type="Texture2D" uid="uid://547cicl31xk3" path="res://art/bubble.png" id="1_j7f2o"]
+[ext_resource type="AudioStream" uid="uid://crde5l7nk1gbq" path="res://sounds/bubbles.mp3" id="2_tkhna"]
 
 [sub_resource type="Gradient" id="Gradient_wt7lo"]
 offsets = PackedFloat32Array(0, 0.727273)
@@ -48,3 +49,9 @@ amount = 10
 process_material = SubResource("ParticleProcessMaterial_8laua")
 texture = ExtResource("1_j7f2o")
 lifetime = 3.0
+
+[node name="sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_tkhna")
+volume_db = -20.0
+autoplay = true
+max_distance = 150.0

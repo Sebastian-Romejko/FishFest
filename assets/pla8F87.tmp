@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0qpdbtv20cxl"]
+[gd_scene load_steps=8 format=3 uid="uid://d0qpdbtv20cxl"]
 
 [ext_resource type="Script" path="res://assets/player.gd" id="1_qwvgx"]
 [ext_resource type="PackedScene" uid="uid://c67nll5i717v4" path="res://art/fish.tscn" id="2_jinba"]
 [ext_resource type="PackedScene" uid="uid://dbrkgqcwp3avo" path="res://assets/bubbles.tscn" id="3_in5hv"]
 [ext_resource type="AudioStream" uid="uid://chqkbalyqrav1" path="res://sounds/swim.mp3" id="4_o3nvj"]
-[ext_resource type="AudioStream" uid="uid://dvse2f54ie0gd" path="res://sounds/enemy_hit.wav" id="5_4545c"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_k7mnt"]
 viewport_path = NodePath("sprite/sub_viewport")
@@ -12,8 +11,8 @@ viewport_path = NodePath("sprite/sub_viewport")
 [sub_resource type="Environment" id="Environment_6wdhg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l8exc"]
-radius = 13.0
-height = 26.0
+radius = 11.0
+height = 22.0
 
 [node name="player" type="CharacterBody2D"]
 rotation = 1.5708
@@ -64,13 +63,7 @@ one_shot = true
 
 [node name="swim_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_o3nvj")
-volume_db = -5.0
-attenuation = 9.18959
-
-[node name="enemy_hit_sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_4545c")
 
 [connection signal="timeout" from="happy_timer" to="." method="_on_happy_timer_timeout"]
 [connection signal="timeout" from="superpower_timer" to="." method="_on_superpower_timer_timeout"]
 [connection signal="timeout" from="pushed_back_timer" to="." method="_on_pushed_back_timer_timeout"]
-[connection signal="finished" from="swim_sound" to="." method="_on_swim_sound_finished"]

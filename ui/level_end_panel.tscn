@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://w217tv6hve37"]
+[gd_scene load_steps=12 format=3 uid="uid://w217tv6hve37"]
 
 [ext_resource type="Script" path="res://ui/level_end_panel.gd" id="1_kxnne"]
 [ext_resource type="PackedScene" uid="uid://ca1f6t6i1f8yd" path="res://ui/darkening_panel.tscn" id="2_gw4v7"]
@@ -8,6 +8,7 @@
 [ext_resource type="StyleBox" uid="uid://iskf4f1kk7qh" path="res://ui/styles/button_pressed.tres" id="6_cakxn"]
 [ext_resource type="StyleBox" uid="uid://dpio2y8cu4np5" path="res://ui/styles/button_disabled.tres" id="7_442x1"]
 [ext_resource type="StyleBox" uid="uid://b0ati1sfqjmo0" path="res://ui/styles/button_focus.tres" id="8_tkipx"]
+[ext_resource type="AudioStream" uid="uid://dd0owjrmqubax" path="res://sounds/button_click.mp3" id="9_j4qmi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_amfuh"]
 font_size = 20
@@ -120,6 +121,11 @@ theme_override_styles/pressed = ExtResource("6_cakxn")
 theme_override_styles/disabled = ExtResource("7_442x1")
 theme_override_styles/focus = ExtResource("8_tkipx")
 text = "CONTINUE"
+
+[node name="button_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_j4qmi")
+volume_db = -10.0
+pitch_scale = 3.0
 
 [connection signal="pressed" from="v_box_container/h_box_container/menu_button" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="v_box_container/h_box_container/continue_button" to="." method="_on_continue_button_pressed"]

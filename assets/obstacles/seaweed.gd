@@ -5,6 +5,7 @@ signal regen_energy(energy: int)
 @onready var viewport = $sub_viewport
 @onready var seaweed = $sub_viewport/seaweed
 @onready var particles = $particles
+@onready var pickup_sound = $pickup_sound
 
 @export var energy_value: int = 200
 
@@ -13,6 +14,7 @@ func _process(delta):
 
 func _on_area_body_entered(body):
 	if body.name == "player":
+		pickup_sound.play()
 		regen_energy.emit(energy_value)
 		seaweed.visible = false
 		particles.emitting = true

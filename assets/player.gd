@@ -12,6 +12,8 @@ signal happiness_ended()
 @onready var happy_timer = $happy_timer
 @onready var superpower_timer = $superpower_timer
 @onready var pushed_back_timer = $pushed_back_timer
+@onready var swim_sound = $swim_sound
+@onready var enemy_hit_sound = $enemy_hit_sound
 
 const MANA_USAGE_MODIFIER = 150
 const MOVE_SPEED = 1
@@ -26,6 +28,8 @@ var target_position: Vector2
 
 var was_hit = false
 var pushed_back = false
+
+var swim_sound_playing = false
 
 func _physics_process(delta):
 	viewport.render_target_update_mode = viewport.UPDATE_ONCE
@@ -52,7 +56,13 @@ func _physics_process(delta):
 			if (abs(velocity.x) > 5 or abs(velocity.y) > 5):
 				energy_used.emit((abs(velocity.x) + abs(velocity.y)) / MANA_USAGE_MODIFIER)
 				fish.play_swim_animation()
+				if not swim_sound_playing:
+					swim_sound.play()
+					swim_sound_playing = true
 			else:
+				if swim_sound_playing:
+					swim_sound.stop()
+					swim_sound_playing = false
 				fish.play_idle_animation()
 		STATE.DEAD:
 			fish.play_death_animation()
@@ -78,13 +88,14 @@ func limit_to_temp_max_speed():
 	velocity.y = min(TEMP_MAX_SPEED, velocity.y) if velocity.y > 0 else max(-TEMP_MAX_SPEED, velocity.y)
 
 func push_back(from: Vector2, power: int, damage: int):
+	enemy_hit_sound.play()
 	pushed_back = true
 	pushed_back_timer.start()
 	if !was_hit:
 		was_hit = true
 		hit.emit()
-	var direction = (position - from).normalized()
-	velocity = Vector2(direction.x * power, direction.y * power)
+	var direction = (position - from)#.normalized()
+	velocity = Vector2(direction.x * power, direction.y * power) / 2
 	energy_used.emit(damage)
 	bubbles.restart()
 	
@@ -146,3 +157,6 @@ func _on_superpower_timer_timeout():
 
 func _on_pushed_back_timer_timeout():
 	pushed_back = false
+
+func _on_swim_sound_finished():
+	swim_sound_playing = false

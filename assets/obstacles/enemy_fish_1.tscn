@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://o3nm608mmlu1"]
+[gd_scene load_steps=10 format=3 uid="uid://o3nm608mmlu1"]
 
 [ext_resource type="Script" path="res://assets/obstacles/enemy_fish.gd" id="1_ytled"]
+[ext_resource type="AudioStream" uid="uid://chqkbalyqrav1" path="res://sounds/swim.mp3" id="3_0t1dd"]
 [ext_resource type="PackedScene" uid="uid://c58fi3hmn6t0u" path="res://art/fish_enemy_1.tscn" id="3_pa7mr"]
+[ext_resource type="AudioStream" uid="uid://cwcigvac7v05j" path="res://sounds/enemy_start_swimming.ogg" id="3_s85xx"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_lftxu"]
 viewport_path = NodePath("sprite/sub_viewport")
@@ -68,8 +70,18 @@ shape = SubResource("RectangleShape2D_icjsp")
 wait_time = 2.0
 one_shot = true
 
+[node name="swim_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_0t1dd")
+volume_db = -10.0
+attenuation = 9.18959
+
+[node name="start_swimming_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_s85xx")
+volume_db = -10.0
+
 [connection signal="attack_finished" from="sprite/sub_viewport/fish_enemy" to="." method="_on_fish_attack_finished"]
 [connection signal="body_entered" from="vision_range" to="." method="_on_vision_range_body_entered"]
 [connection signal="body_exited" from="vision_range" to="." method="_on_vision_range_body_exited"]
 [connection signal="body_entered" from="hit_box" to="." method="_on_hit_box_body_entered"]
 [connection signal="timeout" from="pushed_back_timer" to="." method="_on_pushed_back_timer_timeout"]
+[connection signal="finished" from="swim_sound" to="." method="_on_swim_sound_finished"]

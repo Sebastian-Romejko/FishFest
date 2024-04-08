@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ck8qpv3ubvj8l"]
+[gd_scene load_steps=12 format=3 uid="uid://ck8qpv3ubvj8l"]
 
 [ext_resource type="Script" path="res://ui/game_ui.gd" id="1_33oaf"]
 [ext_resource type="Texture2D" uid="uid://uwy3a3c3trwo" path="res://art/pause.png" id="2_bgtme"]
@@ -10,6 +10,7 @@
 [ext_resource type="StyleBox" uid="uid://iskf4f1kk7qh" path="res://ui/styles/button_pressed.tres" id="4_054ck"]
 [ext_resource type="StyleBox" uid="uid://dpio2y8cu4np5" path="res://ui/styles/button_disabled.tres" id="5_wqt7t"]
 [ext_resource type="StyleBox" uid="uid://b0ati1sfqjmo0" path="res://ui/styles/button_focus.tres" id="6_d8gdf"]
+[ext_resource type="AudioStream" uid="uid://dd0owjrmqubax" path="res://sounds/button_click.mp3" id="11_ai60y"]
 
 [node name="game_ui" type="Control"]
 texture_filter = 1
@@ -76,5 +77,10 @@ max_value = 1000.0
 texture_under = ExtResource("2_pngw0")
 texture_over = ExtResource("3_knxpb")
 texture_progress = ExtResource("4_7dlra")
+
+[node name="button_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_ai60y")
+volume_db = -10.0
+pitch_scale = 3.0
 
 [connection signal="pressed" from="margin_container/pause" to="." method="_on_pause_pressed"]
