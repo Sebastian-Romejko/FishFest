@@ -1,21 +1,77 @@
-[gd_scene load_steps=4 format=3 uid="uid://dv61snr8w6v4n"]
+[gd_scene load_steps=9 format=3 uid="uid://dv61snr8w6v4n"]
 
-[ext_resource type="Texture2D" uid="uid://6ng677p3q0b1" path="res://icon.svg" id="1_11o16"]
 [ext_resource type="Script" path="res://assets/obstacles/seaweed.gd" id="2_nvssd"]
+[ext_resource type="PackedScene" uid="uid://canyfjlvcuphe" path="res://art/seaweed.tscn" id="3_o4ala"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_olngw"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="Environment" id="Environment_w7o27"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6jj7"]
-size = Vector2(133.333, 133.333)
+size = Vector2(93.256, 89)
+
+[sub_resource type="Curve" id="Curve_clo61"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.532558, 0.441509), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_q0ubc"]
+curve = SubResource("Curve_clo61")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_evft5"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+initial_velocity_min = 150.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 10, 0)
+scale_min = 3.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_q0ubc")
+color = Color(0.215686, 0.521569, 0.443137, 1)
 
 [node name="seaweed" type="Sprite2D"]
-modulate = Color(0.619608, 1, 0.643137, 1)
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("1_11o16")
+modulate = Color(0.9, 0.9, 0.9, 1)
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = SubResource("ViewportTexture_olngw")
 script = ExtResource("2_nvssd")
+
+[node name="sub_viewport" type="SubViewport" parent="."]
+own_world_3d = true
+transparent_bg = true
+snap_2d_transforms_to_pixel = true
+snap_2d_vertices_to_pixel = true
+size = Vector2i(48, 48)
+render_target_update_mode = 4
+
+[node name="seaweed" parent="sub_viewport" instance=ExtResource("3_o4ala")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="camera" type="Camera3D" parent="sub_viewport"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 134.568, 2.68205, 0)
+environment = SubResource("Environment_w7o27")
+projection = 1
+current = true
+size = 7.0
+
+[node name="light" type="DirectionalLight3D" parent="sub_viewport"]
+transform = Transform3D(0.965677, 3.76921e-08, 0.259746, -0.0730196, 0.959673, 0.27147, -0.249271, -0.281119, 0.926734, 166.114, 40.8296, 0)
 
 [node name="area" type="Area2D" parent="."]
 
 [node name="collision_shape" type="CollisionShape2D" parent="area"]
-position = Vector2(3.17891e-06, 3.17891e-06)
+position = Vector2(0.999999, 0.249996)
+scale = Vector2(0.407481, 0.5)
 shape = SubResource("RectangleShape2D_j6jj7")
+
+[node name="particles" type="GPUParticles2D" parent="."]
+z_index = -1
+emitting = false
+amount = 80
+process_material = SubResource("ParticleProcessMaterial_evft5")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
 
 [connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]

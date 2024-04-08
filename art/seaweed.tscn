@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://canyfjlvcuphe"]
+
+[ext_resource type="PackedScene" uid="uid://cgk28olwte1rk" path="res://art/seaweed.glb" id="1_j34n2"]
+[ext_resource type="Script" path="res://art/seaweed.gd" id="2_h7poe"]
+
+[node name="seaweed" instance=ExtResource("1_j34n2")]
+script = ExtResource("2_h7poe")
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/rotation = Quaternion(-0.0376148, 7.37496e-18, 7.36496e-18, 0.999292)
+bones/1/rotation = Quaternion(0.0440946, -1.14711e-16, -1.23377e-16, 0.999027)
+bones/2/rotation = Quaternion(-9.61416e-08, 0.86959, 0.493775, -1.69315e-07)
+bones/3/rotation = Quaternion(0.406405, 1.24497e-10, 1.5798e-07, 0.913693)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/rotation = Quaternion(0.122804, -3.30819e-11, 4.80873e-08, 0.992431)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(-0.520958, -3.69288e-17, -3.69288e-17, 0.853583)
+bones/6/rotation = Quaternion(0.473645, 6.66975e-20, -1.05294e-16, 0.880716)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(0.0121218, -2.52016e-21, -2.46472e-18, 0.999927)
+
+[node name="AnimationPlayer" parent="." index="1"]
+speed_scale = 1.3

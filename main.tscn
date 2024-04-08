@@ -176,7 +176,7 @@ motion_mirroring = Vector2(0, 360)
 modulate = Color(0.7, 0.7, 0.7, 1)
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_57lb6")
-frame_progress = 0.467146
+frame_progress = 0.67716
 script = ExtResource("18_3byrn")
 
 [node name="parallax_layer_river_4_copy" type="ParallaxLayer" parent="parallax_background"]
