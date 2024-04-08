@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmwfu0ahijgdd"]
+[gd_scene load_steps=94 format=3 uid="uid://dmwfu0ahijgdd"]
 
 [ext_resource type="Script" path="res://assets/level.gd" id="1_or6pc"]
-[ext_resource type="Texture2D" uid="uid://ywmv8r750fxt" path="res://art/river_4.png" id="1_sg22p"]
 [ext_resource type="PackedScene" uid="uid://bs1n23kpjva7a" path="res://assets/obstacles/rock.tscn" id="2_qy7k6"]
 [ext_resource type="PackedScene" uid="uid://o3nm608mmlu1" path="res://assets/obstacles/enemy_fish_1.tscn" id="3_km6dd"]
 [ext_resource type="PackedScene" uid="uid://cwulcoamcttnd" path="res://assets/obstacles/enemy_fish_2.tscn" id="4_p2078"]
@@ -10,21 +9,277 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68pix"]
 size = Vector2(24, 3500)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_dekuy"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_j8ysv"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_sklgq"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_aovwg"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3j2qi"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7kpmw"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_d5cjy"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xv468"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_umryd"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ybqtx"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bnsv7"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pphy2"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ptlb1"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_46cux"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_n603y"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_teh8c"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ho4ao"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_rdxv2"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_sdmig"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fjib4"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ci5kr"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_o8c14"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_alkj4"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mingv"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_x2bra"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5g5ae"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pp5s7"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_57bsv"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_namxb"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_id3pa"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_40xdh"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_153gg"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jn0q1"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7k64b"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8dhtv"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jthlq"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_oic0c"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1hx6h"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_j7pjo"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_kpbap"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7j0w2"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_uml0d"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6p87f"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_cvb2s"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_nqh1b"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_umtu1"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lkno1"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5s0yd"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_60bme"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5rftf"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ij4s3"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jwuhb"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mh7mu"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_23nkn"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2eh4a"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4rla7"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_huhql"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ef8qj"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_q0goc"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xwm6n"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_six4p"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lhq3t"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_nib0b"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ulyju"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_dwotm"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lfb00"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_uhlv6"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5gb76"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_iagm6"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_nc3x0"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fmp0d"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4bkn5"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_eyca0"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wq7xa"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7lhrs"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_80vki"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_nsds8"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2111d"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3sh3j"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mk572"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4fvwe"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gd8u2"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4a1gv"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bjx14"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2em2o"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_veinr"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xbufx"]
+viewport_path = NodePath("sub_viewport")
+
 [node name="level_3" type="Node2D"]
 script = ExtResource("1_or6pc")
 
-[node name="River5" type="Sprite2D" parent="."]
-scale = Vector2(1, 100)
-texture = ExtResource("1_sg22p")
+[node name="static_body" type="StaticBody2D" parent="."]
 
-[node name="static_body" type="StaticBody2D" parent="River5"]
-scale = Vector2(1, 0.01)
-
-[node name="collision_shape" type="CollisionShape2D" parent="River5/static_body"]
+[node name="collision_shape" type="CollisionShape2D" parent="static_body"]
 position = Vector2(-148, -1200)
 shape = SubResource("RectangleShape2D_68pix")
 
-[node name="collision_shape2" type="CollisionShape2D" parent="River5/static_body"]
+[node name="collision_shape2" type="CollisionShape2D" parent="static_body"]
 position = Vector2(148, -1200)
 shape = SubResource("RectangleShape2D_68pix")
 
@@ -32,237 +287,315 @@ shape = SubResource("RectangleShape2D_68pix")
 
 [node name="rock" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-119, -151)
+texture = SubResource("ViewportTexture_dekuy")
 
 [node name="rock2" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(121, -140)
+texture = SubResource("ViewportTexture_j8ysv")
 
 [node name="rock3" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-98, -181)
+texture = SubResource("ViewportTexture_sklgq")
 
 [node name="rock31" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-3, -1248)
+texture = SubResource("ViewportTexture_aovwg")
 
 [node name="rock33" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(31, -1260)
+texture = SubResource("ViewportTexture_3j2qi")
 
 [node name="rock34" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-36, -1257)
+texture = SubResource("ViewportTexture_7kpmw")
 
 [node name="rock35" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-81, -1441)
+texture = SubResource("ViewportTexture_d5cjy")
 
 [node name="rock36" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-47, -1439)
+texture = SubResource("ViewportTexture_xv468")
 
 [node name="rock37" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-13, -1443)
+texture = SubResource("ViewportTexture_umryd")
 
 [node name="rock38" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(18, -1439)
+texture = SubResource("ViewportTexture_ybqtx")
 
 [node name="rock39" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(49, -1444)
+texture = SubResource("ViewportTexture_bnsv7")
 
 [node name="rock40" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(78, -1450)
+texture = SubResource("ViewportTexture_pphy2")
 
 [node name="rock41" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(107, -1439)
+texture = SubResource("ViewportTexture_ptlb1")
 
 [node name="rock64" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-59, -1656)
+texture = SubResource("ViewportTexture_46cux")
 
 [node name="rock65" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-29, -1657)
+texture = SubResource("ViewportTexture_n603y")
 
 [node name="rock66" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(2, -1656)
+texture = SubResource("ViewportTexture_teh8c")
 
 [node name="rock67" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(32, -1649)
+texture = SubResource("ViewportTexture_ho4ao")
 
 [node name="rock68" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(61, -1639)
+texture = SubResource("ViewportTexture_rdxv2")
 
 [node name="rock69" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(90, -1632)
+texture = SubResource("ViewportTexture_sdmig")
 
 [node name="rock70" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(120, -1629)
+texture = SubResource("ViewportTexture_fjib4")
 
 [node name="rock71" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-59.2, -2350.2)
+texture = SubResource("ViewportTexture_ci5kr")
 
 [node name="rock78" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-91, -2350)
+texture = SubResource("ViewportTexture_o8c14")
 
 [node name="rock79" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-121, -2343)
+texture = SubResource("ViewportTexture_alkj4")
 
 [node name="rock72" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-29.2, -2351.2)
+texture = SubResource("ViewportTexture_mingv")
 
 [node name="rock73" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(1.79999, -2350.2)
+texture = SubResource("ViewportTexture_x2bra")
 
 [node name="rock74" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(31.8, -2343.2)
+texture = SubResource("ViewportTexture_5g5ae")
 
 [node name="rock75" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(60.8, -2333.2)
+texture = SubResource("ViewportTexture_pp5s7")
 
 [node name="rock76" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(89.8, -2326.2)
+texture = SubResource("ViewportTexture_57bsv")
 
 [node name="rock77" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(119.8, -2323.2)
+texture = SubResource("ViewportTexture_namxb")
 
 [node name="rock42" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(119, -1466)
+texture = SubResource("ViewportTexture_id3pa")
 
 [node name="rock43" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-118, -1509)
+texture = SubResource("ViewportTexture_40xdh")
 
 [node name="rock44" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-86, -1507)
+texture = SubResource("ViewportTexture_153gg")
 
 [node name="rock45" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-55, -1515)
+texture = SubResource("ViewportTexture_jn0q1")
 
 [node name="rock46" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-23, -1509)
+texture = SubResource("ViewportTexture_7k64b")
 
 [node name="rock47" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(8, -1512)
+texture = SubResource("ViewportTexture_8dhtv")
 
 [node name="rock48" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(38, -1511)
+texture = SubResource("ViewportTexture_jthlq")
 
 [node name="rock49" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(69, -1524)
+texture = SubResource("ViewportTexture_oic0c")
 
 [node name="rock50" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(85, -1552)
+texture = SubResource("ViewportTexture_1hx6h")
 
 [node name="rock51" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(39, -1540)
+texture = SubResource("ViewportTexture_j7pjo")
 
 [node name="rock52" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(53, -1568)
+texture = SubResource("ViewportTexture_kpbap")
 
 [node name="rock53" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(10, -1543)
+texture = SubResource("ViewportTexture_7j0w2")
 
 [node name="rock54" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-19, -1538)
+texture = SubResource("ViewportTexture_uml0d")
 
 [node name="rock55" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-50, -1548)
+texture = SubResource("ViewportTexture_6p87f")
 
 [node name="rock63" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-116, -1547)
+texture = SubResource("ViewportTexture_cvb2s")
 
 [node name="rock56" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-86, -1558)
+texture = SubResource("ViewportTexture_nqh1b")
 
 [node name="rock57" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-32, -1580)
+texture = SubResource("ViewportTexture_umtu1")
 
 [node name="rock58" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(23, -1581)
+texture = SubResource("ViewportTexture_lkno1")
 
 [node name="rock59" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-62, -1585)
+texture = SubResource("ViewportTexture_5s0yd")
 
 [node name="rock60" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-120, -1595)
+texture = SubResource("ViewportTexture_60bme")
 
 [node name="rock61" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-92, -1596)
+texture = SubResource("ViewportTexture_5rftf")
 
 [node name="rock62" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-5, -1576)
+texture = SubResource("ViewportTexture_ij4s3")
 
 [node name="rock32" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(99, -1080)
+texture = SubResource("ViewportTexture_jwuhb")
 
 [node name="rock4" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(47, -177)
+texture = SubResource("ViewportTexture_mh7mu")
 
 [node name="rock5" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(115, -306)
+texture = SubResource("ViewportTexture_23nkn")
 
 [node name="rock6" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-116, -385)
+texture = SubResource("ViewportTexture_2eh4a")
 
 [node name="rock7" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-48, -270)
+texture = SubResource("ViewportTexture_4rla7")
 
 [node name="rock8" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-114.2, -561.2)
+texture = SubResource("ViewportTexture_huhql")
 
 [node name="rock9" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-81.2, -564.2)
+texture = SubResource("ViewportTexture_ef8qj")
 
 [node name="rock17" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(29, -443)
+texture = SubResource("ViewportTexture_q0goc")
 
 [node name="rock18" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(62, -439)
+texture = SubResource("ViewportTexture_xwm6n")
 
 [node name="rock12" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-70, -593)
+texture = SubResource("ViewportTexture_six4p")
 
 [node name="rock19" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-117, -850)
+texture = SubResource("ViewportTexture_lhq3t")
 
 [node name="rock20" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-83, -847)
+texture = SubResource("ViewportTexture_nib0b")
 
 [node name="rock21" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-49, -851)
+texture = SubResource("ViewportTexture_ulyju")
 
 [node name="rock22" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(118, -856)
+texture = SubResource("ViewportTexture_dwotm")
 
 [node name="rock23" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(117, -1144)
+texture = SubResource("ViewportTexture_lfb00")
 
 [node name="rock24" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(83, -1125)
+texture = SubResource("ViewportTexture_uhlv6")
 
 [node name="rock25" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(116, -1112)
+texture = SubResource("ViewportTexture_5gb76")
 
 [node name="rock26" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-117, -1132)
+texture = SubResource("ViewportTexture_iagm6")
 
 [node name="rock27" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-83, -1130)
+texture = SubResource("ViewportTexture_nc3x0")
 
 [node name="rock28" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-16, -854)
+texture = SubResource("ViewportTexture_fmp0d")
 
 [node name="rock29" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(1, -885)
+texture = SubResource("ViewportTexture_4bkn5")
 
 [node name="rock30" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(1, -885)
+texture = SubResource("ViewportTexture_eyca0")
 
 [node name="rock80" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(-1, -1031)
+texture = SubResource("ViewportTexture_wq7xa")
 
 [node name="rock13" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(118.8, -635)
+texture = SubResource("ViewportTexture_7lhrs")
 
 [node name="rock14" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(84.8, -627)
+texture = SubResource("ViewportTexture_80vki")
 
 [node name="rock15" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(74.8, -598)
+texture = SubResource("ViewportTexture_nsds8")
 
 [node name="rock16" parent="rocks" instance=ExtResource("2_qy7k6")]
 position = Vector2(76.8, -568)
+texture = SubResource("ViewportTexture_2111d")
 
 [node name="enemies" type="Node2D" parent="."]
 
@@ -351,27 +684,36 @@ position = Vector2(118, -1544)
 
 [node name="rock45" parent="." instance=ExtResource("2_qy7k6")]
 position = Vector2(-121.2, 91.8)
+texture = SubResource("ViewportTexture_3sh3j")
 
 [node name="rock46" parent="." instance=ExtResource("2_qy7k6")]
 position = Vector2(-90.2, 94.8)
+texture = SubResource("ViewportTexture_mk572")
 
 [node name="rock47" parent="." instance=ExtResource("2_qy7k6")]
 position = Vector2(-58.2, 89.8)
+texture = SubResource("ViewportTexture_4fvwe")
 
 [node name="rock48" parent="." instance=ExtResource("2_qy7k6")]
 position = Vector2(-26.2, 94.8)
+texture = SubResource("ViewportTexture_gd8u2")
 
 [node name="rock49" parent="." instance=ExtResource("2_qy7k6")]
 position = Vector2(3.8, 90.8)
+texture = SubResource("ViewportTexture_4a1gv")
 
 [node name="rock50" parent="." instance=ExtResource("2_qy7k6")]
 position = Vector2(33.8, 93.8)
+texture = SubResource("ViewportTexture_bjx14")
 
 [node name="rock51" parent="." instance=ExtResource("2_qy7k6")]
 position = Vector2(63.8, 96.8)
+texture = SubResource("ViewportTexture_2em2o")
 
 [node name="rock52" parent="." instance=ExtResource("2_qy7k6")]
 position = Vector2(93.8, 89.8)
+texture = SubResource("ViewportTexture_veinr")
 
 [node name="rock53" parent="." instance=ExtResource("2_qy7k6")]
 position = Vector2(120.8, 93.8)
+texture = SubResource("ViewportTexture_xbufx")

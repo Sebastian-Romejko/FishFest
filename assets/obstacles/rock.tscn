@@ -1,16 +1,47 @@
-[gd_scene load_steps=3 format=3 uid="uid://bs1n23kpjva7a"]
+[gd_scene load_steps=6 format=3 uid="uid://bs1n23kpjva7a"]
 
-[ext_resource type="Texture2D" uid="uid://6ng677p3q0b1" path="res://icon.svg" id="1_la2jj"]
+[ext_resource type="Script" path="res://assets/obstacles/rock.gd" id="1_j4fij"]
+[ext_resource type="PackedScene" uid="uid://cnknxtjvq2bm4" path="res://art/rock.tscn" id="2_7fnig"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wbo0t"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="Environment" id="Environment_23uii"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qvo2v"]
 size = Vector2(150, 129.5)
 
 [node name="rock" type="Sprite2D"]
+modulate = Color(0.529412, 0.529412, 0.529412, 1)
 texture_filter = 1
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_la2jj")
+position = Vector2(0, 1)
+scale = Vector2(0.4, 0.4)
+texture = SubResource("ViewportTexture_wbo0t")
+script = ExtResource("1_j4fij")
+
+[node name="sub_viewport" type="SubViewport" parent="."]
+own_world_3d = true
+transparent_bg = true
+snap_2d_transforms_to_pixel = true
+snap_2d_vertices_to_pixel = true
+size = Vector2i(64, 64)
+render_target_update_mode = 4
+
+[node name="rock" parent="sub_viewport" instance=ExtResource("2_7fnig")]
+
+[node name="camera" type="Camera3D" parent="sub_viewport"]
+transform = Transform3D(1, 0, 0, 0, 0.190809, 0.981627, 0, -0.981627, 0.190809, 0, 5, 1)
+environment = SubResource("Environment_23uii")
+projection = 1
+current = true
+size = 2.0
+
+[node name="light" type="DirectionalLight3D" parent="sub_viewport"]
+transform = Transform3D(1, 0, 0, 0, 0.752415, 0.658689, 0, -0.658689, 0.752415, 0, 1.98162, 0)
+shadow_enabled = true
 
 [node name="static_body" type="StaticBody2D" parent="."]
+scale = Vector2(0.5, 0.5)
 
 [node name="collision_shape" type="CollisionShape2D" parent="static_body"]
 position = Vector2(3.12924e-06, -0.250008)

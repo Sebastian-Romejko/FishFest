@@ -39,7 +39,7 @@ func _physics_process(delta):
 			new_velocity.y = (Input.get_action_strength("down") - Input.get_action_strength("up")) * MOVE_SPEED
 			
 			if new_velocity.x != 0 or new_velocity.y != 0:
-				velocity += new_velocity
+				velocity += new_velocity.normalized()
 				
 			look_at(global_position - velocity)
 			
@@ -83,7 +83,7 @@ func push_back(from: Vector2, power: int, damage: int):
 	if !was_hit:
 		was_hit = true
 		hit.emit()
-	var direction = position - from
+	var direction = (position - from).normalized()
 	velocity = Vector2(direction.x * power, direction.y * power)
 	energy_used.emit(damage)
 	bubbles.restart()

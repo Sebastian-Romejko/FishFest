@@ -18,7 +18,7 @@ func _ready():
 		4: level4,
 		5: level5
 	}
-	level4.set_enable()
+	level1.set_enable()
 
 func set_stars(level, stars):
 	levels[level].set_stars(stars)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://knmv675xb0qj"]
+[gd_scene load_steps=26 format=3 uid="uid://knmv675xb0qj"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ds2ps"]
 [ext_resource type="PackedScene" uid="uid://d0qpdbtv20cxl" path="res://assets/player.tscn" id="1_w77kh"]
@@ -6,10 +6,58 @@
 [ext_resource type="Texture2D" uid="uid://bo75sfg1w6aoa" path="res://art/river_2.png" id="3_3grqq"]
 [ext_resource type="PackedScene" uid="uid://ddqvy28yl4w81" path="res://ui/menu.tscn" id="3_yyjmf"]
 [ext_resource type="Texture2D" uid="uid://bgv7t8luodru8" path="res://art/river_3.png" id="4_d3f8e"]
-[ext_resource type="Texture2D" uid="uid://ywmv8r750fxt" path="res://art/river_4.png" id="5_0dyfl"]
 [ext_resource type="PackedScene" uid="uid://ck8qpv3ubvj8l" path="res://ui/game_ui.tscn" id="7_x4gpl"]
 [ext_resource type="Shader" path="res://art/water.gdshader" id="8_i8rsn"]
+[ext_resource type="Texture2D" uid="uid://h30m45idi7w5" path="res://art/river_4/river_4.png" id="8_twbp0"]
+[ext_resource type="Texture2D" uid="uid://dgk0uycnwfj7n" path="res://art/river_4/river_5.png" id="9_rk2e8"]
 [ext_resource type="Texture2D" uid="uid://6ng677p3q0b1" path="res://icon.svg" id="9_yeb4r"]
+[ext_resource type="Texture2D" uid="uid://bpo2biauftnan" path="res://art/river_4/river_6.png" id="10_a7swl"]
+[ext_resource type="Texture2D" uid="uid://bolt0hqbwmyel" path="res://art/river_4/river_7.png" id="11_2yufl"]
+[ext_resource type="Texture2D" uid="uid://darpnddy8vd01" path="res://art/river_4/river_8.png" id="12_5sbom"]
+[ext_resource type="Texture2D" uid="uid://brr4w3rgr1fon" path="res://art/river_4/river_9.png" id="13_pte8i"]
+[ext_resource type="Texture2D" uid="uid://0jfp40eqruq0" path="res://art/river_4/river_10.png" id="14_sn6pb"]
+[ext_resource type="Texture2D" uid="uid://cx0pxgyaugnnw" path="res://art/river_4/river_11.png" id="15_xhbn5"]
+[ext_resource type="Texture2D" uid="uid://c8xmlbwpbm2kx" path="res://art/river_4/river_12.png" id="16_i433g"]
+[ext_resource type="Texture2D" uid="uid://kx85bepp164h" path="res://art/river_4/river_13.png" id="17_ohqtn"]
+[ext_resource type="Script" path="res://art/river_4/river_4.gd" id="18_3byrn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_57lb6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_twbp0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_rk2e8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_a7swl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_2yufl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_5sbom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_pte8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_sn6pb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_xhbn5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_i433g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ohqtn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_sbvxk"]
 frequency = 0.0029
@@ -63,7 +111,6 @@ position = Vector2(0, 35)
 remote_path = NodePath("../../camera")
 
 [node name="parallax_background" type="ParallaxBackground" parent="."]
-visible = false
 
 [node name="parallax_layer_river_1" type="ParallaxLayer" parent="parallax_background"]
 motion_mirroring = Vector2(0, 360)
@@ -125,19 +172,23 @@ texture = ExtResource("4_d3f8e")
 [node name="parallax_layer_river_4" type="ParallaxLayer" parent="parallax_background"]
 motion_mirroring = Vector2(0, 360)
 
-[node name="river_4" type="Sprite2D" parent="parallax_background/parallax_layer_river_4"]
-modulate = Color(0.8, 0.8, 0.8, 1)
+[node name="river_4" type="AnimatedSprite2D" parent="parallax_background/parallax_layer_river_4"]
+modulate = Color(0.7, 0.7, 0.7, 1)
 texture_filter = 1
-texture = ExtResource("5_0dyfl")
+sprite_frames = SubResource("SpriteFrames_57lb6")
+frame_progress = 0.467146
+script = ExtResource("18_3byrn")
 
 [node name="parallax_layer_river_4_copy" type="ParallaxLayer" parent="parallax_background"]
 position = Vector2(0, 180)
 motion_mirroring = Vector2(0, 360)
 
-[node name="river_4" type="Sprite2D" parent="parallax_background/parallax_layer_river_4_copy"]
-modulate = Color(0.8, 0.8, 0.8, 1)
+[node name="river_4" type="AnimatedSprite2D" parent="parallax_background/parallax_layer_river_4_copy"]
+modulate = Color(0.7, 0.7, 0.7, 1)
 texture_filter = 1
-texture = ExtResource("5_0dyfl")
+sprite_frames = SubResource("SpriteFrames_57lb6")
+frame_progress = 0.288911
+script = ExtResource("18_3byrn")
 
 [node name="parallax_background_2" type="ParallaxBackground" parent="."]
 layer = 1
