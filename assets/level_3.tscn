@@ -1,10 +1,11 @@
-[gd_scene load_steps=94 format=3 uid="uid://dmwfu0ahijgdd"]
+[gd_scene load_steps=102 format=3 uid="uid://dmwfu0ahijgdd"]
 
 [ext_resource type="Script" path="res://assets/level.gd" id="1_or6pc"]
 [ext_resource type="PackedScene" uid="uid://bs1n23kpjva7a" path="res://assets/obstacles/rock.tscn" id="2_qy7k6"]
 [ext_resource type="PackedScene" uid="uid://o3nm608mmlu1" path="res://assets/obstacles/enemy_fish_1.tscn" id="3_km6dd"]
 [ext_resource type="PackedScene" uid="uid://cwulcoamcttnd" path="res://assets/obstacles/enemy_fish_2.tscn" id="4_p2078"]
 [ext_resource type="PackedScene" uid="uid://dv61snr8w6v4n" path="res://assets/obstacles/seaweed.tscn" id="4_yljj5"]
+[ext_resource type="PackedScene" uid="uid://b6wv8operdrtx" path="res://assets/random_bubbles.tscn" id="6_qpny0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68pix"]
 size = Vector2(24, 3500)
@@ -241,6 +242,27 @@ viewport_path = NodePath("sub_viewport")
 viewport_path = NodePath("sub_viewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_2111d"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_a3nv3"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_032xt"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6rmrb"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_41yoa"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1op7w"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ajtyh"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5f8jk"]
 viewport_path = NodePath("sub_viewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_3sh3j"]
@@ -663,24 +685,31 @@ rotation = 3.10368
 
 [node name="seaweed" parent="seaweed" instance=ExtResource("4_yljj5")]
 position = Vector2(-110, -598)
+texture = SubResource("ViewportTexture_a3nv3")
 
 [node name="seaweed3" parent="seaweed" instance=ExtResource("4_yljj5")]
 position = Vector2(119, -602)
+texture = SubResource("ViewportTexture_032xt")
 
 [node name="seaweed4" parent="seaweed" instance=ExtResource("4_yljj5")]
 position = Vector2(-9, -1919)
+texture = SubResource("ViewportTexture_6rmrb")
 
 [node name="seaweed5" parent="seaweed" instance=ExtResource("4_yljj5")]
 position = Vector2(-122, -1919)
+texture = SubResource("ViewportTexture_41yoa")
 
 [node name="seaweed6" parent="seaweed" instance=ExtResource("4_yljj5")]
 position = Vector2(123, -1920)
+texture = SubResource("ViewportTexture_1op7w")
 
 [node name="seaweed2" parent="seaweed" instance=ExtResource("4_yljj5")]
 position = Vector2(-2, -1278)
+texture = SubResource("ViewportTexture_ajtyh")
 
 [node name="seaweed7" parent="seaweed" instance=ExtResource("4_yljj5")]
 position = Vector2(118, -1544)
+texture = SubResource("ViewportTexture_5f8jk")
 
 [node name="rock45" parent="." instance=ExtResource("2_qy7k6")]
 position = Vector2(-121.2, 91.8)
@@ -717,3 +746,8 @@ texture = SubResource("ViewportTexture_veinr")
 [node name="rock53" parent="." instance=ExtResource("2_qy7k6")]
 position = Vector2(120.8, 93.8)
 texture = SubResource("ViewportTexture_xbufx")
+
+[node name="random_bubbles" parent="." instance=ExtResource("6_qpny0")]
+amount = 15
+width = 120.0
+height = 2100.0

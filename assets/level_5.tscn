@@ -1,4 +1,4 @@
-[gd_scene load_steps=164 format=3 uid="uid://bmad2jqikdkuo"]
+[gd_scene load_steps=176 format=3 uid="uid://bmad2jqikdkuo"]
 
 [ext_resource type="Script" path="res://assets/level.gd" id="1_nd4bd"]
 [ext_resource type="PackedScene" uid="uid://bs1n23kpjva7a" path="res://assets/obstacles/rock.tscn" id="3_078jc"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dv61snr8w6v4n" path="res://assets/obstacles/seaweed.tscn" id="6_42u6m"]
 [ext_resource type="PackedScene" uid="uid://n6hubfrb2pl8" path="res://art/door.tscn" id="7_0hrja"]
 [ext_resource type="PackedScene" uid="uid://dtcpf3gsbo1hw" path="res://art/door_button.tscn" id="8_wv7l8"]
+[ext_resource type="PackedScene" uid="uid://b6wv8operdrtx" path="res://assets/random_bubbles.tscn" id="9_d8rmt"]
 [ext_resource type="PackedScene" uid="uid://dym0gplx5bepg" path="res://assets/superpower.tscn" id="9_q0igh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejoxp"]
@@ -472,6 +473,39 @@ viewport_path = NodePath("sub_viewport")
 viewport_path = NodePath("sub_viewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_txg5t"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_v8pvq"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wlt4f"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_60yq1"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_prues"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_x50ai"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2golq"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_k4eip"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_q3n21"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_n2x83"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_hma5u"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_45de2"]
 viewport_path = NodePath("sub_viewport")
 
 [node name="level_5" type="Node2D"]
@@ -1223,36 +1257,47 @@ rotation = 1.51083
 
 [node name="seaweed2" parent="seaweed" instance=ExtResource("6_42u6m")]
 position = Vector2(10, -617)
+texture = SubResource("ViewportTexture_v8pvq")
 
 [node name="seaweed11" parent="seaweed" instance=ExtResource("6_42u6m")]
 position = Vector2(-112.4, -302.4)
+texture = SubResource("ViewportTexture_wlt4f")
 
 [node name="seaweed12" parent="seaweed" instance=ExtResource("6_42u6m")]
 position = Vector2(113, -304)
+texture = SubResource("ViewportTexture_60yq1")
 
 [node name="seaweed9" parent="seaweed" instance=ExtResource("6_42u6m")]
 position = Vector2(101, -847)
+texture = SubResource("ViewportTexture_prues")
 
 [node name="seaweed10" parent="seaweed" instance=ExtResource("6_42u6m")]
 position = Vector2(-14, -1024)
+texture = SubResource("ViewportTexture_x50ai")
 
 [node name="seaweed3" parent="seaweed" instance=ExtResource("6_42u6m")]
 position = Vector2(-109, -812)
+texture = SubResource("ViewportTexture_2golq")
 
 [node name="seaweed4" parent="seaweed" instance=ExtResource("6_42u6m")]
 position = Vector2(-70, -810)
+texture = SubResource("ViewportTexture_k4eip")
 
 [node name="seaweed5" parent="seaweed" instance=ExtResource("6_42u6m")]
 position = Vector2(-19, -1132)
+texture = SubResource("ViewportTexture_q3n21")
 
 [node name="seaweed6" parent="seaweed" instance=ExtResource("6_42u6m")]
 position = Vector2(-114, -1277)
+texture = SubResource("ViewportTexture_n2x83")
 
 [node name="seaweed7" parent="seaweed" instance=ExtResource("6_42u6m")]
 position = Vector2(-79, -1764)
+texture = SubResource("ViewportTexture_hma5u")
 
 [node name="seaweed8" parent="seaweed" instance=ExtResource("6_42u6m")]
 position = Vector2(116, -1852)
+texture = SubResource("ViewportTexture_45de2")
 
 [node name="doors" type="Node2D" parent="."]
 
@@ -1325,3 +1370,8 @@ position = Vector2(106, -822)
 
 [node name="superpower2" parent="." instance=ExtResource("9_q0igh")]
 position = Vector2(-22, -2240)
+
+[node name="random_bubbles" parent="." instance=ExtResource("9_d8rmt")]
+amount = 23
+width = 120.0
+height = 2900.0

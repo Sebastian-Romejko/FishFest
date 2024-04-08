@@ -1,4 +1,4 @@
-[gd_scene load_steps=140 format=3 uid="uid://dxii3etd0csbw"]
+[gd_scene load_steps=150 format=3 uid="uid://dxii3etd0csbw"]
 
 [ext_resource type="Script" path="res://assets/level.gd" id="1_e4yde"]
 [ext_resource type="PackedScene" uid="uid://bs1n23kpjva7a" path="res://assets/obstacles/rock.tscn" id="2_wjcl6"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dv61snr8w6v4n" path="res://assets/obstacles/seaweed.tscn" id="5_884r0"]
 [ext_resource type="PackedScene" uid="uid://n6hubfrb2pl8" path="res://art/door.tscn" id="6_wjb4f"]
 [ext_resource type="PackedScene" uid="uid://dtcpf3gsbo1hw" path="res://art/door_button.tscn" id="7_ugjtm"]
+[ext_resource type="PackedScene" uid="uid://b6wv8operdrtx" path="res://assets/random_bubbles.tscn" id="9_q35bs"]
 [ext_resource type="PackedScene" uid="uid://dym0gplx5bepg" path="res://assets/superpower.tscn" id="9_w6ekk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uixac"]
@@ -400,6 +401,33 @@ viewport_path = NodePath("sub_viewport")
 viewport_path = NodePath("sub_viewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_vku33"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1py64"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bixrm"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_u1x2g"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xb14w"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_l34rt"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_x8xfd"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_oruhx"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_orci3"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_47uuj"]
 viewport_path = NodePath("sub_viewport")
 
 [node name="level_4" type="Node2D"]
@@ -1049,30 +1077,44 @@ rotation = -1.67315
 
 [node name="seaweed" parent="seaweed" instance=ExtResource("5_884r0")]
 position = Vector2(-80, -1293)
+texture = SubResource("ViewportTexture_1py64")
 
 [node name="seaweed4" parent="seaweed" instance=ExtResource("5_884r0")]
 position = Vector2(-64, -1706)
+texture = SubResource("ViewportTexture_bixrm")
 
 [node name="seaweed5" parent="seaweed" instance=ExtResource("5_884r0")]
 position = Vector2(-2, -1886)
+texture = SubResource("ViewportTexture_u1x2g")
 
 [node name="seaweed6" parent="seaweed" instance=ExtResource("5_884r0")]
 position = Vector2(-19, -2186)
+texture = SubResource("ViewportTexture_xb14w")
 
 [node name="seaweed7" parent="seaweed" instance=ExtResource("5_884r0")]
 position = Vector2(15, -2187)
+texture = SubResource("ViewportTexture_l34rt")
 
 [node name="seaweed8" parent="seaweed" instance=ExtResource("5_884r0")]
 position = Vector2(6, -2503)
+texture = SubResource("ViewportTexture_x8xfd")
 
 [node name="seaweed2" parent="seaweed" instance=ExtResource("5_884r0")]
 position = Vector2(-70, -309)
+texture = SubResource("ViewportTexture_oruhx")
 
 [node name="seaweed3" parent="seaweed" instance=ExtResource("5_884r0")]
 position = Vector2(9, -625)
+texture = SubResource("ViewportTexture_orci3")
 
 [node name="seaweed9" parent="seaweed" instance=ExtResource("5_884r0")]
 position = Vector2(87, -870)
+texture = SubResource("ViewportTexture_47uuj")
 
 [node name="superpower" parent="." instance=ExtResource("9_w6ekk")]
 position = Vector2(-3, -948)
+
+[node name="random_bubbles" parent="." instance=ExtResource("9_q35bs")]
+amount = 20
+width = 120.0
+height = 2600.0
